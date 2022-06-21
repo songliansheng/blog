@@ -5,7 +5,7 @@ package demo.list;
 
 public class LinkedList {
     private Node head;
-
+//shit
     public void add(String element) {
         Node newNode = new Node(element);
 

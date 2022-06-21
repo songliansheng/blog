@@ -8,6 +8,6 @@
  */
 
 
-rootProject.name = "songliansheng.dev-restapi"
+rootProject.name = "blog-ui"
 include("app", "list", "utilities", "graphql-api", "java-platform-bom","data-rest")
 
