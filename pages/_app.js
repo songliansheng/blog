@@ -1,25 +1,25 @@
-
 // import {ThemeProvider} from 'next-themes'
 // import "bootstrap/dist/css/bootstrap.css";
 
 import "../styles/style.scss";
-import '../styles/globals.css'
+import "../styles/globals.css";
 
-import client from '/apollo-client';
-import { ApolloProvider } from "@apollo/client";
+//import '../lexicalconfig/index.css';
+//import '../lexicalconfig/setupEnv';
+// import React from 'react';
+import client from "/apollo-client";
+import {ApolloProvider}  from "@apollo/client";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
+// useEffect(() => {
+//   import("bootstrap/dist/js/bootstrap");
+// }, []);
+
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    import("bootstrap/dist/js/bootstrap");
-  }, []);
-  return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
-  );
-
-  // return <Component {...pageProps} />
+  
+  return <ApolloProvider client={client}>
+    <Component {...pageProps} />
+  </ApolloProvider>;
 }
 
 export default MyApp;

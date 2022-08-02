@@ -1,16 +1,13 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
-  },
-})
-module.exports = withMDX({
-  // Append the default value with md extensions
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
   reactStrictMode: true,
-})
+  swcMinify: true,
+  runtime: 'nodejs',
+    serverComponents: true,
+};
 
+const withTM = require('next-transpile-modules')(['lexical-editor']); 
 
+module.exports = withTM({ nextConfig });
+// module.exports = {nextConfig , webpackConfig}
