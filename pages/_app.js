@@ -9,6 +9,7 @@ import "../styles/globals.css";
 // import React from 'react';
 import client from "/apollo-client";
 import {ApolloProvider}  from "@apollo/client";
+import Layout from '../components/layout'
 
 // import { useEffect } from "react";
 // useEffect(() => {
@@ -18,7 +19,10 @@ import {ApolloProvider}  from "@apollo/client";
 function MyApp({ Component, pageProps }) {
   
   return <ApolloProvider client={client}>
+    <Layout>
     <Component {...pageProps} />
+    </Layout>
+    
   </ApolloProvider>;
 }
 
