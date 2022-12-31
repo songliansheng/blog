@@ -7,7 +7,7 @@ const nextConfig = {
     serverComponents: true,
 };
 
-const withTM = require('next-transpile-modules')(['lexical-editor']); 
+// const withTM = require('next-transpile-modules')(['lexical-editor']); 
 
-module.exports = withTM({ nextConfig });
-// module.exports = {nextConfig , webpackConfig}
+// module.exports = withTM({ nextConfig });
+module.exports = nextConfig
