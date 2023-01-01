@@ -22,7 +22,7 @@
     "graphql": "^16.4.0",
     "js-cookie": "^3.0.1",
     "katex": "^0.15.2",
-    "lexical-editor": "file:lexical-editor",
+    "lexical-editor": "file:../lexical-editor",
     "lodash-es": "^4.17.21",
     "next": "^12.2.3",
     "next-compose-plugins": "^2.2.1",
