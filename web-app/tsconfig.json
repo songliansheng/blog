@@ -14,15 +14,20 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "preserve",
-        "esModuleInterop": true
-        // "esModuleInterop": true
+        "esModuleInterop": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ]
     },
     "include": [
-        "./libdefs",
+        "../libdefs",
         "web-app/next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
-        "web-app/app/page.tsx"
-    ],
+        "web-app/app/page.tsx",
+        ".next/types/**/*.ts"
+, "app/pages.bak"    ],
     "exclude": []
 }

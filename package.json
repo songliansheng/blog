@@ -1,5 +1,7 @@
 {
   "name": "blog-ui",
+  "license": "MIT",
+  "private": true,
 
   "workspaces": [
     "lexical-elements",
