@@ -9,8 +9,8 @@
 /coverage
 
 # next.js
-/web-app/.next/
-/web-app/out/
+.next/
+out/
 
 # production
 /web-app/build
@@ -31,7 +31,7 @@
 **/.env.production.local
 
 # vercel
-/web-app/.vercel
+.vercel
 
 # Local Netlify folder
 /web-app/.netlify
