@@ -10,19 +10,20 @@ import type {
   ElementTransformer,
   TextMatchTransformer,
   Transformer,
-} from '@lexical/markdown';
-import type {ElementNode, LexicalNode} from 'lexical';
+} from "@lexical/markdown";
+import type { ElementNode, LexicalNode } from "lexical";
 
 import {
   CHECK_LIST,
   ELEMENT_TRANSFORMERS,
   TEXT_FORMAT_TRANSFORMERS,
   TEXT_MATCH_TRANSFORMERS,
-} from '@lexical/markdown';
+} from "@lexical/markdown";
 import {
   $createHorizontalRuleNode,
   $isHorizontalRuleNode,
-} from '@lexical/react/LexicalHorizontalRuleNode';
+  HorizontalRuleNode,
+} from "@lexical/react/LexicalHorizontalRuleNode";
 import {
   $createTableCellNode,
   $createTableNode,
@@ -32,22 +33,36 @@ import {
   TableCellHeaderStates,
   TableCellNode,
   TableNode,
-} from '@lexical/table';
+  TableRowNode,
+} from "@lexical/table";
 import {
   $createParagraphNode,
   $createTextNode,
   $isElementNode,
   $isParagraphNode,
   $isTextNode,
-} from 'lexical';
+} from "lexical";
 
-import {$createEquationNode, $isEquationNode} from '../nodes/EquationNode';
-import {$createImageNode, $isImageNode} from '../nodes/ImageNode';
-import {$createTweetNode, $isTweetNode} from '../nodes/TweetNode';
+import {
+  $createEquationNode,
+  $isEquationNode,
+  EquationNode,
+} from "../nodes/EquationNode";
+import {
+  $createImageNode,
+  $isImageNode,
+  ImageNode,
+} from "../nodes/ImageNode";
+import {
+  $createTweetNode,
+  $isTweetNode,
+  TweetNode,
+} from "../nodes/TweetNode";
 
 export const HR: ElementTransformer = {
+  dependencies: [HorizontalRuleNode],
   export: (node: LexicalNode) => {
-    return $isHorizontalRuleNode(node) ? '***' : null;
+    return $isHorizontalRuleNode(node) ? "***" : null;
   },
   regExp: /^(---|\*\*\*|___)\s?$/,
   replace: (parentNode, _1, _2, isImport) => {
@@ -62,10 +77,11 @@ export const HR: ElementTransformer = {
 
     line.selectNext();
   },
-  type: 'element',
+  type: "element",
 };
 
 export const IMAGE: TextMatchTransformer = {
+  dependencies: [ImageNode],
   export: (node, exportChildren, exportFormat) => {
     if (!$isImageNode(node)) {
       return null;
@@ -84,11 +100,12 @@ export const IMAGE: TextMatchTransformer = {
     });
     textNode.replace(imageNode);
   },
-  trigger: ')',
-  type: 'text-match',
+  trigger: ")",
+  type: "text-match",
 };
 
 export const EQUATION: TextMatchTransformer = {
+  dependencies: [EquationNode],
   export: (node, exportChildren, exportFormat) => {
     if (!$isEquationNode(node)) {
       return null;
@@ -103,11 +120,12 @@ export const EQUATION: TextMatchTransformer = {
     const equationNode = $createEquationNode(equation, true);
     textNode.replace(equationNode);
   },
-  trigger: '$',
-  type: 'text-match',
+  trigger: "$",
+  type: "text-match",
 };
 
 export const TWEET: ElementTransformer = {
+  dependencies: [TweetNode],
   export: (node) => {
     if (!$isTweetNode(node)) {
       return null;
@@ -121,16 +139,18 @@ export const TWEET: ElementTransformer = {
     const tweetNode = $createTweetNode(id);
     textNode.replace(tweetNode);
   },
-  type: 'element',
+  type: "element",
 };
 
 // Very primitive table setup
 const TABLE_ROW_REG_EXP = /^(?:\|)(.+)(?:\|)\s?$/;
 
 export const TABLE: ElementTransformer = {
+  // TODO: refactor transformer for new TableNode
+  dependencies: [TableNode, TableRowNode, TableCellNode],
   export: (
     node: LexicalNode,
-    exportChildren: (elementNode: ElementNode) => string,
+    exportChildren: (elementNode: ElementNode) => string
   ) => {
     if (!$isTableNode(node)) {
       return null;
@@ -150,10 +170,10 @@ export const TABLE: ElementTransformer = {
         }
       }
 
-      output.push(`| ${rowOutput.join(' | ')} |`);
+      output.push(`| ${rowOutput.join(" | ")} |`);
     }
 
-    return output.join('\n');
+    return output.join("\n");
   },
   regExp: TABLE_ROW_REG_EXP,
   replace: (parentNode, _1, match) => {
@@ -219,7 +239,7 @@ export const TABLE: ElementTransformer = {
 
     table.selectEnd();
   },
-  type: 'element',
+  type: "element",
 };
 
 function getTableColumnsSize(table: TableNode) {
@@ -228,7 +248,7 @@ function getTableColumnsSize(table: TableNode) {
 }
 
 const createTableCell = (
-  textContent: string | null | undefined,
+  textContent: string | null | undefined
 ): TableCellNode => {
   const cell = $createTableCellNode(TableCellHeaderStates.NO_STATUS);
   const paragraph = $createParagraphNode();
@@ -251,7 +271,7 @@ const mapToTableCells = (textContent: string): Array<TableCellNode> | null => {
     return null;
   }
 
-  return match[1].split('|').map((text) => createTableCell(text));
+  return match[1].split("|").map((text) => createTableCell(text));
 };
 
 export const PLAYGROUND_TRANSFORMERS: Array<Transformer> = [

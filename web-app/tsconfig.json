@@ -1,32 +1,34 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "downlevelIteration": true,
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": false,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "incremental": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "esModuleInterop": true,
-        "plugins": [
-            {
-                "name": "next"
-            }
-        ]
-    },
-    "include": [
-        "../libdefs",
-        "web-app/next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "web-app/app/page.tsx"
-    ],
-    "exclude": []
+  "compilerOptions": {
+      "target": "es5",
+      "typeRoots": ["node_modules/@types", "../libdefs/globals",],
+      "downlevelIteration": true,
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "strict": false,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,
+      "incremental": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "esModuleInterop": true,
+      "plugins": [
+          {
+              "name": "next"
+          }
+      ]
+  },
+  "include": [
+    "../libdefs",
+    "web-app/next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "web-app/app/page.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": []
 }

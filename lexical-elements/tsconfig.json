@@ -1,27 +1,29 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "downlevelIteration": true,
-      "typeRoots": ["node_modules/@types", "libdefs/globals"],
-      "lib": ["dom", "dom.iterable", "esnext"],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "strict": false,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
-      "incremental": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "jsx": "preserve",
-      "esModuleInterop": true
-      // "esModuleInterop": true
-    },
-    "include": [
-        "../libdefs",
-        "**/*.ts",
-        "**/*.tsx"
-    ],
-    "exclude": []
+  "compilerOptions": {
+    "target": "es5",
+    "downlevelIteration": true,
+    "typeRoots": ["node_modules/@types", "libdefs/globals"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "esModuleInterop": true
+    // "esModuleInterop": true
+  },
+  "include": [
+    "../libdefs",
+    "**/*.ts",
+    "**/*.tsx",
+    "../web-app/components/CustomEditor/Settings.ts",
+    "../web-app/components/CustomEditor/SettingsBar.tsx"
+  ],
+  "exclude": []
 }
