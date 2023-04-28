@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-
+import "./ToolbarPlugin.module.css";
+import "../editor.css";
 import type { LexicalEditor, NodeKey } from 'lexical'
 
 import {

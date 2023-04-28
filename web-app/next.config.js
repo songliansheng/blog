@@ -5,6 +5,7 @@ const nextConfig = {
         appDir: true,
     },
     transpilePackages: ['lexical'],
+    poweredByHeader: false,
 }
 
 module.exports = nextConfig

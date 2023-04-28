@@ -6,7 +6,7 @@
  *
  */
 
-import type { SettingName } from "../../web-app/components/CustomEditor/Settings";
+import type { SettingName } from "../../web-app/components/LexicalEditor/Settings";
 
 import * as React from "react";
 import {
@@ -18,7 +18,7 @@ import {
   useState,
 } from "react";
 
-import { DEFAULT_SETTINGS } from "../../web-app/components/CustomEditor/Settings";
+import { DEFAULT_SETTINGS } from "../../web-app/components/LexicalEditor/Settings";
 
 type SettingsContextShape = {
   setOption: (name: SettingName, value: boolean) => void;
