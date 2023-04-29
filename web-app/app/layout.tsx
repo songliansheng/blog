@@ -24,9 +24,9 @@ export default function RootLayout({
                         <header className="relative">
                             <div className="px-4 sm:px-6 md:px-8">
                                 <div className="sticky -top-4 flex items-center justify-between py-6">
-                                    <div className="">Songliansheng</div>
-                                    <nav className="sticky">
-                                        <ul className="flex gap-x-8 items-center">
+                                    <div className="">🗐 Liansheng Song</div>
+                                    <nav className="sticky hidden lg:flex">
+                                        <ul className="flex items-center gap-x-8">
                                             <li>
                                                 <Link href="/">Home</Link>
                                             </li>
