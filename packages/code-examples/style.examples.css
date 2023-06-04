@@ -1,0 +1,114 @@
+/* 
+Change the background color of the <body> element to "lightblue" when the browser window is 600px wide or less 
+*/
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+
+/* 
+Hide an element when the browser's width is 600px wide or less 
+*/
+@media screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+}
+
+
+/* 
+Set the background-color to lavender if the viewport is 800 pixels wide or wider;
+to lightgreen if the viewport is between 400 and 799 pixels wide;
+if the viewport is smaller than 400 pixels, the background-color is lightblue 
+*/
+body {
+  background-color: lightblue;
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    background-color: lavender;
+  }
+}
+
+
+/* 
+A responsive navigation menu (displayed horizontally on large screens and vertically on small screens) 
+*/
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+
+/* 
+A responsive column layout
+On screens that are 992px wide or less, go from four columns to two columns
+On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other
+*/
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
+/* 
+Use a lightblue background color if the orientation is in landscape mode
+*/
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media screen {
+  body {
+    color: green;
+  }
+}
+
+
+
+/* 
+Set the text color to green when the document is displayed on the screen;
+and to black when it is printed
+*/
+@media print {
+  body {
+    color: black;
+  }
+}
+
+
+/* 
+Comma separated list: 
+add an additional media query to an already existing one, using a comma (this will behave like an OR operator):
+*/
+/* 
+When the width is between 600px and 900px OR above 1100px - change the appearance of <div>
+*/
+@media screen and (max-width: 900px) and (min-width: 600px), (min-width: 1100px) {
+  div.example {
+    font-size: 50px;
+    padding: 50px;
+    border: 8px solid black;
+    background: yellow;
+  }
+}

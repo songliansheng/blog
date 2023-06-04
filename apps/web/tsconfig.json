@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/components/*": ["components/*"],
+            "@/app/*": ["app/*"]
+        },
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "strictNullChecks": true
+    },
+    "extends": "tsconfig/nextjs.json",
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "app/posts/[slug]/editor.js"
+, "app/ApolloClient-SSR.js"    ],
+    "exclude": ["node_modules"]
+}

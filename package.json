@@ -1,13 +1,18 @@
 {
-  "name": "@blog/monorepo",
-  "license": "MIT",
+   "name": "blog-monorepo",
+  "packageManager": "pnpm@7.15.0",
   "private": true,
-  "workspaces": [
-    "lexical-elements",
-    "web-app"
-  ],
-  "dependencies": {
-    "@apollo/client": "^3.7.13",
-    "graphql": "^16.6.0"
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
   }
+  
 }

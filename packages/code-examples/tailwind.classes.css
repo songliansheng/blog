@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  .test {
+    @apply backdrop-blur-sm
+  }
+  .dark-light-color-config {
+    @apply backdrop-blur-sm
+  }
+/* form-style------------------------------------------------------------------------------- */
+form input {
+    @apply px-4 py-3
+  }
+  
+}
