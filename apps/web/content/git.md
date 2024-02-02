@@ -14,8 +14,12 @@ git remote set-url <alias-for-remote-repo> <new-remote-url>
 
 # git pull
 ```bash
-git pull --tags origin main
+git pull <remote-repo> <remote-branch>
 ```
+```bash
+git pull <remote-repo> <remote-branch> --rebase
+```
+git pull origin main --rebase
 
 
 # TroubleShooting
