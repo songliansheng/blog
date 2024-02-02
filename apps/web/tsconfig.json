@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/components/*": ["components/*"],
+            "@/components/*": ["app/components/*"],
             "@/app/*": ["app/*"]
         },
         "plugins": [
@@ -18,7 +18,7 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "app/posts/[slug]/editor.js"
-, "app/ApolloClient-SSR.js"    ],
+        "app/(alternative)/posts/[slug]/editor.js"
+, "app/ApolloClient-SSR.js", "app/page.mdx"    ],
     "exclude": ["node_modules"]
 }
