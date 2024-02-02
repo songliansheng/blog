@@ -13,6 +13,10 @@ git remote set-url <alias-for-remote-repo> <new-remote-url>
 ### Updates remote refs using local refs
 
 # git pull
+```bash
+git pull --tags origin main
+```
+
 
 # TroubleShooting
 ## fatal: detected dubious ownership in repository at ...
