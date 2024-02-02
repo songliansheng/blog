@@ -1,5 +1,4 @@
 'use client'
-import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { Formik } from 'formik'
 import { useFormik } from 'formik'
@@ -14,16 +13,16 @@ export default function Login() {
         },
         onSubmit: async (values) => {
             // console.log('formik values', values)
-            const state = await signIn('credentials', {
-                redirect: false,
-                email: values.email,
-                password: values.password,
-                // callbackUrl: 'http://localhost:3000/about',
-            })
-            console.log('SignIn begin', state)
-            if (state != undefined && state.ok == true)
+            // const state = await signIn('credentials', {
+            //     redirect: false,
+            //     email: values.email,
+            //     password: values.password,
+            //     // callbackUrl: 'http://localhost:3000/about',
+            // })
+            // console.log('SignIn begin', state)
+            // if (state != undefined && state.ok == true)
             // return '/'
-                 router.push('/about')
+                //  router.push('/about')
         },
     })
     return (
