@@ -3,6 +3,7 @@ import remarkToc from 'remark-toc'
 // const withMDX = require('@next/mdx')()
 import createMDX from '@next/mdx'
 const nextConfig = {
+  reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
     experimental: {
     },

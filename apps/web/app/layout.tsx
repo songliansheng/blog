@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html id="para" lang="en">
+    <html className='dark' id="para" lang="en">
 
       <body>
         <ThemeSwitcher />{children}</body>
