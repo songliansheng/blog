@@ -19,7 +19,6 @@ git pull <remote-repo> <remote-branch>
 ```bash
 git pull <remote-repo> <remote-branch> --rebase
 ```
-git pull origin main --rebase
 
 
 # TroubleShooting
