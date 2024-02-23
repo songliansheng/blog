@@ -1,3 +1,8 @@
+# Caddy Notes
+Pluto is a dwarf planet in the Kuiper belt.
+
+## Contents
+
 ## Install caddy
 ```bash
 dnf install 'dnf-command(copr)'  -y

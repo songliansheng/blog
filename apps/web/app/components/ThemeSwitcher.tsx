@@ -1,12 +1,13 @@
 'use client'
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 const darkIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="28"
         height="28"
-        viewBox="0 0 32 32">
+        viewBox="0 0 32 32"
+    >
         <g fill="none" fillRule="evenodd" transform="translate(-440 -200)">
             <path
                 fill="currentColor"
@@ -19,14 +20,15 @@ const darkIcon = (
             <polygon points="444 228 468 228 468 204 444 204" />
         </g>
     </svg>
-);
+)
 
 const lightIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
         height="32"
-        viewBox="0 0 32 32">
+        viewBox="0 0 32 32"
+    >
         <g fill="none" fillRule="evenodd" transform="translate(-442 -200)">
             <g fill="currentColor" transform="translate(356 144)">
                 <path
@@ -44,14 +46,14 @@ const lightIcon = (
             <polygon points="444 228 468 228 468 204 444 204" />
         </g>
     </svg>
-);
+)
 
 function switchToDark() {
-    const rootElement = document.documentElement;
+    const rootElement = document.documentElement
     rootElement!.classList.add('dark')
 }
 function switchToLight() {
-    const rootElement = document.documentElement;
+    const rootElement = document.documentElement
     // rootElement!.classList.add('dark')
     rootElement!.classList.remove('dark')
 }
@@ -77,10 +79,27 @@ export default function ThemeSwitcher() {
     //     // elem!.style.color = 'blue';
     //     // docParent?.classList.add('dark')
     // }
-    return <div className="flex items-center -space-x-2.5 xs:space-x-0 ">
-        <div className='flex dark:hidden'><button type="button" className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link" onClick={switchToDark}>{darkIcon}</button></div>
-        <div className="hidden dark:flex"> <button type="button" className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link" onClick={switchToLight}>{lightIcon}</button></div>
-    </div>
-
-
+    return (
+        <>
+            <div className="flex dark:hidden">
+                <button
+                    type="button"
+                    className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link"
+                    onClick={switchToDark}
+                >
+                    {darkIcon}
+                </button>
+            </div>
+            <div className="hidden dark:flex">
+                {' '}
+                <button
+                    type="button"
+                    className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link"
+                    onClick={switchToLight}
+                >
+                    {lightIcon}
+                </button>
+            </div>
+        </>
+    )
 }

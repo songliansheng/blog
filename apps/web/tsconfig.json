@@ -3,7 +3,8 @@
         "baseUrl": ".",
         "paths": {
             "@/components/*": ["app/components/*"],
-            "@/app/*": ["app/*"]
+            "@/app/*": ["app/*"],
+            "react": [ "./node_modules/@types/react" ]
         },
         "plugins": [
             {

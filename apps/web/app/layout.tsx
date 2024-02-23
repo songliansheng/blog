@@ -1,15 +1,17 @@
-import ThemeSwitcher from "./components/ThemeSwitcher"
-import './globals.css';
+import ThemeSwitcher from './components/ThemeSwitcher'
+import Header from './components/Header'
+import './globals.css'
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-    <html className='dark' id="para" lang="en">
-
-      <body>
-        <ThemeSwitcher />{children}</body>
-    </html>
-  )
+    return (
+        <html className="dark" id="para" lang="en">
+            <body>
+                <Header />
+                {children}
+            </body>
+        </html>
+    )
 }
