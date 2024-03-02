@@ -15,7 +15,7 @@ export default async function Page({
     const dir = path.join(process.cwd(), './content/', `${params.section}`)
     const filenames = fs.readdirSync(dir)
     const file = fs.readFileSync(
-        process.cwd() + '/content/notes/css.mdx',
+        dir,
         'utf8'
     )
     const listItems = filenames.map((filename) => <li>{filename}</li>)

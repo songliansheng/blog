@@ -1,26 +1,32 @@
-/** @type {import('next').NextConfig} */
-import remarkToc from 'remark-toc'
-// const withMDX = require('@next/mdx')()
-import createMDX from '@next/mdx'
+import nextMDX from '@next/mdx'
+
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-  reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+    transpilePackages: [],
+    reactStrictMode: true,
+    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
+        mdxRs: false,
     },
-    webpack(config) {
-        config.experiments = { ...config.experiments, topLevelAwait: true }
+    webpack: (config, options) => {
+        config.module.rules.push({})
         return config
     },
-    transpilePackages: ['lexical-editor'],
-    // poweredByHeader: false,
 }
 
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-  options: {
-    // remarkPlugins: [remarkToc],
-    // rehypePlugins: [],
-  },
+const withMDX = nextMDX({
+    extension: /\.mdx?$/,
+    /* Waring ! */
+    /* Plugins configured here won't be used by next-mdx-remote
+     */
+    options: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+    },
 })
 
-export default withMDX(nextConfig)
+export default nextConfig
+
+// export default withMDX(nextConfig)
