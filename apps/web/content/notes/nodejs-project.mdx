@@ -26,11 +26,14 @@ Specify your packages in **pnpm-workspace.yaml**
 pnpm install turbo --global
 ```
 ### (3) Create turbo.json
+```
     {
     "$schema": "https://turbo.build/schema.json"
     }
+```
 
 ### (4) Define task dependency graph
+
 Configure the **pipeline** key in the **turbo.json** configuration file at the **root of monorepo**
 
 ### (5) Edit .gitignore

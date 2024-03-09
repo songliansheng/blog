@@ -9,9 +9,8 @@ export default function RootLayout({
     return (
         <html className="dark" id="para" lang="en">
             <body>
-                <div className="w-full h-28 bg-green-600"></div>
-                <div></div>
-                {/* <Header /> */}
+                {/* <div className="w-full h-28 bg-green-600"></div> */}
+                <Header />
                 {children}
             </body>
         </html>
