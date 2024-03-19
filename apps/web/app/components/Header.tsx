@@ -18,14 +18,14 @@ const Header = () => {
     return (
         <nav
             className={cn(
-                'duration-300 backdrop-filter sticky -top-10 backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center w-full flex justify-between bg-wash dark:bg-wash-dark dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 z-50'
+                'max-w-[1380px] bg-[#1c1b22] z-50 duration-300 backdrop-filter sticky -top-10 backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center w-full flex justify-between bg-wash dark:bg-wash-dark dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 z-50'
             )}
         >
             <div
                 id="global-header"
-                className="sticky top-4 flex w-full items-center justify-between py-6"
+                className="sticky top-4 flex w-full items-center justify-between py-6 text-xl"
             >
-                <div className="w-60  -space-x-2.5 xs:space-x-0 ">
+                <div className="w-72 -space-x-2.5 xs:space-x-0 ">
                     🗐 Liansheng Song
                 </div>
                 <div className="w-full"></div>
