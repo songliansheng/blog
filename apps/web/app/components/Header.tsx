@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <nav
             className={cn(
-                'max-w-[1380px] bg-[#1c1b22] z-50 duration-300 backdrop-filter sticky -top-10 backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center w-full flex justify-between bg-wash dark:bg-wash-dark dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 z-50'
+                'max-w-[1380px] bg-[#1c1b22] duration-300 backdrop-filter sticky -top-10 backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center w-full flex justify-between bg-wash dark:bg-wash-dark dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 z-50'
             )}
         >
             <div

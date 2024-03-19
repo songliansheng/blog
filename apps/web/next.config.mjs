@@ -27,6 +27,6 @@ const withMDX = nextMDX({
     },
 })
 
-export default nextConfig
+// export default nextConfig
 
-// export default withMDX(nextConfig)
+export default withMDX(nextConfig)
