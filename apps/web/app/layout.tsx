@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
     return (
         <html className="dark" id="para" lang="en">
-            <body>
+            <body className="bg-inherit text-lg">
                 {/* <div className="w-full h-28 bg-green-600"></div> */}
                 <Header />
                 {children}

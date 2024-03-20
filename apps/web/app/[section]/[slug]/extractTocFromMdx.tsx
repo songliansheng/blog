@@ -1,5 +1,6 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
 import { toc } from 'mdast-util-toc'
+import { MdxComponents } from '@/components/MDX/MDXComponents'
 // import toc from 'plugins/getTocFromMdast'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -47,6 +48,7 @@ export default async function getTocFromMdx(mdx: string) {
     const { content } = await compileMDX({
         source: mdx,
         options: options,
+        components: MdxComponents,
     })
     return {content,toc}
 }

@@ -34,7 +34,7 @@ export default async function Page({
     return (
         <div className="relative flex items-start pr-80 w-[calc(100%-160px)] max-w-7xl m-auto duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 justify-between bg-wash dark:bg-wash-dark dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4">
             <div>
-                <div className="sticky top-14 bg-[#1c1b22]">
+                <div className="sticky top-14">
                     <Breadcrumbs />
                     {/* <Link href="/+${params.slug}">${params.slug}</Link> */}
                 </div>

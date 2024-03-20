@@ -11,18 +11,10 @@ export default async function Page({
     params: { section: string }
     searchParams: { [key: string]: string | string[] | undefined }
     }) {
-    const sss = params.section
     const dir = path.join(process.cwd(), './content/', `${params.section}`)
     const filenames = fs.readdirSync(dir)
-    const file = fs.readFileSync(
-        dir,
-        'utf8'
-    )
+    
     const listItems = filenames.map((filename) => <li>{filename}</li>)
-    // const markdown = await serialize(file)
-
-    // return <div>{mdxSource}</div>
-   
     
     return (
         
