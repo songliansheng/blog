@@ -10,8 +10,10 @@ export const H2 = ({ children, ...props }) => (
     </>
 )
 
-export const H3 = ({ children }) => (
-    <h3 className="text-2xl my-3 font-bold">{children}</h3>
+export const H3 = ({ children, ...props }) => (
+    <h3 className="text-2xl my-3 font-bold" {...props}>
+        {children}
+    </h3>
 )
 
 export const P = ({ children, ...props }) => (
