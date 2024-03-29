@@ -890,7 +890,7 @@ function _createMdxContent(props) {
         ],
     })
 }
-export default function MDXContent(props = {}) {
+ function MDXContent(props = {}) {
     const { wrapper: MDXLayout } = props.components || {}
     return MDXLayout
         ? _jsx(MDXLayout, {
@@ -901,3 +901,4 @@ export default function MDXContent(props = {}) {
           })
         : _createMdxContent(props)
 }
+console.log(MDXContent())

@@ -2,6 +2,8 @@
 import path from 'path'
 import compileMdx from './compileMdx'
 import { NativeCompile } from './compileMdx'
+import { CompileToc } from './compileMdx'
+import Toc from '@/components/Toc'
 // import fs from 'fs'
 import Breadcrumbs from '@/components/Breadcrumb'
 import { MdxComponents } from '@/components/MDX/MDXComponents'
@@ -49,8 +51,7 @@ export default async function Page({
     // const file = fs.readFileSync(filepath)
 
     const mdx = await fs.readFile(filepath, 'utf8')
-    const content = await NativeCompile({ mdx })
-    // console.log(content)
+    const { content,headings } = await compileMdx({ mdx })
     return (
         <div
             id="content"
@@ -59,7 +60,11 @@ export default async function Page({
             <div id="content-breadcrumbs" className="sticky top-14">
                 <Breadcrumbs />
             </div>
-            {/* {content} */}
+            {content}
+
+            <div className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]">
+                <Toc headings={headings} />
+            </div>
         </div>
     )
    

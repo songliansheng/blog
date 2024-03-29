@@ -1,33 +1,14 @@
-import { visit } from 'unist-util-visit'
-import { toString } from 'mdast-util-to-string'
-
-function addIdForNode(node) {}
-function CreateTocNode(node) {
-    return {
-        value: toString(node),
-        depth: node.depth,
-        data: node.data,
-        children: [],
-    }
-}
-function BuildToc({ tocNode, parentNodes }) {
-    const toc: string[] = []
-    const isHeading = tocNode.depth == 2
-    if (isHeading) {
-        toc.push(tocNode)
-        parentNodes[tocNode.depth] = tocNode
-    } else {
-        parentNodes[tocNode.depth - 1].children.push(tocNode)
-        parentNodes[tocNode.depth] = tocNode
-    }
-    return toc
-}
-export default function Toc(nodes) {
-    const parentNodes ={}
-    visit(nodes, 'heading', (node) => {
-        if (node.depth !== 1) {
-            let tocNode = CreateTocNode(node)
-            BuildToc({ tocNode, parentNodes })
-        }
-    })
+export default function Toc({ headings }) {
+    return (
+        <div className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]">
+            <ul className="space-y-2 pb-16">
+                {headings.map((heading) => {
+                    return (
+                        <li>
+                            <a href={`#${heading.data.id}`}>{heading.value}</a>
+                        </li>)
+                })}
+            </ul>
+        </div>
+    )
 }

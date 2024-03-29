@@ -11,11 +11,14 @@ import rehypeHighlight from 'rehype-highlight'
 import Breadcrumbs from '@/components/Breadcrumb'
 import * as remarkHeaderId from 'remark-heading-id'
 import remarkHeadingId from '../../../plugins/remark-heading-id'
+import remarkToc from '../../../plugins/remarkToc'
 import rehypeToc from 'remark-toc'
 import { compile } from '@mdx-js/mdx'
 import { transform } from '@babel/core'
+import { ReactElement } from 'react'
 
-const REMARK_PLUGINS = [remarkHeadings]
+//The order of Plugins matters
+const REMARK_PLUGINS = [remarkHeadingId, remarkHeadings]
 const REHYPE_PLUGINS = []
 const mdxOptions = {
     remarkPlugins: REMARK_PLUGINS,
@@ -35,38 +38,33 @@ const Rehype_Toc_Plug = [
     },
 ]
 
-
 export async function NativeCompile({ mdx }: { mdx: string }) {
     const content = await compile(mdx, mdxOptions)
-    const { transform } = require('@babel/core')
-    const jsCode = await transform(content, {
-        plugins: ['@babel/plugin-transform-modules-commonjs'],
-        presets: ['@babel/preset-react'],
-    }).code
-    let fakeExports = {}
-    const fakeRequire = (name: string) => {
-        if (name === 'react/jsx-runtime') {
-            return require('react/jsx-runtime')
-        } else {
-            // For each fake MDX import, give back the string component name.
-            // It will get serialized later.
-            return name
-        }
-    }
-    const evalJSCode = new Function('require', 'exports', jsCode)
-    
-    console.log(evalJSCode(fakeRequire, fakeExports))
-    return content
+    // var compiledJsx = new Function(content.value as string)
+
+    console.log(content.data.headings)
+    return { content }
+}
+export async function CompileToc({ mdx }: { mdx: string }) {
+    const content = await compile(mdx, mdxOptions)
+    // content.data.headings
+
+    console.log(content)
+    return { content }
 }
 
 export default async function compileMdx({ mdx }: { mdx: string }) {
-    const content  = await compileMDX({
+    const { content } = await compileMDX({
         source: mdx,
         options: {
             mdxOptions,
         },
         components: MdxComponents,
     })
-    console.log(content)
-    return { content }
+    // const {
+    //     data: { headings },
+    // } = await compile(mdx, mdxOptions)
+    const Vfile = await compile(mdx, mdxOptions)
+    console.log(Vfile)
+    return { content, headings:Vfile.data.headings }
 }
