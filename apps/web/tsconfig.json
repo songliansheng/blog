@@ -20,6 +20,6 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "app/(alternative)/posts/[slug]/editor.js"
-, "app/ApolloClient-SSR.js", "app/page.mdx"    ],
+, "app/ApolloClient-SSR.js", "app/page.mdx", "app/api/auth/[...nextauth]/authProviders.js"    ],
     "exclude": ["node_modules"]
 }

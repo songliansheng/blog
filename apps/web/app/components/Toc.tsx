@@ -13,7 +13,11 @@ export default function Toc({ headings }) {
                                 'space-y-2 ',
                                 currentId === heading.data.id
                                     ? 'bg-highlight dark:bg-highlight-dark'
-                                    : null
+                                    : null,
+                                {
+                                    'ps-3': heading?.depth === 3,
+                                    hidden: heading.depth && heading.depth > 3,
+                                }
                             )}
                         >
                             <a
