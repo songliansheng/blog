@@ -65,6 +65,6 @@ export default async function compileMdx({ mdx }: { mdx: string }) {
     //     data: { headings },
     // } = await compile(mdx, mdxOptions)
     const Vfile = await compile(mdx, mdxOptions)
-    console.log(Vfile)
+    // console.log(Vfile)
     return { content, headings:Vfile.data.headings }
 }
