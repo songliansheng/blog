@@ -8,7 +8,7 @@ const nextConfig = {
     reactStrictMode: true,
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
-        mdxRs: false,
+        mdxRs: true,
     },
     webpack: (config, options) => {
         config.module.rules.push({})
@@ -17,7 +17,7 @@ const nextConfig = {
 }
 
 const withMDX = nextMDX({
-    extension: /\.mdx?$/,
+    // extension: /\.mdx?$/,
     /* Waring ! */
     /* Plugins configured here won't be used by next-mdx-remote
      */
