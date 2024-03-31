@@ -1,11 +1,9 @@
-// 'use client'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import { MdxComponents } from '@/components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
 import remarkHeadingId from '@@/plugins/remark-heading-id'
-import remarkToc from '@@/plugins/remark-toc'
-import rehypeToc from 'remark-toc'
 import { compile } from '@mdx-js/mdx'
+import rehypeToc from '@jsdevtools/rehype-toc'
 
 //The order of Plugins matters
 const REMARK_PLUGINS = [remarkHeadingId]

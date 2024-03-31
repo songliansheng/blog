@@ -8,7 +8,6 @@ import Toc from '@/components/Toc'
 import Breadcrumbs from '@/components/Breadcrumb'
 import { MdxComponents } from '@/components/MDX/MDXComponents'
 import { compileMDX } from 'next-mdx-remote/rsc'
-import Content from './Content'
 import { promises as fs } from 'fs'
 
 const options = {
