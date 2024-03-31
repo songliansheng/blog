@@ -55,10 +55,10 @@ export default async function compileMdx({ mdx }: { mdx: string }) {
     // const {
     //     data: { headings },
     // } = await compile(mdx, mdxOptions)
-    const Vfile = await compile(mdx, {
+    const {data:{headings}} = await compile(mdx, {
         remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
         rehypePlugins: REHYPE_PLUGINS,
     })
-    console.log(Vfile.data.headings)
-    return { content, headings:Vfile.data.headings }
+    console.log(headings)
+    return { content, headings }
 }
