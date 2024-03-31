@@ -1,8 +1,9 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
-import { MdxComponents } from '@/components/MDX/MDXComponents'
+import { MdxComponents } from '@/app/components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
-import remarkHeadingId from '@@/plugins/remark-heading-id'
+import remarkHeadingId from 'plugins/remark-heading-id'
 import { compile } from '@mdx-js/mdx'
+import  remarkHeadingsId  from 'remark-heading-id'
 import rehypeToc from '@jsdevtools/rehype-toc'
 
 //The order of Plugins matters

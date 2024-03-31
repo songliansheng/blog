@@ -3,6 +3,10 @@ import nextMDX from '@next/mdx'
 /**
  * @type {import('next').NextConfig}
  */
+const webpackConfig = (config, options) => {
+    config.module.rules.push({})
+    return config
+    }
 const nextConfig = {
     transpilePackages: [],
     reactStrictMode: true,
@@ -10,10 +14,7 @@ const nextConfig = {
     experimental: {
         mdxRs: false,
     },
-    webpack: (config, options) => {
-        config.module.rules.push({})
-        return config
-    },
+    // webpack: webpackConfig,
 }
 
 const withMDX = nextMDX({

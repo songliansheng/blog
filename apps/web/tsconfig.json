@@ -2,8 +2,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": ["app/*"],
-            "@@/*": ["*"],
+            "@/app/*": ["app/*"],
+            "@/plugins/*": ["plugins/*"],
             "react": ["./node_modules/@types/react"]
         },
         "plugins": [
