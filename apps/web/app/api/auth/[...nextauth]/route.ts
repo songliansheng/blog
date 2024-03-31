@@ -1,4 +1,4 @@
-// TODO complete this configure file
+// TODO Complete this configure file
 import NextAuth from 'next-auth'
 import { callbacks } from './authCallbacks'
 import { credentialsProvider, githubProvider } from './authProviders'
