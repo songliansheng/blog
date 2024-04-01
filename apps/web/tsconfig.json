@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": "src",
         "paths": {
             "react": ["./node_modules/@types/react"]
         },
@@ -18,7 +18,7 @@
         "**/*.tsx",
         "**/*.mdx",
         ".next/types/**/*.ts",
-        "src/components/ApolloClient-SSR.js",
+        "src/dust/ApolloClient-SSR.js",
         "src/app/page.mdx",
         "src/app/api/auth/[...nextauth]/authProviders.js"
     ],

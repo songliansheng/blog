@@ -19,25 +19,18 @@ const turboConfig = {
             },
         ],
         // Option-less format
-        '*.mdx': [
-            {
-                loader: '@mdx-js/loader',
-                options: {
-                    format: 'mdx',
-                },
-            },
-        ],
+        '*.mdx': ['@mdx-js/loader'],
     },
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
 }
 const nextConfig = {
     transpilePackages: [],
-    swcMinify:true,
+    // swcMinify:true,
     reactStrictMode: true,
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
         mdxRs: true,
-        turbo: turboConfig,
+        // turbo: turboConfig,
     },
     // webpack: webpackConfig,
 }

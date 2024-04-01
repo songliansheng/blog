@@ -1,4 +1,5 @@
-import { compileMDX } from 'next-mdx-remote/rsc'
+// import { compileMDX } from 'next-mdx-remote/rsc'
+import { compileMDX } from 'remote-mdx/rsc'
 import { MdxComponents } from 'components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
 import remarkHeadingId from 'plugins/remark-heading-id'
