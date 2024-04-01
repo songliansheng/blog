@@ -1,37 +1,10 @@
 // 'use client'
 import path from 'path'
 import compileMdx from './compileMdx'
-import { NativeCompile } from './compileMdx'
-import { CompileToc } from './compileMdx'
-import Toc from '@/components/Toc'
+import Toc from 'components/Toc'
 // import fs from 'fs'
-import Breadcrumbs from '@/components/Breadcrumb'
-import { MdxComponents } from '@/components/MDX/MDXComponents'
-import { compileMDX } from 'next-mdx-remote/rsc'
+import Breadcrumbs from 'components/Breadcrumb'
 import { promises as fs } from 'fs'
-
-const options = {
-    mdxOptions: {
-        remarkPlugins: [],
-        rehypePlugins: [],
-    },
-}
-
-function stringifyNodeOnServer(key: unknown, val: any) {
-    if (val != null && val.$$typeof === Symbol.for('react.element')) {
-        // Remove fake MDX props.
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { mdxType, originalType, parentName, ...cleanProps } = val.props
-        return [
-            '$r',
-            typeof val.type === 'string' ? val.type : mdxType,
-            val.key,
-            cleanProps,
-        ]
-    } else {
-        return val
-    }
-}
 
 export default async function Page({
     params,
@@ -42,7 +15,7 @@ export default async function Page({
 }) {
     const filepath = path.join(
         process.cwd(),
-        './content/',
+        './src/content/',
         `${params.section}`,
         '/',
         `${params.slug}.mdx`
@@ -50,7 +23,7 @@ export default async function Page({
     // const file = fs.readFileSync(filepath)
 
     const mdx = await fs.readFile(filepath, 'utf8')
-    const { content,headings } = await compileMdx({ mdx })
+    const { content, headings } = await compileMdx({ mdx })
     return (
         <div
             id="content"
@@ -66,5 +39,4 @@ export default async function Page({
             </div>
         </div>
     )
-   
 }

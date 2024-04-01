@@ -1,3 +1,4 @@
+// TODO Dive deep in this ! or delete it!
 export default function extractHeaders(children, depth, out) {
     for (const child of Children.toArray(children)) {
         let header

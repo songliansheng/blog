@@ -1,7 +1,7 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
-import { MdxComponents } from '@/components/MDX/MDXComponents'
+import { MdxComponents } from 'components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
-import remarkHeadingId from '@@/plugins/remark-heading-id'
+import remarkHeadingId from 'plugins/remark-heading-id'
 import { compile } from '@mdx-js/mdx'
 import rehypeToc from '@jsdevtools/rehype-toc'
 
@@ -26,21 +26,6 @@ const Rehype_Toc_Plug = [
     },
 ]
 
-export async function NativeCompile({ mdx }: { mdx: string }) {
-    const content = await compile(mdx, mdxOptions)
-    // var compiledJsx = new Function(content.value as string)
-
-    console.log(content.data.headings)
-    return { content }
-}
-export async function CompileToc({ mdx }: { mdx: string }) {
-    const content = await compile(mdx, mdxOptions)
-    // content.data.headings
-
-    console.log(content)
-    return { content }
-}
-
 export default async function compileMdx({ mdx }: { mdx: string }) {
     const { content } = await compileMDX({
         source: mdx,
@@ -52,10 +37,10 @@ export default async function compileMdx({ mdx }: { mdx: string }) {
         },
         components: MdxComponents,
     })
-    // const {
-    //     data: { headings },
-    // } = await compile(mdx, mdxOptions)
-    const {data:{headings}} = await compile(mdx, {
+
+    const {
+        data: { headings },
+    } = await compile(mdx, {
         remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
         rehypePlugins: REHYPE_PLUGINS,
     })

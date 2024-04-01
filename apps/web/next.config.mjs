@@ -3,17 +3,43 @@ import nextMDX from '@next/mdx'
 /**
  * @type {import('next').NextConfig}
  */
+const webpackConfig = (config, options) => {
+    config.module.rules.push({})
+    return config
+}
+const turboConfig = {
+    rules: {
+        // Option format
+        '*.md': [
+            {
+                loader: '@mdx-js/loader',
+                options: {
+                    format: 'md',
+                },
+            },
+        ],
+        // Option-less format
+        '*.mdx': [
+            {
+                loader: '@mdx-js/loader',
+                options: {
+                    format: 'mdx',
+                },
+            },
+        ],
+    },
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+}
 const nextConfig = {
     transpilePackages: [],
+    swcMinify:true,
     reactStrictMode: true,
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
         mdxRs: true,
+        turbo: turboConfig,
     },
-    webpack: (config, options) => {
-        config.module.rules.push({})
-        return config
-    },
+    // webpack: webpackConfig,
 }
 
 const withMDX = nextMDX({
