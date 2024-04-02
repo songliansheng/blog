@@ -6,7 +6,24 @@ import nextMDX from '@next/mdx'
 const webpackConfig = (config, options) => {
     config.module.rules.push({})
     return config
-    }
+}
+// CAUTION: Turbo config below will break @next/mdx
+const turboConfig = {
+    rules: {
+        // Option format
+        '*.md': [
+            {
+                loader: '@mdx-js/loader',
+                options: {
+                    format: 'md',
+                },
+            },
+        ],
+        // Option-less format
+        '*.mdx': ['@mdx-js/loader'],
+    },
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+}
 const nextConfig = {
     transpilePackages: [],
     // swcMinify:true,
