@@ -9,16 +9,18 @@ const webpackConfig = (config, options) => {
     }
 const nextConfig = {
     transpilePackages: [],
+    // swcMinify:true,
     reactStrictMode: true,
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
-        mdxRs: false,
+        mdxRs: true,
+        // turbo: turboConfig,
     },
     // webpack: webpackConfig,
 }
 
 const withMDX = nextMDX({
-    extension: /\.mdx?$/,
+    // extension: /\.mdx?$/,
     /* Waring ! */
     /* Plugins configured here won't be used by next-mdx-remote
      */
