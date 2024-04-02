@@ -7,6 +7,7 @@ const webpackConfig = (config, options) => {
     config.module.rules.push({})
     return config
 }
+// CAUTION: Turbo config below will break @next/mdx
 const turboConfig = {
     rules: {
         // Option format

@@ -3,16 +3,14 @@ import { compileMDX } from 'remote-mdx/rsc'
 import { MdxComponents } from 'components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
 import remarkHeadingId from 'plugins/remark-heading-id'
+import remarkHeadingIds from 'remark-heading-id'
 import { compile } from '@mdx-js/mdx'
 import rehypeToc from '@jsdevtools/rehype-toc'
 
 //The order of Plugins matters
-const REMARK_PLUGINS = [remarkHeadingId]
+const REMARK_PLUGINS = [remarkHeadingIds]
 const REHYPE_PLUGINS = []
-const mdxOptions = {
-    remarkPlugins: REMARK_PLUGINS,
-    rehypePlugins: REHYPE_PLUGINS,
-}
+
 const Rehype_Toc_Plug = [
     rehypeToc,
     {
@@ -27,7 +25,7 @@ const Rehype_Toc_Plug = [
     },
 ]
 
-export default async function compileMdx({ mdx }: { mdx: string }) {
+export default async function Compile({ mdx }: { mdx: string }) {
     const { content } = await compileMDX({
         source: mdx,
         options: {
@@ -39,12 +37,13 @@ export default async function compileMdx({ mdx }: { mdx: string }) {
         components: MdxComponents,
     })
 
-    const {
-        data: { headings },
-    } = await compile(mdx, {
+    // const {
+    //     data: { headings },
+    // }
+    const headings = await compile(mdx, {
         remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
         rehypePlugins: REHYPE_PLUGINS,
     })
-    console.log(headings)
+    console.log(headings.value)
     return { content, headings }
 }
