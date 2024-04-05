@@ -37,10 +37,7 @@ const nextConfig = {
 }
 
 const withMDX = nextMDX({
-    // extension: /\.mdx?$/,
-    /* Waring ! */
-    /* Plugins configured here won't be used by next-mdx-remote
-     */
+    // CAUTION: Plugins configured here won't be used by next-mdx-remote
     options: {
         remarkPlugins: [],
         rehypePlugins: [],

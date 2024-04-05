@@ -5,7 +5,6 @@ import remarkHeadings from '@vcarl/remark-headings'
 import remarkHeadingId from 'plugins/remark-heading-id'
 import remarkHeadingIds from 'remark-heading-id'
 import { compile } from '@mdx-js/mdx'
-import  remarkHeadingsId  from 'remark-heading-id'
 import rehypeToc from '@jsdevtools/rehype-toc'
 
 //The order of Plugins matters
@@ -38,13 +37,13 @@ export default async function Compile({ mdx }: { mdx: string }) {
         components: MdxComponents,
     })
 
-    // const {
-    //     data: { headings },
-    // }
-    const headings = await compile(mdx, {
-        remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
-        rehypePlugins: REHYPE_PLUGINS,
-    })
-    console.log(headings.value)
+    const {
+        data: { headings },
+    }
+    = await compile(mdx, {
+       remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
+       rehypePlugins: REHYPE_PLUGINS,
+   })
+    console.log(headings)
     return { content, headings }
 }
