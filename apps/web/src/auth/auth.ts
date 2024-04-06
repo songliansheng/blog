@@ -7,4 +7,4 @@ const handler = NextAuth({
     callbacks: { signIn },
 })
 
-export { handler as GET, handler as POST }
+export const { handlers: { GET, POST }, auth } =handler
