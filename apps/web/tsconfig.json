@@ -20,7 +20,7 @@
         ".next/types/**/*.ts",
         "src/dust/ApolloClient-SSR.js",
         "src/app/page.mdx",
-        "src/app/api/auth/[...nextauth]/authProviders.js"
+        "src/auth/authProviders.js"
     ],
     "exclude": ["node_modules"]
 }
