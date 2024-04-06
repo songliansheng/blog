@@ -1,4 +1,4 @@
-//TODO: Dive deep in this
+//TODO: Dive deep in to this
 import NextAuth from "next-auth"
 import { githubProvider, credentialsProvider } from './authProviders'
 import { signIn } from './authCallbacks'
