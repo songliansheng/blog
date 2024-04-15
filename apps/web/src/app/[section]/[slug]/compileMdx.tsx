@@ -1,3 +1,4 @@
+//TODO Figure out how to use 'remark-heading-id'
 // import { compileMDX } from 'next-mdx-remote/rsc'
 import { compileMDX } from 'remote-mdx/rsc'
 import { MdxComponents } from 'components/MDX/MDXComponents'
@@ -8,7 +9,7 @@ import { compile } from '@mdx-js/mdx'
 import rehypeToc from '@jsdevtools/rehype-toc'
 
 //The order of Plugins matters
-const REMARK_PLUGINS = [remarkHeadingIds]
+const REMARK_PLUGINS = [remarkHeadingId]
 const REHYPE_PLUGINS = []
 
 const Rehype_Toc_Plug = [
@@ -39,11 +40,10 @@ export default async function Compile({ mdx }: { mdx: string }) {
 
     const {
         data: { headings },
-    }
-    = await compile(mdx, {
-       remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
-       rehypePlugins: REHYPE_PLUGINS,
-   })
-    console.log(headings)
+    } = await compile(mdx, {
+        remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
+        rehypePlugins: REHYPE_PLUGINS,
+    })
+    // console.log(headings)
     return { content, headings }
 }
