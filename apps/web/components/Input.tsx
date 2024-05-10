@@ -1,5 +1,6 @@
 export function Input({
     className,
+    name,
     type,
     id,
     label,
@@ -8,10 +9,11 @@ export function Input({
     onChange,
 }: {
     className?: string
+    name?: string
     type?: string
     id?: string
     label?: string
-    value: string
+    value?: string
     placeholder?: string
     onChange?: (event) => void
 }) {
@@ -20,6 +22,7 @@ export function Input({
             <input
                 type={type}
                 className={className}
+                name={name}
                 id={id}
                 placeholder={placeholder}
                 onChange={onChange}

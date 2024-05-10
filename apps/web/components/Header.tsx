@@ -1,6 +1,11 @@
+// 'use client'
+// 'use server'
 import cn from 'classnames'
 import Link from 'next/link'
 import ThemeSwitcher from './ThemeSwitcher'
+import { Button } from './Button'
+import { signIn, signOut } from '../auth'
+import { handleSignOut } from '../app/actions'
 
 function NavItem({ url, isActive, children }: any) {
     return (
@@ -43,12 +48,22 @@ const Header = () => {
                         <NavItem isActive="true" url="/notes">
                             Notes
                         </NavItem>
+                        {/* <Button buttonName="Sign in" onClick={handleClick} /> */}
                     </div>
                     <div className="flex items-center">
                         <ThemeSwitcher />
                     </div>
+                    <form
+                        action={async () => {
+                            'use server'
+                            await signOut()
+                        }}
+                    >
+                        <button type="submit">Sign Out</button>
+                    </form>
                 </div>
             </nav>
+            {/* < LoginForm /> */}
         </div>
     )
 }
