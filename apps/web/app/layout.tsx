@@ -12,8 +12,7 @@ export default function RootLayout({
             <body className="bg-inherit text-lg">
                 <div id="globaldiv" className=" ">
                     <Header />
-                    
-                  
+
                     {children}
                 </div>
             </body>

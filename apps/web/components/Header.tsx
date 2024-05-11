@@ -12,7 +12,7 @@ function NavItem({ url, isActive, children }: any) {
         <div className="flex flex-auto sm:flex-1">
             <Link
                 href={url}
-                className="active:scale-95 transition-transform w-full text-center outline-link py-1.5 px-1.5 xs:px-3 sm:px-4 rounded-full capitalize"
+                className="active:scale-95 transition-transform text-center py-1.5 px-1.5 sm:px-4 rounded-full capitalize"
             >
                 {children}
             </Link>
@@ -24,14 +24,14 @@ const Header = () => {
         <div className="sticky top-0 z-50">
             <nav
                 className={cn(
-                    ' mx-auto max-w-8xl w-[calc(100%-160px)] duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between bg-wash dark:bg-wash-dark dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 '
+                    ' mx-auto max-w-7xl w-[calc(100%-160px)] duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 '
                 )}
             >
                 <div
                     id="global-header"
                     className=" flex w-full items-center justify-between py-6 text-xl"
                 >
-                    <div className="w-72 -space-x-2.5 xs:space-x-0 shrink-0">
+                    <div className="w-72 -space-x-2.5 shrink-0">
                         🗐 Liansheng Song
                     </div>
                     <div className="w-full"></div>
@@ -54,12 +54,18 @@ const Header = () => {
                         <ThemeSwitcher />
                     </div>
                     <form
+                        className="flex items-center"
                         action={async () => {
                             'use server'
                             await signOut()
                         }}
                     >
-                        <button type="submit">Sign Out</button>
+                        <button
+                            className="flex-none"
+                            type="submit"
+                        >
+                            Sign Out
+                        </button>
                     </form>
                 </div>
             </nav>

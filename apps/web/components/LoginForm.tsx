@@ -4,7 +4,6 @@ import { Button } from './Button'
 import { Input } from './Input'
 import { signIn } from '../auth'
 import { handleSignIn } from 'app/actions'
-import { handleSignIn2 } from 'app/actions'
 import { handleSignIn3 } from 'app/actions'
 import { signInSchema } from 'lib/zod'
 // import { useRouter } from 'next/navigation'
@@ -90,7 +89,7 @@ import { z } from 'zod'
 //     )
 // }
 
-export function VanillaForm() {
+export function LoginForm() {
     return (
         <>
             <form action={handleSignIn}>
