@@ -3,8 +3,12 @@ import path from 'path'
 import compileMdx from './compileMdx'
 import Toc from 'components/Toc'
 // import fs from 'fs'
+//   { content }
 import Breadcrumbs from 'components/Breadcrumb'
 import { promises as fs } from 'fs'
+import { createClient as createSupabaseClient } from 'lib/serverside-supabase-client';
+import dynamic from 'next/dynamic'
+import Comments from 'components/Comments'
 
 export default async function Page({
     params,
@@ -13,9 +17,16 @@ export default async function Page({
     params: { section: string; slug: string }
     searchParams: { [key: string]: string | string[] | undefined }
 }) {
+    // const ContentEditableRef = useRef(null);
+    const supabase = createSupabaseClient();
+    const { data: article } = await supabase.from("notes").select('content').eq('id', '2');
+    const { data: comments } = await supabase.from("notes").select('content').eq('id', '1');
+    const soruce = JSON.stringify(article![0].content)
+    // const soruce = JSON.stringify(data)
+    // console.log(comments![0].content)
     const filepath = path.join(
         process.cwd(),
-        './src/content/',
+        './content/',
         `${params.section}`,
         '/',
         `${params.slug}.mdx`
@@ -23,7 +34,8 @@ export default async function Page({
     // const file = fs.readFileSync(filepath)
 
     const mdx = await fs.readFile(filepath, 'utf8')
-    const { content, headings } = await compileMdx({ mdx })
+    const { content: Article, headings } = await compileMdx({ mdx: article![0].content })
+
     return (
         <div
             id="content"
@@ -32,8 +44,9 @@ export default async function Page({
             <div id="content-breadcrumbs" className="sticky top-14">
                 <Breadcrumbs />
             </div>
-            {content}
-
+            {Article}
+            {/* {JSON.stringify(data)} */}
+            <Comments comments={comments![0].content} />
             <div className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]">
                 <Toc headings={headings} />
             </div>

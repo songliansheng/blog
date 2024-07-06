@@ -24,7 +24,7 @@ const Header = () => {
         <div className="sticky top-0 z-50">
             <nav
                 className={cn(
-                    ' mx-auto max-w-7xl w-[calc(100%-160px)] duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 '
+                    ' mx-auto max-w-[1408px] w-[calc(100%-160px)] duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 '
                 )}
             >
                 <div
@@ -60,10 +60,7 @@ const Header = () => {
                             await signOut()
                         }}
                     >
-                        <button
-                            className="flex-none"
-                            type="submit"
-                        >
+                        <button className="flex-none" type="submit">
                             Sign Out
                         </button>
                     </form>
