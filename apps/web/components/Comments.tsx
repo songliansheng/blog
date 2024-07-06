@@ -35,7 +35,7 @@ const CommentItem = ({ data }) => {
             const nodes = $generateNodesFromDOM(editor, doc3);
             $getRoot().select();
             $insertNodes(nodes);
-           
+           editor.setEditable(true)
         })
         
         
