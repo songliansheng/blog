@@ -49,7 +49,7 @@ export default async function Page({
             </div>
             {Article}
             {/* {JSON.stringify(data)} */}
-            <Comments2 CommentElements={commentElements} />
+            <Comments2 comments={commentElements} />
             <div className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]">
                 <Toc headings={headings} />
             </div>
