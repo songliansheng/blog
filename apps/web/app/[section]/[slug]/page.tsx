@@ -9,6 +9,8 @@ import { promises as fs } from 'fs'
 import { createClient as createSupabaseClient } from 'lib/serverside-supabase-client';
 import dynamic from 'next/dynamic'
 import Comments from 'components/Comments'
+const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
+// const Comments2 = dynamic(() => import('components/Comments'))
 
 export default async function Page({
     params,
@@ -20,7 +22,7 @@ export default async function Page({
     // const ContentEditableRef = useRef(null);
     const supabase = createSupabaseClient();
     const { data: article } = await supabase.from("notes").select('content').eq('id', '2');
-    const { data: comments } = await supabase.from("notes").select('content').eq('id', '1');
+    const { data: comments } = await supabase.from("comments").select('content').eq('id', '1');
     const soruce = JSON.stringify(article![0].content)
     // const soruce = JSON.stringify(data)
     // console.log(comments![0].content)
@@ -35,6 +37,7 @@ export default async function Page({
 
     const mdx = await fs.readFile(filepath, 'utf8')
     const { content: Article, headings } = await compileMdx({ mdx: article![0].content })
+    const { content: commentElements } = await compileMdx({ mdx: comments![0].content })
 
     return (
         <div
@@ -46,7 +49,7 @@ export default async function Page({
             </div>
             {Article}
             {/* {JSON.stringify(data)} */}
-            <Comments comments={comments![0].content} />
+            <Comments2 CommentElements={commentElements} />
             <div className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]">
                 <Toc headings={headings} />
             </div>

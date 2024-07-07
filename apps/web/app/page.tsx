@@ -18,7 +18,7 @@ export default function () {
                 </h1>
 
             </div> */}
-            <Comments />
+            {/* <Comments /> */}
         </div>
 
     )

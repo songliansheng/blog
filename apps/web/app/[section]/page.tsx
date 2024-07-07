@@ -2,7 +2,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { serialize } from 'next-mdx-remote/serialize'
 import { auth } from 'auth'
 import { LoginForm } from 'components/LoginForm'
-import { redirect } from 'next/navigation'
+// import { redirect } from 'next/navigation'
 
 // import { promises as fs } from 'fs'
 import fs from 'fs'
