@@ -2,51 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
-  h1 {
-    @apply text-2xl;
-  }
-  h2 {
-    @apply text-xl;
-  }
-} */
+@layer base {
+}
 
 @layer utilities {
-  form input {
-    @apply px-4 py-3 block border rounded text-black
-  }
-  
-  .test {
-    @apply hidden max-w-xs
-  }
-  .typewriter h1 {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-}
+    form input {
+        @apply px-4 py-3 block border rounded text-black;
+    }
 
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
+    .test {
+        @apply hidden max-w-xs;
+    }
+    .typewriter h1 {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: 0.15em solid orange; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: 0.15em; /* Adjust as needed */
+        animation: typing 3.5s steps(40, end),
+            blink-caret 0.75s step-end infinite;
+    }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
+    /* The typing effect */
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+        from,
+        to {
+            border-color: transparent;
+        }
+        50% {
+            border-color: orange;
+        }
+    }
 }
-} 
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -59,7 +61,7 @@
 
 html.dark {
     color-scheme: dark;
-  }
+}
 
 /* body {
   color: rgb(var(--foreground-rgb));
@@ -70,4 +72,3 @@ html.dark {
     )
     rgb(var(--background-start-rgb));
 } */
-

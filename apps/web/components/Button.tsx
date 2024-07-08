@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 export function Button({
     className,
     buttonName,
@@ -8,7 +8,7 @@ export function Button({
     className?: string
     buttonName: string
     type?: string
-    onClick?: () => {}
+    onClick?: () => void
 }): JSX.Element {
     return (
         <button className={className} onClick={onClick}>

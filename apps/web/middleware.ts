@@ -1,4 +1,4 @@
-//TODO: Dive deep in this
+// MARK authjs configuration file- four
 
 //NOTE: middleware.js|ts must export a single function, either as a default export or named middleware
 export { auth as middleware } from './auth'
@@ -10,5 +10,5 @@ export function Middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)',]
-} 
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+}

@@ -13,6 +13,8 @@ import { renderToString } from 'react-dom/server';
 import { useRef } from 'react';
 import React, { useState, useEffect } from 'react';
 
+import { Button } from './Button';
+
 
 
 const CommentItem = ({ comment }: { comment: JSX.Element }) => {
@@ -56,8 +58,8 @@ const CommentItem = ({ comment }: { comment: JSX.Element }) => {
     return <>
         {comment}
         {/* {isEditmode ? <div id='commentElement1' ref={ContentEditableRef}></div> : htmlString} */}
-        {isEditmode && (<div><button onClick={enableEdit}>Cancel</button><button onClick={enableEdit}>Submit</button></div>)}
-        {(!isEditmode) && (<div><button onClick={enableEdit}>Edit</button><button onClick={enableEdit}>Reply</button></div>)}
+        {isEditmode && (<div><Button buttonName='Cancel' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /><Button buttonName='Submit' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /></div>)}
+        {(!isEditmode) && (<div><Button buttonName='Edit' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /><Button buttonName='Reply' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /></div>)}
     </>
 }
 function MyOnChangePlugin({ onChange }) {
@@ -71,7 +73,7 @@ function MyOnChangePlugin({ onChange }) {
 }
 
 
-export default function Comments({ comments }: { comments:JSX.Element }): JSX.Element {
+export default function Comments({ comments }: { comments: JSX.Element }): JSX.Element {
     const initialConfig = {
         namespace: 'MyEditor',
         theme: {
@@ -95,10 +97,7 @@ export default function Comments({ comments }: { comments:JSX.Element }): JSX.El
     return <>
         <LexicalComposer initialConfig={initialConfig}>
             <div>
-                {/* <ContentEditable />
-                <ContentEditable /> */}
                 <CommentItem comment={comments} />
-
                 <RichTextPlugin
                     contentEditable={<div id='wtfwtf'><ContentEditable /></div>}
                     // contentEditable={<ContentEditable />}
@@ -107,11 +106,6 @@ export default function Comments({ comments }: { comments:JSX.Element }): JSX.El
                 />
                 <MyOnChangePlugin onChange={onChange} />
                 <AutoFocusPlugin />
-
             </div>
         </LexicalComposer></>
-
-
-
-
 }
