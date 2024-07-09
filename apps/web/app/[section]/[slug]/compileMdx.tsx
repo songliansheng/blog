@@ -3,7 +3,7 @@
 import { compileMDX } from 'remote-mdx/rsc'
 import { MdxComponents } from 'components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
-import remarkHeadingId from 'plugins/remark-heading-id'
+import remarkHeadingId from 'lib/mdxPlugins/remark-heading-id'
 import remarkHeadingIds from 'remark-heading-id'
 import { compile } from '@mdx-js/mdx'
 import rehypeToc from '@jsdevtools/rehype-toc'
