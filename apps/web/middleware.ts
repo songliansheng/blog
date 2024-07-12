@@ -1,14 +1,23 @@
 // CONFIG authjs configuration file- four
 
 // ALERT middleware.js|ts must export a single function, either as a default export or named middleware
+// MARK middleware function can be marked `async` if using `await` inside
+// MARK Middleware is the easiest way to protect a set of pages
+// MARK You should not rely on middleware exclusively for authorization.
+// MARK ...Always ensure that the session is verified as close to your data fetching as possible
 export { auth as middleware } from './auth'
 import { NextResponse, NextRequest } from 'next/server'
 
-// MARK This function can be marked `async` if using `await` inside
-export function Middleware(request: NextRequest) {
-    return NextResponse.redirect(new URL('/notes', request.url))
-}
-
+// MARK Exports a config object is optional
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+    matcher: [
+        {
+            source: '/api/:path*',
+            // FIXME regexp doesn't work here
+            // regexp: '^/api/(.*)',
+            locale: false,
+            has: [],
+            missing: [],
+        },
+    ],
 }

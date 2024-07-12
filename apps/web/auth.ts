@@ -4,15 +4,17 @@ import GithubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 const Callbacks = {
-    // authorized({ request, auth }) {
-    //     const { pathname } = request.nextUrl
-    //     if (pathname === '/middleware-example') return !!auth
-    //     return true
-    // },
+    // MARK: For authorization to work in middleware.ts, authorized callback needs to be defined here
+    authorized({ request, auth }) {
+        const { pathname } = request.nextUrl
+        // if (pathname === '/middleware-example') return !!auth
+        return false
+    },
     // signIn({ user, account, profile, email, credentials }) {
     //     return true
     // },
     // redirect({ url, baseUrl }) {
+
     //     return baseUrl
     // },
     // session({ session, user, token }) {
