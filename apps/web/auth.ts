@@ -4,7 +4,7 @@ import GithubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 const Callbacks = {
-    // MARK: For authorization to work in middleware.ts, authorized callback needs to be defined here
+    // MARK: For authorization to work, authorized callback、auth in middleware.ts are needed
     authorized({ request, auth }) {
         const { pathname } = request.nextUrl
         // if (pathname === '/middleware-example') return !!auth
@@ -57,6 +57,8 @@ const Providers = [
     }),
 ]
 
+export const edgeCompatibleConfig = { providers: Providers }
+
 // export const {
 //     handlers,
 //     signIn,
@@ -69,11 +71,14 @@ const Providers = [
 // })
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-    providers: Providers,
+    // ALERT Only Edge runtime compatible database(adapter) can use "database" session
+    session: { strategy: 'jwt' },
     callbacks: Callbacks,
+    ...edgeCompatibleConfig,
     secret: process.env.AUTH_SECRET || 'any random string',
     pages: {
-        // signIn:'/login',
+        // MARK signIn is the page to jump to when calling the signin(from 'next-auth/react') function
+        signIn:'/login',
         signOut: '/auth/signout',
         error: '/auth/error', // Error code passed in query string as ?error=
         verifyRequest: '/auth/verify-request', // (used for check email message)

@@ -1,7 +1,7 @@
 // 'use client'
 import path from 'path'
 import compileMdx from './compileMdx'
-import Toc from 'components/Toc'
+import Toc from '@/components/Toc'
 // import fs from 'fs'
 //   { content }
 import Breadcrumbs from 'components/Breadcrumb'
@@ -9,8 +9,11 @@ import { promises as fs } from 'fs'
 import { createClient as createSupabaseClient } from 'lib/serverside-supabase-client';
 import dynamic from 'next/dynamic'
 import Comments from 'components/Comments'
+// ALERT Use dynamic import and set ssr to false , or runtime error will happen!
 const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
 // const Comments2 = dynamic(() => import('components/Comments'))
+
+import {auth} from '@/auth'
 
 export default async function Page({
     params,
@@ -18,7 +21,8 @@ export default async function Page({
 }: {
     params: { section: string; slug: string }
     searchParams: { [key: string]: string | string[] | undefined }
-}) {
+    }) {
+    const session = await auth()
     // const ContentEditableRef = useRef(null);
     const supabase = createSupabaseClient();
     const { data: article } = await supabase.from("notes").select('content').eq('id', '2');
@@ -47,6 +51,7 @@ export default async function Page({
             <div id="content-breadcrumbs" className="sticky top-14">
                 <Breadcrumbs />
             </div>
+            {/* {session && Article} */}
             {Article}
             {/* {JSON.stringify(data)} */}
             <Comments2 comments={commentElements} />

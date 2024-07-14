@@ -16,6 +16,9 @@ export default async function Page({
     searchParams: { [key: string]: string | string[] | undefined }
 }) {
     const session = await auth()
+    if (params.section === 'login')
+        // return <LoginForm />
+        return <>You have to login</>
     if (session) {
         const dir = path.join(process.cwd(), './content/', `${params.section}`)
         const filenames = fs.readdirSync(dir)

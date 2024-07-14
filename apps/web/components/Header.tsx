@@ -3,7 +3,8 @@
 import cn from 'classnames'
 import Link from 'next/link'
 import ThemeSwitcher from './ThemeSwitcher'
-import { Button } from './Button'
+// import { } from './'
+import { SignIn } from './SigninButton'
 import { signIn, signOut } from '../auth'
 import { handleSignOut } from '../app/actions'
 
@@ -53,6 +54,7 @@ const Header = () => {
                     <div className="flex items-center">
                         <ThemeSwitcher />
                     </div>
+                    <SignIn />
                     <form
                         className="flex items-center"
                         action={async () => {
