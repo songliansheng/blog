@@ -59,7 +59,7 @@ const CommentItem = ({ comment }: { comment: JSX.Element }) => {
         {comment}
         {/* {isEditmode ? <div id='commentElement1' ref={ContentEditableRef}></div> : htmlString} */}
         {isEditmode && (<div><Button buttonName='Cancel' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /><Button buttonName='Submit' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /></div>)}
-        {(!isEditmode) && (<div><Button buttonName='Edit' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /><Button buttonName='Reply' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /></div>)}
+        {/* {(!isEditmode) && (<div><Button buttonName='Edit' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /><Button buttonName='Reply' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /></div>)} */}
     </>
 }
 function MyOnChangePlugin({ onChange }) {

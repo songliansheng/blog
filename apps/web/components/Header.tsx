@@ -4,23 +4,41 @@ import cn from 'classnames'
 import Link from 'next/link'
 import ThemeSwitcher from './ThemeSwitcher'
 // import { } from './'
-import { SignIn } from './SigninButton'
-import { signIn, signOut } from '../auth'
+import { auth } from '@/auth'
+import { SignIn } from './Button'
+import { signIn, signOut } from '@/auth'
 import { handleSignOut } from '../app/actions'
+import Image from 'next/image'
+import { Avatar } from '@/components/Avatar'
 
-function NavItem({ url, isActive, children }: any) {
+const NavItem = ({ name, url, isActive, children }: any) => {
     return (
         <div className="flex flex-auto sm:flex-1">
             <Link
                 href={url}
                 className="active:scale-95 transition-transform text-center py-1.5 px-1.5 sm:px-4 rounded-full capitalize"
             >
-                {children}
+                {name}
             </Link>
         </div>
     )
 }
-const Header = () => {
+const SignOut = async () => {
+    return (
+        <form
+            action={async () => {
+                'use server'
+                await signOut()
+            }}
+        >
+            <button type="submit">Sign Out</button>
+        </form>
+    )
+}
+const Header = async () => {
+    const session = await auth()
+    const avatar = session?.user?.image
+
     return (
         <div className="sticky top-0 z-50">
             <nav
@@ -37,35 +55,22 @@ const Header = () => {
                     </div>
                     <div className="w-full"></div>
                     <div className="mx-2.5 gap-1.5 hidden lg:flex">
-                        <NavItem isActive="false" url="/">
-                            Home
-                        </NavItem>
-                        <NavItem isActive="false" url="/projects">
-                            Projects
-                        </NavItem>
-                        <NavItem isActive="false" url="/posts">
-                            Posts
-                        </NavItem>
-                        <NavItem isActive="true" url="/notes">
-                            Notes
-                        </NavItem>
-                        {/* <Button buttonName="Sign in" onClick={handleClick} /> */}
+                        <NavItem name="Home" isActive="false" url="/" />
+                        <NavItem
+                            name="Projects"
+                            isActive="false"
+                            url="/projects"
+                        />
+                        <NavItem name="Posts" isActive="false" url="/posts" />
+                        <NavItem name="Notes" isActive="false" url="/notes" />
+                        <NavItem name="Sign in" isActive="false" url="/login" />
                     </div>
                     <div className="flex items-center">
                         <ThemeSwitcher />
                     </div>
-                    <SignIn />
-                    <form
-                        className="flex items-center"
-                        action={async () => {
-                            'use server'
-                            await signOut()
-                        }}
-                    >
-                        <button className="flex-none" type="submit">
-                            Sign Out
-                        </button>
-                    </form>
+                    {/* <SignIn /> */}
+                    <Avatar imgSrc={session?.user?.image} />
+                    {session && <SignOut />}
                 </div>
             </nav>
             {/* < LoginForm /> */}

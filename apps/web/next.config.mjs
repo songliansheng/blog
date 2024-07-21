@@ -33,6 +33,17 @@ const nextConfig = {
         mdxRs: true,
         // turbo: turboConfig,
     },
+    // MARK images.remotePatterns needs to be configured if src prop of next/image is an absolute external URL
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
     // webpack: webpackConfig,
 }
 

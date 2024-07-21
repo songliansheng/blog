@@ -2,9 +2,13 @@
 import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
-
+import type { Provider } from 'next-auth/providers'
+export const GithubProvider2 =GithubProvider({
+        clientId: process.env.AUTH_GITHUB_ID,
+        clientSecret: process.env.AUTH_GITHUB_SECRET,
+    })
 const Callbacks = {
-    // MARK: For authorization to work, authorized callback、auth in middleware.ts are needed
+    // MARK: For authorization to work, authorized()、auth in middleware.ts are needed
     authorized({ request, auth }) {
         const { pathname } = request.nextUrl
         // if (pathname === '/middleware-example') return !!auth
@@ -24,10 +28,11 @@ const Callbacks = {
     //     return token
     // },
 }
-const Providers = [
+export const Providers: Provider[] = [
+    // MARK Callback URL need to be configured in github OAuth app
     GithubProvider({
-        clientId: process.env.GITHUB_ID,
-        clientSecret: process.env.GITHUB_SECRET,
+        clientId: process.env.AUTH_GITHUB_ID,
+        clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
     CredentialsProvider({
         name: 'Credentials',
@@ -57,6 +62,15 @@ const Providers = [
     }),
 ]
 
+export const providerMap = Providers.map((provider) => {
+    if (typeof provider === 'function') {
+        const providerData = provider()
+        return { id: providerData.id, name: providerData.name }
+    } else {
+        return { id: provider.id, name: provider.name }
+    }
+})
+
 export const edgeCompatibleConfig = { providers: Providers }
 
 // export const {
@@ -78,9 +92,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     secret: process.env.AUTH_SECRET || 'any random string',
     pages: {
         // MARK signIn is the page to jump to when calling the signin(from 'next-auth/react') function
-        signIn:'/login',
+        // signIn:'/login',
         signOut: '/auth/signout',
-        error: '/auth/error', // Error code passed in query string as ?error=
+        // error: '/auth/error', // Error code passed in query string as ?error=
         verifyRequest: '/auth/verify-request', // (used for check email message)
         newUser: '/auth/new-user', // New users will be directed here on first sign in (leave the property out if not of interest)
     },

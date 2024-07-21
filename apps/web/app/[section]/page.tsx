@@ -1,7 +1,12 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { serialize } from 'next-mdx-remote/serialize'
 import { auth } from 'auth'
-import { LoginForm } from 'components/LoginForm'
+// import { LoginForm } from '@/components/LoginForm'
+import LoginForm from '@/components/LoginForm'
+import Redirect from '@/components/Redirect'
+import Stopwatch from '@/components/Demo/Stopwatch'
+
+
 // import { redirect } from 'next/navigation'
 
 // import { promises as fs } from 'fs'
@@ -17,8 +22,17 @@ export default async function Page({
 }) {
     const session = await auth()
     if (params.section === 'login')
-        // return <LoginForm />
-        return <>You have to login</>
+        return session ? (
+            <Redirect message="You have loged in!" link='/'/>
+        ) : (
+            <LoginForm />
+        )
+    // return <>You have to login</>
+    if (params.section === 'test') return (
+        <>
+            <Redirect message="You have loged in" link="/" />
+        </>
+    )
     if (session) {
         const dir = path.join(process.cwd(), './content/', `${params.section}`)
         const filenames = fs.readdirSync(dir)
