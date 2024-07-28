@@ -12,13 +12,12 @@ export default function () {
     // const headersList = headers()
     return (
         <div>
-            {/* <div className="mx-auto px-1.5 max-w-[1408px] typewriter">
+            <div className="mx-auto px-1.5 max-w-[1408px] typewriter">
                 <h1 className="lg:ps-4">
                     Hi ! I'm Song Liansheng !
                 </h1>
 
-            </div> */}
-            {/* <Comments /> */}
+            </div>
         </div>
 
     )

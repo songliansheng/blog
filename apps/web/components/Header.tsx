@@ -10,6 +10,9 @@ import { signIn, signOut } from '@/auth'
 import { handleSignOut } from '../app/actions'
 import Image from 'next/image'
 import { Avatar } from '@/components/Avatar'
+import { Menu } from '@headlessui/react'
+import { MyDropdown } from './MyDropdown'
+import Headerr from '@/components/RootDiv'
 
 const NavItem = ({ name, url, isActive, children }: any) => {
     return (
@@ -23,6 +26,7 @@ const NavItem = ({ name, url, isActive, children }: any) => {
         </div>
     )
 }
+
 const SignOut = async () => {
     return (
         <form
@@ -63,17 +67,29 @@ const Header = async () => {
                         />
                         <NavItem name="Posts" isActive="false" url="/posts" />
                         <NavItem name="Notes" isActive="false" url="/notes" />
-                        <NavItem name="Sign in" isActive="false" url="/login" />
                     </div>
                     <div className="flex items-center">
                         <ThemeSwitcher />
                     </div>
                     {/* <SignIn /> */}
-                    <Avatar imgSrc={session?.user?.image} />
-                    {session && <SignOut />}
+
+                    {session ? (
+                        // <MyDropdown avatarSrc={avatar} />
+                        <Headerr avatarSrc={avatar} />
+                    ) : (
+                        <NavItem name="Sign in" isActive="false" url="/login" />
+                    )}
+                    {/* {session && (
+                        <>
+                            <Avatar imgSrc={session?.user?.image} />
+                            <SignOut />
+                        </>
+                    )} */}
+                    {/* {!session && (
+                        <NavItem name="Sign in" isActive="false" url="/login" />
+                    )} */}
                 </div>
             </nav>
-            {/* < LoginForm /> */}
         </div>
     )
 }

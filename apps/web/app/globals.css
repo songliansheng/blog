@@ -1,3 +1,4 @@
+/* MARK When @tailwind base is added ,Preflight will be injected */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

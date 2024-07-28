@@ -25,7 +25,7 @@ export default function Redirect({
         }, 1000)
         if (secondsRemaining == 0) {
             clearInterval(intervalRef.current)
-            router.push('/notes/english_pronunciation')
+            router.push(link)
         }
         // ALERT The optional cleanup function must be configured here
         return () => clearInterval(intervalRef.current)

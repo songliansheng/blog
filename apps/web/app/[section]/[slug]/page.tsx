@@ -1,4 +1,3 @@
-// 'use client'
 import path from 'path'
 import compileMdx from './compileMdx'
 import Toc from '@/components/Toc'
@@ -6,14 +5,16 @@ import Toc from '@/components/Toc'
 //   { content }
 import Breadcrumbs from 'components/Breadcrumb'
 import { promises as fs } from 'fs'
-import { createClient as createSupabaseClient } from 'lib/serverside-supabase-client';
+import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import dynamic from 'next/dynamic'
 import Comments from 'components/Comments'
+import { useContext } from 'react'
 // ALERT Use dynamic import and set ssr to false , or runtime error will happen!
 const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
 // const Comments2 = dynamic(() => import('components/Comments'))
 
 import {auth} from '@/auth'
+import { SupbaseClientContext } from '@/app/providers'
 
 export default async function Page({
     params,
