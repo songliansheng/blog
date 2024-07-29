@@ -1,31 +1,29 @@
 'use client'
-import { LexicalComposer } from '@lexical/react/LexicalComposer'
-import { ContentEditable } from '@lexical/react/LexicalContentEditable'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
-import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary'
 import { $generateNodesFromDOM } from '@lexical/html'
 import { $getRoot, $insertNodes, $getSelection } from 'lexical'
-
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
-
 import { renderToString } from 'react-dom/server'
 import { useRef } from 'react'
 import React, { useState, useEffect } from 'react'
-
 import { Button } from './Button'
-import OnChangePlugin from '@/components/Lexical/OnChangePlugin'
 import {
     $convertFromMarkdownString,
     $convertToMarkdownString,
     TRANSFORMERS,
 } from '@lexical/markdown'
-import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
-const CommentItem = ({ comment }: { comment: JSX.Element }) => {
-     const supabase = createSupabaseClient()
+// import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
+const CommentItem = ({
+    editor,
+    parser,
+    comment,
+}: {
+    editor
+    parser
+    comment: JSX.Element
+}) => {
+    // const supabase = createSupabaseClient()
     let isEditmode = false
-    const parser = new DOMParser()
-    const [editor] = useLexicalComposerContext()
+
     const ContentEditableRef = useRef(null)
 
     useEffect(() => {
@@ -53,7 +51,6 @@ const CommentItem = ({ comment }: { comment: JSX.Element }) => {
         })
     }
     const submit = () => {
-        const [editor] = useLexicalComposerContext()
         editor.update(() => {
             const markdown = $convertToMarkdownString(TRANSFORMERS)
         })
@@ -91,43 +88,24 @@ export default function Comments({
 }: {
     comments: JSX.Element
 }): JSX.Element {
-    const initialConfig = {
-        namespace: 'MyEditor',
-        theme: {},
-        onError: console.error,
-        editorState: null,
-    }
+    const parser = new DOMParser()
+    const [editor] = useLexicalComposerContext()
 
     useEffect(() => {
         // const contentEditableElement = document.getElementById('wtfwtf');
         // editor.setRootElement(contentEditableElement)
     }, [])
     const [editorState, setEditorState] = useState()
-    function onChange(editorState) {
-        setEditorState(editorState)
-    }
 
     // const ContentEditableRef = useRef(null);
     // const CommentItems = comments.map(comment => <CommentItem data={comment} />)
     return (
         <>
-            <LexicalComposer initialConfig={initialConfig}>
-                <div>
-                    <CommentItem comment={comments} />
-                    <RichTextPlugin
-                        contentEditable={
-                            <div id="wtfwtf">
-                                <ContentEditable />
-                            </div>
-                        }
-                        // contentEditable={<ContentEditable />}
-                        placeholder={<div>Enter some text...</div>}
-                        ErrorBoundary={LexicalErrorBoundary}
-                    />
-                    <OnChangePlugin onChange={onChange} />
-                    <AutoFocusPlugin />
-                </div>
-            </LexicalComposer>
+            <CommentItem
+                parser={parser}
+                editor={editor}
+                comment={comments}
+            />
         </>
     )
 }

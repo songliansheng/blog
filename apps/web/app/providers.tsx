@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import { createContext } from 'react'
 // ALERT supbase client in ssr only work in server side
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'

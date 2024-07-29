@@ -13,7 +13,7 @@ import { useContext } from 'react'
 const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
 // const Comments2 = dynamic(() => import('components/Comments'))
 
-import {auth} from '@/auth'
+import { auth } from '@/auth'
 import { SupbaseClientContext } from '@/app/providers'
 
 export default async function Page({
@@ -22,12 +22,18 @@ export default async function Page({
 }: {
     params: { section: string; slug: string }
     searchParams: { [key: string]: string | string[] | undefined }
-    }) {
+}) {
     const session = await auth()
     // const ContentEditableRef = useRef(null);
-    const supabase = createSupabaseClient();
-    const { data: article } = await supabase.from("notes").select('content').eq('id', '2');
-    const { data: comments } = await supabase.from("comments").select('content').eq('id', '1');
+    const supabase = createSupabaseClient()
+    const { data: article } = await supabase
+        .from('notes')
+        .select('content')
+        .eq('id', '2')
+    const { data: comments } = await supabase
+        .from('comments')
+        .select('content')
+        .eq('id', '1')
     const soruce = JSON.stringify(article![0].content)
     // const soruce = JSON.stringify(data)
     // console.log(comments![0].content)
@@ -41,8 +47,12 @@ export default async function Page({
     // const file = fs.readFileSync(filepath)
 
     const mdx = await fs.readFile(filepath, 'utf8')
-    const { content: Article, headings } = await compileMdx({ mdx: article![0].content })
-    const { content: commentElements } = await compileMdx({ mdx: comments![0].content })
+    const { content: Article, headings } = await compileMdx({
+        mdx: article![0].content,
+    })
+    const { content: commentElements } = await compileMdx({
+        mdx: comments![0].content,
+    })
 
     return (
         <div

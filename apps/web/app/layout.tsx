@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import Headerr from '@/components/RootDiv'
 import { signIn, signOut } from 'auth'
-import Providers from './providers'
+// import Providers from './providers'
 import './globals.css'
 export default function RootLayout({
     children,

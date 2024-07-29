@@ -1,3 +1,4 @@
+// MARK For server component ,'@supabase/ssr' should be used instead of '@supabase/supabase-js'
 import {
     createBrowserClient,
     createServerClient,
@@ -5,13 +6,13 @@ import {
 } from '@supabase/ssr'
 // ALERT next/headers only work in server components
 import { cookies } from 'next/headers'
-export function createClientsideClient() {
-    // Create a supabase client on the browser with project's credentials
-    return createBrowserClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
-}
+// export function createClientsideClient() {
+//     // Create a supabase client on the browser with project's credentials
+//     return createBrowserClient(
+//         process.env.NEXT_PUBLIC_SUPABASE_URL!,
+//         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+//     )
+// }
 export function createServersideClient() {
     const cookieStore = cookies()
 

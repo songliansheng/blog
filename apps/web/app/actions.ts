@@ -3,6 +3,7 @@ import { signIn, signOut } from '../auth'
 import { redirect } from 'next/navigation'
 import { AuthError, CredentialsSignin } from '@auth/core/errors'
 import { z } from 'zod'
+import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import { signInSchema } from 'lib/zod'
 
 export async function handleSignIn(formData) {
@@ -35,3 +36,10 @@ export async function handleSignIn3() {
     //     console.log(response)
     // })
 }
+// export async function supbaseApi(method,table,column) {
+//     const supabase = createSupabaseClient()
+//     switch (method) {
+//         case 'insert':await supabase.from(table).insert({ id: 1, name: 'Denmark' })
+//     }
+//     await signOut()
+// }
