@@ -8,9 +8,11 @@ export default function SlugLayout({
     children: React.ReactNode
 }) {
     return (
-        <LexicalComposer initialConfig={initialConfig}>
-            <Editor />
-            {children}
-        </LexicalComposer>
+       
+            <LexicalComposer initialConfig={initialConfig}>
+                <Editor />
+                {children}
+            </LexicalComposer>
+       
     )
 }

@@ -20,13 +20,17 @@ const CommentItem = ({
     editor
     parser
     comment: JSX.Element
-}) => {
+    }) => {
+    // let [parser, setParser] = useState<DOMParser>(new DOMParser())
+    // let [dom, setDom] = useState<Document|undefined>()
     // const supabase = createSupabaseClient()
-    let isEditmode = false
+    let isEditmode = true
 
     const ContentEditableRef = useRef(null)
 
     useEffect(() => {
+        // const parser = new DOMParser()
+        
         editor.update(() => {})
     }, [])
 
@@ -37,13 +41,14 @@ const CommentItem = ({
     const enableEdit = () => {
         isEditmode = false
         const htmlElementString = renderToString(comment)
-        const commentDom = parser.parseFromString(
+        const dom = parser.parseFromString(
             htmlElementString,
             'text/html'
         )
+        
         editor.setRootElement(ContentEditableRef.current)
         editor.update(() => {
-            const lexicalNodes = $generateNodesFromDOM(editor, commentDom)
+            const lexicalNodes = $generateNodesFromDOM(editor, dom)
             const root = $getRoot()
             root.clear()
             root.select() //Is this line of code unnecessary?
@@ -64,7 +69,7 @@ const CommentItem = ({
         <>
             {comment}
             {/* {isEditmode ? <div id='commentElement1' ref={ContentEditableRef}></div> : htmlString} */}
-            {isEditmode && (
+            {/* {isEditmode && (
                 <div>
                     <Button
                         buttonName="Cancel"
@@ -77,7 +82,7 @@ const CommentItem = ({
                         onClick={enableEdit}
                     />
                 </div>
-            )}
+            )} */}
             {/* {(!isEditmode) && (<div><Button buttonName='Edit' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /><Button buttonName='Reply' className="bg-sky-500 hover:bg-sky-700" onClick={enableEdit} /></div>)} */}
         </>
     )
@@ -86,26 +91,24 @@ const CommentItem = ({
 export default function Comments({
     comments,
 }: {
-    comments: JSX.Element
-}): JSX.Element {
-    const parser = new DOMParser()
+    comments: JSX.Element[]
+    }): JSX.Element {
+   let [parser, setParser] = useState<DOMParser>()
+    console.log(comments)
+    // const parser = new DOMParser()
     const [editor] = useLexicalComposerContext()
 
     useEffect(() => {
+       setParser(new DOMParser())
         // const contentEditableElement = document.getElementById('wtfwtf');
         // editor.setRootElement(contentEditableElement)
     }, [])
+    const ConmentItems = comments.map((comment, index) => {
+        return <CommentItem parser={parser} editor={editor} comment={comment} />
+    })
     const [editorState, setEditorState] = useState()
 
     // const ContentEditableRef = useRef(null);
     // const CommentItems = comments.map(comment => <CommentItem data={comment} />)
-    return (
-        <>
-            <CommentItem
-                parser={parser}
-                editor={editor}
-                comment={comments}
-            />
-        </>
-    )
+    return <>{ConmentItems}</>
 }

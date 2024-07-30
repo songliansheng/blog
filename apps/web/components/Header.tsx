@@ -44,53 +44,48 @@ const Header = async () => {
     const avatar = session?.user?.image
 
     return (
-        <div className="sticky top-0 z-50">
-            <nav
-                className={cn(
-                    ' mx-auto max-w-[1408px] w-[calc(100%-160px)] duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 '
-                )}
+        <nav
+            className={cn(
+                'px-4 max-w-7xl mx-auto duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between dark:bg-opacity-95 '
+                // ' mx-auto max-w-[1408px] w-[calc(100%-160px)] duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 '
+            )}
+        >
+            <div
+                id="global-header"
+                className=" flex w-full items-center justify-between py-6 text-xl"
             >
-                <div
-                    id="global-header"
-                    className=" flex w-full items-center justify-between py-6 text-xl"
-                >
-                    <div className="w-72 -space-x-2.5 shrink-0">
-                        🗐 Liansheng Song
-                    </div>
-                    <div className="w-full"></div>
-                    <div className="mx-2.5 gap-1.5 hidden lg:flex">
-                        <NavItem name="Home" isActive="false" url="/" />
-                        <NavItem
-                            name="Projects"
-                            isActive="false"
-                            url="/projects"
-                        />
-                        <NavItem name="Posts" isActive="false" url="/posts" />
-                        <NavItem name="Notes" isActive="false" url="/notes" />
-                    </div>
-                    <div className="flex items-center">
-                        <ThemeSwitcher />
-                    </div>
-                    {/* <SignIn /> */}
+                <div className="w-72 -space-x-2.5 shrink-0">
+                    🗐 Liansheng Song
+                </div>
+                <div className="w-full"></div>
+                <div className="mx-2.5 gap-1.5 hidden lg:flex">
+                    <NavItem name="Home" isActive="false" url="/" />
+                    <NavItem name="Projects" isActive="false" url="/projects" />
+                    <NavItem name="Posts" isActive="false" url="/posts" />
+                    <NavItem name="Notes" isActive="false" url="/notes" />
+                </div>
+                <div className="flex items-center">
+                    <ThemeSwitcher />
+                </div>
+                {/* <SignIn /> */}
 
-                    {session ? (
-                        // <MyDropdown avatarSrc={avatar} />
-                        <Headerr avatarSrc={avatar} />
-                    ) : (
-                        <NavItem name="Sign in" isActive="false" url="/login" />
-                    )}
-                    {/* {session && (
+                {session ? (
+                    // <MyDropdown avatarSrc={avatar} />
+                    <Headerr avatarSrc={avatar} />
+                ) : (
+                    <NavItem name="Sign in" isActive="false" url="/login" />
+                )}
+                {/* {session && (
                         <>
                             <Avatar imgSrc={session?.user?.image} />
                             <SignOut />
                         </>
                     )} */}
-                    {/* {!session && (
+                {/* {!session && (
                         <NavItem name="Sign in" isActive="false" url="/login" />
                     )} */}
-                </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     )
 }
 export default Header

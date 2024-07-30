@@ -7,10 +7,10 @@ import Breadcrumbs from 'components/Breadcrumb'
 import { promises as fs } from 'fs'
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import dynamic from 'next/dynamic'
-import Comments from 'components/Comments'
+import Comments2 from 'components/Comments'
 import { useContext } from 'react'
 // ALERT Use dynamic import and set ssr to false , or runtime error will happen!
-const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
+// const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
 // const Comments2 = dynamic(() => import('components/Comments'))
 
 import { auth } from '@/auth'
@@ -55,20 +55,25 @@ export default async function Page({
     })
 
     return (
-        <div
-            id="content"
-            className="max-w-7xl mx-auto px-4 md:px-8 sm:px-6 lg:pr-[19.5rem]"
-        >
-            <div id="content-breadcrumbs" className="sticky top-14">
+        <>
+            <div id="slug-breadcrumbs" className="sticky top-14">
                 <Breadcrumbs />
             </div>
             {/* {session && Article} */}
-            {Article}
+            <div
+                id="slug-main"
+                className=" mx-auto px-4 lg:pr-[19.5rem]"
+            >
+                {Article}
+                <Comments2 comments={[commentElements]} />
+            </div>
             {/* {JSON.stringify(data)} */}
-            <Comments2 comments={commentElements} />
-            <div className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]">
+            <div
+                id="slug-toc"
+                className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]"
+            >
                 <Toc headings={headings} />
             </div>
-        </div>
+        </>
     )
 }
