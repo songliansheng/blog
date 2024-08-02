@@ -14,15 +14,8 @@ import { Avatar } from '@/components/Avatar'
 import { Menu } from '@headlessui/react'
 import { MyDropdown } from './MyDropdown'
 
-
 const NavItem = ({ name, url, isActive, children }: any) => {
-    return (
-        <Link
-            href={url}
-        >
-            {name}
-        </Link>
-    )
+    return <Link href={url}>{name}</Link>
 }
 
 const SignOut = async () => {
@@ -81,9 +74,7 @@ const Header = async () => {
                     )} */}
                 </nav>
                 <ThemeSwitcher />
-                {session ? (
-                    <Headerr avatarSrc={avatar} />
-                ) : null}
+                {session ? <Headerr avatarSrc={avatar} /> : null}
             </div>
         </div>
     )

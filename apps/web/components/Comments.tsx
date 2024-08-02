@@ -64,10 +64,5 @@ export default function Comments({
         return <CommentItem key={index} comment={comment} />
     })
 
-    return (
-        <>
-            
-            {ConmentItems}
-        </>
-    )
+    return <>{ConmentItems}</>
 }
