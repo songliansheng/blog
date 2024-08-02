@@ -1,4 +1,3 @@
-'use client'
 import { signOut } from '@/auth'
 import { signIn } from 'next-auth/react'
 // ALERT If a function in a file is used by a client compponent ,then all other functions in the file will be treated as client components
@@ -12,7 +11,7 @@ export function Button({
     className?: string
     buttonName: string
     type?: string
-    onClick?: () => void
+    onClick?: (params?) => void
 }): JSX.Element {
     return (
         <button className={className} onClick={onClick}>

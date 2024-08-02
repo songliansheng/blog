@@ -3,11 +3,12 @@ import compileMdx from './compileMdx'
 import Toc from '@/components/Toc'
 // import fs from 'fs'
 //   { content }
+import Editor from '@/components/Lexical/LexicalEditor'
 import Breadcrumbs from 'components/Breadcrumb'
 import { promises as fs } from 'fs'
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import dynamic from 'next/dynamic'
-import Comments2 from 'components/Comments'
+import Comments2 from '@/components/Comments'
 import { useContext } from 'react'
 // ALERT Use dynamic import and set ssr to false , or runtime error will happen!
 // const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
@@ -53,27 +54,29 @@ export default async function Page({
     const { content: commentElements } = await compileMdx({
         mdx: comments![0].content,
     })
-
+    // ALERT For a element to be sticky , its hight must be set !
     return (
-        <>
-            <div id="slug-breadcrumbs" className="sticky top-14">
-                <Breadcrumbs />
-            </div>
-            {/* {session && Article} */}
-            <div
-                id="slug-main"
-                className=" mx-auto px-4 lg:pr-[19.5rem]"
-            >
+        <div id="slug" className=" flex flex-row max-w-7xl mx-auto">
+            <div id="slug-main" className=" px-4">
+                <div
+                    id="slug-breadcrumbs"
+                    className="sticky top-14 backdrop-blur-xl "
+                >
+                    <Breadcrumbs />
+                </div>
                 {Article}
-                <Comments2 comments={[commentElements]} />
+                <div id="comments">
+                    <Editor />
+                    <Comments2 comments={[commentElements]} />
+                </div>
             </div>
-            {/* {JSON.stringify(data)} */}
+
             <div
-                id="slug-toc"
-                className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]"
+                id="slug-toc-wrapper"
+                className="h-[calc(100vh-121px)] hidden sticky xl:block pr-4 top-24 pl-8  w-[19.5rem]"
             >
                 <Toc headings={headings} />
             </div>
-        </>
+        </div>
     )
 }

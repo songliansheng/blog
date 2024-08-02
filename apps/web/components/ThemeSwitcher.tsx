@@ -84,7 +84,7 @@ export default function ThemeSwitcher() {
             <div className="flex dark:hidden">
                 <button
                     type="button"
-                    className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link"
+                    className="active:scale-95 transition-transform  rounded-full  hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link"
                     onClick={switchToDark}
                 >
                     {darkIcon}
@@ -94,7 +94,7 @@ export default function ThemeSwitcher() {
                 {' '}
                 <button
                     type="button"
-                    className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link"
+                    className="active:scale-95 transition-transform rounded-full  hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link"
                     onClick={switchToLight}
                 >
                     {lightIcon}

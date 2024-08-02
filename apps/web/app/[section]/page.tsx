@@ -40,7 +40,10 @@ export default async function Page({
         const listItems = filenames.map((filename) => <li>{filename}</li>)
 
         return (
-            <div className="flex content-center items-center">
+            <div
+                id="section"
+                className="max-w-7xl mx-auto"
+            >
                 <ul>{listItems}</ul>
             </div>
         )

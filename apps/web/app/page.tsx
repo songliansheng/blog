@@ -4,8 +4,7 @@ import Header from '../components/Header'
 import { signIn } from 'auth'
 import dynamic from 'next/dynamic'
 
-
-const Comments = dynamic(() => import('components/Comments'), {
+const Comments = dynamic(() => import('@/components/Comments'), {
     loading: () => <p>Loading...</p>,
 })
 export default function () {
@@ -13,12 +12,8 @@ export default function () {
     return (
         <div>
             <div className="mx-auto px-1.5 max-w-[1408px] typewriter">
-                <h1 className="lg:ps-4">
-                    Hi ! I'm Song Liansheng !
-                </h1>
-
+                <h1 className="lg:ps-4">Hi ! I'm Song Liansheng !</h1>
             </div>
         </div>
-
     )
 }

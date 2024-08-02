@@ -13,13 +13,13 @@ export default function RootLayout({
             <body className="bg-inherit text-lg">
                 <div id="root" className=" ">
                     <div
-                        id="root-header-boundary"
-                        className="max-w-8xl sticky top-0 z-50 px-4 sm:px-6"
+                        id="rootLayout-header"
+                        className="max-w-8xl sticky -top-6 z-50 px-4 sm:px-6 "
                     >
                         <Header />
                     </div>
                     <div
-                        id="root-main-boundary"
+                        id="rootLayout-main"
                         className="max-w-8xl mx-auto px-4 sm:px-6 mt-3"
                     >
                         {children}
