@@ -5,14 +5,13 @@ import Link from 'next/link'
 import ThemeSwitcher from './ThemeSwitcher'
 // import { } from './'
 import { auth } from '@/auth'
-import Headerr from './RootDiv'
-import { SignIn } from './Button'
+// import Headerr from './RootDiv'
 import { signIn, signOut } from '@/auth'
 import { handleSignOut } from '../app/actions'
 import Image from 'next/image'
 import { Avatar } from '@/components/Avatar'
 import { Menu } from '@headlessui/react'
-import { MyDropdown } from './MyDropdown'
+
 
 const NavItem = ({ name, url, isActive, children }: any) => {
     return <Link href={url}>{name}</Link>
@@ -30,7 +29,7 @@ const SignOut = async () => {
         </form>
     )
 }
-const Header = async () => {
+export const RootHeader = async () => {
     const session = await auth()
     const avatar = session?.user?.image
 
@@ -74,9 +73,13 @@ const Header = async () => {
                     )} */}
                 </nav>
                 <ThemeSwitcher />
-                {session ? <Headerr avatarSrc={avatar} /> : null}
+                {/* {session ? <Headerr avatarSrc={avatar} /> : null} */}
             </div>
         </div>
     )
 }
-export default Header
+export default function ArticleHeader({ title, author, date }) {
+    return (<div className='flex flex-col'>
+        <h1>{ title}</h1>
+    </div>)
+}

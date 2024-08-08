@@ -1,5 +1,5 @@
-//TODO Figure out how to use 'remark-heading-id'
-// import { compileMDX } from 'next-mdx-remote/rsc'
+/* TODO Figure out how to use 'remark-heading-id'
+ */
 import { compileMDX } from 'remote-mdx/rsc'
 import { MdxComponents } from 'components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
@@ -26,9 +26,9 @@ const Rehype_Toc_Plug = [
     },
 ]
 
-export default async function Compile({ mdx }: { mdx: string }) {
+export default async function Compile({ mdxString }: { mdxString: string }) {
     const { content } = await compileMDX({
-        source: mdx,
+        source: mdxString,
         options: {
             mdxOptions: {
                 remarkPlugins: REMARK_PLUGINS,
@@ -40,7 +40,7 @@ export default async function Compile({ mdx }: { mdx: string }) {
 
     const {
         data: { headings },
-    } = await compile(mdx, {
+    } = await compile(mdxString, {
         remarkPlugins: [...REMARK_PLUGINS, remarkHeadings],
         rehypePlugins: REHYPE_PLUGINS,
     })

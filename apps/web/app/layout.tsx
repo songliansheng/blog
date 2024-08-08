@@ -1,5 +1,5 @@
-import Header from '../components/Header'
-import Headerr from '@/components/RootDiv'
+import {RootHeader as Header} from '../components/Header'
+
 import { signIn, signOut } from 'auth'
 // import Providers from './providers'
 import './globals.css'

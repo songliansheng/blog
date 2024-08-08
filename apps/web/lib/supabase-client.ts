@@ -1,10 +1,12 @@
-// MARK For server component ,'@supabase/ssr' should be used instead of '@supabase/supabase-js'
+/* MARK For server component ,'@supabase/ssr' should be used instead of '@supabase/supabase-js' */
 import {
     createBrowserClient,
     createServerClient,
     type CookieOptions,
 } from '@supabase/ssr'
-// ALERT next/headers only work in server components
+
+/* ALERT next/headers only work in server components */
+
 import { cookies } from 'next/headers'
 export function createClientsideClient() {
     // Create a supabase client on the browser with project's credentials

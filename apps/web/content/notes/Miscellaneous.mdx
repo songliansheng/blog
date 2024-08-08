@@ -1,0 +1,56 @@
+## JWT
+- JWT : JSON Web Tokens , Json data+signature
+- **Jwt format** :EncodedHeader.EncodedPayload.Signature
+- JWTs don’t encrypt your data, they simply help you verify that it was created by someone you trust.
+- **JWT token** is stored in the Authorization header using the Bearer scheme.
+- The header should look like this: `Authorization: Bearer <JWT>`
+- **JWT Claims** are information encoded in the body of a JWT ,they are information asserted about a subject
+- Since the expanded form of the JWT is in a JSON format, each claim is a key in the JSON object
+- **bearer token** is one usage scenario of jwt
+- **Bearer tokens** can be included in an HTTP request in different ways, you could also put it into a request parameter, a cookie or the request body,the Authorization header
+## Naming Convention
+- **PascalCase** : aka ,UpperCamelCase , initial uppercase letter , the first letter of each appended word is capitalized
+- **camelCase** :aka ,lowerCamelCase ,initial lowercase letter , the first letter of each appended word is capitalized
+- **SCREAMING_SNAKE_CASE**
+## Object-Relational DB
+- Object-Relational Database : aka ,ORD
+- In ORD, the basic approach is based on RDB
+- Since the data in ORD is stored in a traditional database and manipulated and accessed using queries written in a query language like SQL
+- ORD is considered an object store for software that is written in an object-oriented programming language
+- APIs are used to store and access the data as objects in ORDBMS
+
+## Auth - Cryptography
+- Asymmetric cryptography : aka Public-key cryptography, uses pairs of keys: public key、private key
+- Any person can encrypt a message using the intended receiver's public key；
+- Encrypted message by puublic key can only be decrypted with the receiver's private key
+- **Asymmetric cryptography** can be used to generate digital signature
+- **Symmetric cryptography** : use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext
+- **AES** : aka Rijndael , 
+- AES algorithm has three different key lengths: 128, 192 and 256 bits
+**CBC** is a common mode , base64 is the common encoding method
+## Auth - Digital signature
+- A digital signature scheme typically consists of three algorithms:
+
+A key generation algorithm ;
+
+A signing algorithm(aka encryption algorithm);
+
+A signature verifying algorithm
+
+- PKI :aka ,Public Key Infrastructure
+## Auth - Claims-based identity
+- Claims are pieces of information about a user that have been packaged and signed into security tokens and sent by an issuer/identity provider to relying party applications through a Security Token Service (STS)
+- A claim is a statement that one subject, such as a person or organization, makes about itself or another subject
+- Claims-based identity is a common method used by applications to obtain identity information about a user that another application has authenticated
+- In a claims based approach to authentication, trust is explicit. Your applications believe a claim about the current user only if it trusts the entity that issued the claim
+
+This authentication model enables users to authenticate on one domain and gain access to all other domains that trust the same identity provider
+- Identity provider : aka issuer、issuing authority , is the subject making the claim or claims
+- A token is a message containing claims
+- SAML is a standard data format, which is used for encoding security tokens
+
+The format of SAML encoded messages is XML
+SAML also stands for protocols that use claims in SAML format
+- STS (security token service) is a web service that packages claims into encrypted security tokens
+
+For example, Active Directory Federation Services (ADFS)

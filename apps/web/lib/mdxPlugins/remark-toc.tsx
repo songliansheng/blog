@@ -1,5 +1,7 @@
-//TODO Complete this !!!
 import { toc } from 'mdast-util-toc'
+/* TODO Complete this !!! 
+*
+*/
 export default function remarkToc({ tree, options }) {
     const settings = {
         ...options,
@@ -24,11 +26,11 @@ export default function remarkToc({ tree, options }) {
             return
         }
 
-        /* tree.children = [
-            ...tree.children.slice(0, result.index),
-            result.map,
-            ...tree.children.slice(result.endIndex),
-        ] */
+        // tree.children = [
+        //     ...tree.children.slice(0, result.index),
+        //     result.map,
+        //     ...tree.children.slice(result.endIndex),
+        // ]
 
         // trim a mdast to toc only
         tree.children = [result.map]

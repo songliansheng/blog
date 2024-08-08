@@ -1,6 +1,6 @@
-'use server'
 import { Field, Formik, useFormik, Form } from 'formik'
-// import { Button } from './Button'
+import { Button } from './Button'
+import {Button as ClientSideButton} from '@/components/Button/ButtonWrapper'
 import { Input } from './Input'
 import { signIn, providerMap, Providers, GithubProvider2 } from '@/auth'
 import { handleSignIn } from '@/app/actions'
@@ -8,9 +8,25 @@ import { handleSignIn3 } from 'app/actions'
 import { signInSchema } from 'lib/zod'
 import { AuthError } from 'next-auth'
 import { redirect } from 'next/navigation'
+import { signIn as signInCallback } from 'next-auth/react'
 // import { useRouter } from 'next/navigation'
 import { z } from 'zod'
 
+export function SignInButton() {
+    return (
+        
+        /* MARK The callbackUrl specifies to which URL the user will be redirected after signing in */
+        <ClientSideButton
+            className=""
+            onClick={() =>
+                // signIn(undefined, { callbackUrl: 'http://localhost:3000/foo' })
+                signInCallback()
+            }
+        >
+            SignIn with Github
+        </ClientSideButton>
+    )
+}
 export async function LoginForm() {
     return (
         <>
@@ -74,7 +90,7 @@ export async function SignInPage1() {
         </div>
     )
 }
-export  async function SignInPage4() {
+export async function SignInPage4() {
     // console.log(providerMap)
     console.log(GithubProvider2.id, GithubProvider2.name)
     return (
@@ -156,4 +172,3 @@ export default async function SignInPage() {
         </div>
     )
 }
-
