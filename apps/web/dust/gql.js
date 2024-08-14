@@ -1,4 +1,4 @@
-import { gql} from '@apollo/client'
+import { gql } from '@apollo/client'
 const getPostByID = gql`
     query FindAllCustomers($slug: ID!) {
         findProductByID(id: $slug) {
@@ -6,4 +6,16 @@ const getPostByID = gql`
         }
     }
 `
-export { getPostByID }
+
+const FindallCustomer = gql`
+    query Find {
+        allCustomers {
+            data {
+                firstName
+                lastName
+            }
+        }
+    }
+`
+
+export { FindallCustomer, getPostByID }

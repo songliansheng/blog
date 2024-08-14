@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import { signIn } from 'auth'
 import dynamic from 'next/dynamic'
 
-const Comments = dynamic(() => import('@/components/Comments'), {
+const Comments = dynamic(() => import('@/components/Comments/Comments'), {
     loading: () => <p>Loading...</p>,
 })
 export default function () {

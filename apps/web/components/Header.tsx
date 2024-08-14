@@ -12,7 +12,6 @@ import Image from 'next/image'
 import { Avatar } from '@/components/Avatar'
 import { Menu } from '@headlessui/react'
 
-
 const NavItem = ({ name, url, isActive, children }: any) => {
     return <Link href={url}>{name}</Link>
 }
@@ -34,10 +33,7 @@ export const RootHeader = async () => {
     const avatar = session?.user?.image
 
     return (
-        <div
-            id="global-header"
-            className=" flex bg-opacity-100 max-w-7xl items-center justify-between py-6 text-xl mx-auto"
-        >
+        <header className=" flex bg-opacity-100 max-w-7xl items-center justify-between py-6 text-xl mx-auto">
             <div className="w-72 -space-x-2.5 shrink-0 bg-inherit/100">
                 🗐 Liansheng Song
             </div>
@@ -75,11 +71,13 @@ export const RootHeader = async () => {
                 <ThemeSwitcher />
                 {/* {session ? <Headerr avatarSrc={avatar} /> : null} */}
             </div>
-        </div>
+        </header>
     )
 }
 export default function ArticleHeader({ title, author, date }) {
-    return (<div className='flex flex-col'>
-        <h1>{ title}</h1>
-    </div>)
+    return (
+        <div className="flex flex-col">
+            <h1>{title}</h1>
+        </div>
+    )
 }

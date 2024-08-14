@@ -1,7 +1,6 @@
 'use client'
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
-// const RichTextPlugin = require('@lexical/react/LexicalRichTextPlugin')
-// import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
+
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
 import OnChangePlugin from '@/components/Lexical/Plugins/OnChangePlugin'
 import { ContentEditable } from './ContentEditableWrapper'
@@ -41,10 +40,13 @@ export default function Editor() {
                             className=" relative py-2 px-auto border"
                             aria-placeholder="Enter a comment here"
                             placeholder={
-                                <div className="absolute top-2 left-7 right-7 pointer-events-none">
+                                <div className="absolute top-2 left-4 right-4 pointer-events-none">
                                     Add a comment
                                 </div>
                             }
+                            onFocus={()=>{const contentEditableElement =
+                                document.getElementById('comment-input-box')
+                            contentEditableElement!.classList.add('lg:flex')}}
                         />
                     </div>
                 }

@@ -1,15 +1,35 @@
 # CSS properties
 `color-scheme` 
 
+
 # At-rules
+- @identifier (RULE); , aka **At-rules** , are CSS statements that instruct CSS how to behave
+`@charset "utf-8";`
+- **CGR**:Conditional group rules , CGR associate a condition with a group of other CSS rules
+
 
 ## @media
-**Media Query** is a CSS technique (introduced from CSS 3) that enables you to arrange the contents of a web page or use different styles based on the devices’ general type
+- **Media Query**`@media` is a CSS technique (introduced from CSS 3) that enables you to arrange the contents of a web page or use
+different styles based on the devices’ general type
+
+- `@media`enable different values to properties of selectors based upon the width of the viewport;
+
+With Sass, a media query can be nested directly within the CSS rule, this removes the need to name the CSS rule twice
+
 
 
 ### Media features
 
 `hover` , `orientation` , `max-width` , `min-width` , `color` , `prefers-color-scheme`
+### Media Query syntax
+```
+@media not|only mediatype and (mediafeature and|or|not mediafeature) 
+{
+  CSS-Code;
+}
+```
+### mediatype : screen
+
 
 # Position
 ## `position:sticky`
@@ -20,3 +40,16 @@ When scrolling to the sticky position:`fixed`
 (The final state)When the bottom of the stationary item aligned with the bottom of the scrolling parent:`absolute`(`bottom: 0px;`)
 
 - The parent of the sticky item must be big enough(Aka , has a "scrolling mechanism")
+- sticky elements are only sticky within their parent element
+
+# Selectors
+- `.class1.class2` : Selects all elements with both class1 and class2 set within its class attribute(no spaces between them)
+- `element1>element2` : Selects all element2 where the parent is a element1
+- `element1 element2` : Selects all element2 inside element1
+- `element1,element2` : Selects all element1 and element2
+
+# Pseudo elements/classes
+- Pseudo-class :The single colon `:`
+- Pseudo-element :The double colon `::`
+
+`:before` is CSS2 syntax of Pseudo-element

@@ -9,9 +9,9 @@ import { promises as fs } from 'fs'
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import dynamic from 'next/dynamic'
 import { ContentEditable } from '@/components/Lexical/ContentEditableWrapper'
-import Comments from '@/components/Comments'
+import Comments from '@/components/Comments/Comments'
 import { useContext } from 'react'
-import { CommentInputBox } from '@/components/Comments'
+// import { CommentInputBox } from '@/components/Comments/Comments'
 
 /* ALERT Use dynamic import and set ssr to false , or runtime error will happen!
  */
@@ -96,32 +96,31 @@ export default async function Page({
     /* MARK For the placeholder in ContentEditable(in editor) to be positioned properly, the editor must be non-static
      */
     return (
-        <div id="slug" className=" flex flex-row max-w-7xl mx-auto">
-            <div id="slug-main" className=" px-4">
+        <main className=" flex flex-row max-w-7xl mx-auto lg:justify-between justify-center">
+            <article className="px-4 lg:w-[calc(100vw-19.5rem)]">
                 <div
-                    id="slug-breadcrumbs"
-                    className="sticky top-14 backdrop-blur-xl "
+                    id="breadcrumbs"
+                    className="sticky top-14 dark:bg-[theme(colors.primary-bg-dark)]"
                 >
                     <Breadcrumbs />
                 </div>
                 {Article}
-
-                <div id="editor-wrapper" className="relative">
-                    <Editor />
-                </div>
-                <div id="comments">
-                    {/* <div id="comment666" contentEditable={true}></div> */}
-
+                <section id="comments" className="py-5">
+                    <h2 className="text-3xl mb-6">Comments</h2>
+                    <div id="editor-wrapper" className="relative mb-6">
+                        <Editor />
+                        {/* <CommentInputBox /> */}
+                    </div>
                     <Comments comments={commentsTest} />
-                </div>
-            </div>
+                </section>
+            </article>
 
             <div
-                id="slug-toc-wrapper"
-                className="h-[calc(100vh-121px)] hidden sticky xl:block pr-4 top-24 pl-8  w-[19.5rem]"
+                id="toc-wrapper"
+                className="h-[calc(100vh-121px)] hidden sticky lg:block pr-4 top-24 pl-8  w-[19.5rem] shrink-0 shadow-lg"
             >
                 <Toc headings={headings} />
             </div>
-        </div>
+        </main>
     )
 }

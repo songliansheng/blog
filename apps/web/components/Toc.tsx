@@ -2,11 +2,12 @@
 import { useTocHighlight } from './useTocHighlight'
 import cx from 'classnames'
 export default function Toc({ headings }) {
-     const { currentId } = useTocHighlight()
+    const { currentId } = useTocHighlight()
     return (
         // <div className="hidden xl:block overflow-y-auto bottom-0 fixed top-24 pl-8 right-[max(0px,calc(50%-45rem))] w-[19.5rem]">
         <>
             <h2>On THIS PAGE</h2>
+
             <ul className="space-y-2 pb-16 text-base">
                 {headings.map((heading, index) => {
                     return (
@@ -81,5 +82,3 @@ export function TOC({ headings }) {
         </div>
     )
 }
-
-

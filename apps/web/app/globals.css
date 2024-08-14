@@ -8,7 +8,7 @@
 
 @layer utilities {
     form input {
-        @apply px-4 py-3 block border rounded text-black;
+        @apply px-4 py-3 block border rounded ;
     }
 
     .test {
@@ -45,8 +45,11 @@
         }
     }
 }
-
+/* MARK :root is a CSS pseudo-class , it represents the <html> element
+ * Alternative to CSS variables in Tailwind: theme function + design tokens in tailwind.config.js
+ */
 :root {
+   
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;

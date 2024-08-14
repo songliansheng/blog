@@ -1,11 +1,165 @@
 /* HTML: <div class="loader"></div> */
 .loader {
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 30px;
-  animation: l1 1s linear infinite alternate;
+    width: fit-content;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-bottom: 8px;
+    background: repeating-linear-gradient(transparent, #555353 40px),
+        linear-gradient(to right, #000000, #8a8988, #000000);
+    /* repeating-linear-gradient(0.25turn, transparent, #3f87a6 20px); */
+    /* animation: framesForLoader1 2s linear infinite; */
 }
-.loader:before {
-  content:"Loading..."
+/* MARK :before is CSS2 syntax of Pseudo-element */
+.loader::before {
+    content: 'Loading...';
 }
-@keyframes l1 {to{opacity: 0}}
+
+@keyframes framesForLoader1 {
+    to {
+        background-size: 100% 3px;
+    }
+}
+
+.loader3 {
+    /* width: fit-content; */
+    font-weight: bold;
+    border: 2px solid black;
+
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-bottom: 8px;
+    /* background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 20px,
+        #000000 5px,
+        #000000 30px
+    ); */
+    /* background: linear-gradient(.25turn, red, 10%, blue) */
+
+    animation: framesForLoader3 5s ease-in infinite;
+}
+@keyframes framesForLoader3 {
+    0% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 5%, #1c1b22);
+        background-size: 100% 30px;
+        /* background-repeat: space; */
+    }
+    10% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 10%, #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    20% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 20%, #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    30% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 30%, #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    40% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 40%, #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    50% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 50%, #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    60% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 60%,  #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    70% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 70%,  #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    80% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 80%,  #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    90% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 90%, #1c1b22);
+        /* background-repeat: space; */
+        background-size: 100% 30px;
+    }
+    100% {
+        background: repeating-linear-gradient(
+                transparent,
+                transparent 20px,
+                #000000 5px,
+                #000000 30px
+            ),
+            linear-gradient(to right, #1c1b22, #323131 5%, #1c1b22);
+        background-size: 100% 30px;
+        /* background-repeat: space; */
+    }
+}
