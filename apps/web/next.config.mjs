@@ -31,6 +31,7 @@ const nextConfig = {
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
         mdxRs: true,
+        // ppr: 'incremental',
         // turbo: turboConfig,
     },
     // MARK images.remotePatterns needs to be configured if src prop of next/image is an absolute external URL

@@ -33,9 +33,9 @@ export const RootHeader = async () => {
     const avatar = session?.user?.image
 
     return (
-        <header className=" flex bg-opacity-100 max-w-7xl items-center justify-between py-6 text-xl mx-auto">
+        <header className=" flex max-w-7xl items-center justify-between  mx-auto">
             <div className="w-72 -space-x-2.5 shrink-0 bg-inherit/100">
-                🗐 Liansheng Song
+                🗐 Liansheng
             </div>
             <div id="group-in-header" className="flex items-center gap-x-8">
                 <nav

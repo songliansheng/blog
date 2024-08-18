@@ -21,34 +21,37 @@ export default async function Page({
     searchParams: { [key: string]: string | string[] | undefined }
 }) {
     const session = await auth()
-    if (params.section === 'login')
-        return session ? (
-            <Redirect message="You have loged in!" link='/'/>
-        ) : (
-            <LoginForm />
-        )
+    
     // return <>You have to login</>
     if (params.section === 'test') return (
         <>
             <Redirect message="You have loged in" link="/" />
         </>
     )
-    if (session) {
-        const dir = path.join(process.cwd(), './content/', `${params.section}`)
-        const filenames = fs.readdirSync(dir)
+    // if (session) {
+    //     const dir = path.join(process.cwd(), './content/', `${params.section}`)
+    //     const filenames = fs.readdirSync(dir)
 
-        const listItems = filenames.map((filename) => <li>{filename}</li>)
+    //     const listItems = filenames.map((filename) => <li>{filename}</li>)
 
-        return (
-            <div
-                id="section"
-                className="max-w-7xl mx-auto"
-            >
-                <ul>{listItems}</ul>
-            </div>
-        )
-    } else {
-        // redirect('/login')
-        return <>You have to login</>
-    }
+    //     return (
+    //         <div
+    //             id="section"
+    //             className="max-w-7xl mx-auto"
+    //         >
+    //             <ul>{listItems}</ul>
+    //         </div>
+    //     )
+    // } else {
+    //     // redirect('/login')
+    //     return <>You have to login</>
+    // }
+     return (
+         <main className="max-w-7xl mx-auto">
+             <header>
+                 <h1 className="text-5xl pb-8">Posts</h1>
+                 <p>Open source projects I've made </p>
+             </header>
+         </main>
+     )
 }
