@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 /*  */
 module.exports = {
-    darkMode: 'class',
+    darkMode: 'selector',
     experimental: {
         applyComplexClasses: true,
     },
@@ -19,7 +19,6 @@ module.exports = {
                 'primary-bg-dark': '#1c1b22',
             },
         },
-       
     },
     plugins: [require('@tailwindcss/typography')],
 }

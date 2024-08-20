@@ -8,18 +8,17 @@
 
 @layer utilities {
     form input {
-        @apply px-4 py-3 block border rounded ;
+        @apply px-4 py-3 block border rounded;
     }
 
-   
     .typewriter {
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: 0.15em solid rgb(3 105 161); /* The typwriter cursor */
         white-space: nowrap; /* Keeps the content on a single line */
-         /* margin: 0 auto;    Gives that scrolling effect as the typing happens */
+        /* margin: 0 auto;    Gives that scrolling effect as the typing happens */
         letter-spacing: 0.15em; /* Adjust as needed */
-        animation: typing 3.5s steps(40, end),/* steps(40, end) */
-            blink-caret 0.75s step-end infinite;
+        animation: typing 3.5s steps(40, end),
+            /* steps(40, end) */ blink-caret 0.75s step-end infinite;
     }
 
     /* The typing effect */
@@ -28,7 +27,7 @@
             width: 0;
         }
         to {
-            width: 50%;
+            width: 40rem;
         }
     }
 
@@ -47,7 +46,6 @@
  * Alternative to CSS variables in Tailwind: theme function + design tokens in tailwind.config.js
  */
 :root {
-   
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
@@ -74,3 +72,15 @@ html.dark {
     )
     rgb(var(--background-start-rgb));
 } */
+/* MARK CSS ClASS GROUPs:
+*
+* absolute(child) -> non-static(parent)
+*
+* 'grid grid-cols-3 gap-x-4 gap-y-12 justify-between'
+* For justify-content to work , fr can't be used in repeat function
+* For justify-items to work , grid items's width must be small than grid trackd
+*
+* 'flex justify-center items-center'
+*
+*
+ */
