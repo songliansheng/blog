@@ -6,7 +6,6 @@ import LoginForm from '@/components/LoginForm'
 import Redirect from '@/components/Redirect'
 import Stopwatch from '@/components/Demo/Stopwatch'
 
-
 // import { redirect } from 'next/navigation'
 
 // import { promises as fs } from 'fs'
@@ -21,13 +20,14 @@ export default async function Page({
     searchParams: { [key: string]: string | string[] | undefined }
 }) {
     const session = await auth()
-    
+
     // return <>You have to login</>
-    if (params.section === 'test') return (
-        <>
-            <Redirect message="You have loged in" link="/" />
-        </>
-    )
+    if (params.section === 'test')
+        return (
+            <>
+                <Redirect message="You have loged in" link="/" />
+            </>
+        )
     // if (session) {
     //     const dir = path.join(process.cwd(), './content/', `${params.section}`)
     //     const filenames = fs.readdirSync(dir)
@@ -46,12 +46,11 @@ export default async function Page({
     //     // redirect('/login')
     //     return <>You have to login</>
     // }
-     return (
-         <main className="max-w-7xl mx-auto">
-             <header>
-                 <h1 className="text-5xl pb-8">Notes</h1>
-                 <p> Personal notes taken during my studies </p>
-             </header>
-         </main>
-     )
+    return (
+        <main className="max-w-7xl mx-auto">
+            <header>
+                <p> Personal notes taken during my studies </p>
+            </header>
+        </main>
+    )
 }

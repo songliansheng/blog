@@ -5,13 +5,13 @@ export default function Footer():JSX.Element {
       <footer className="flex items-center justify-center gap-x-6">
           <a
               href="https://www.x.com/lianshengsong"
-              className=" hover:bg-sky-700  underline "
+              className="rounded-full dark:hover:bg-[theme('colors.outer-space')] hover:bg-[theme('colors.silver')] underline py-1.5 px-2"
           >
               X(Twitter)
           </a>
           <a
               href="https://github.com/songliansheng"
-              className=" hover:bg-sky-700 underline "
+              className="rounded-full dark:hover:bg-[theme('colors.outer-space')] hover:bg-[theme('colors.silver')] underline  py-1.5 px-2"
           >
               Github
           </a>

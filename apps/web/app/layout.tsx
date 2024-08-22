@@ -11,12 +11,15 @@ export default function RootLayout({
         /* bg-[theme(colors.primary-bg-dark)] */
         /* TODO bg-inherit in body is needed ? */
         return (
-            <html className=" dark dark:bg-black/[0.001] bg-white/10" lang="en">
-                <body className=" text-lg dark:bg-black/20">
+            <html
+                className=" dark dark:bg-[theme('colors.licorice')] bg-[theme('colors.off-white')]"
+                lang="en"
+            >
+                <body className=" text-lg">
                     <div id="root" className=" relative">
                         <div
                             id="header-wrapper"
-                            className="max-w-8xl text-xl sticky pt-4 pb-8 -top-4 z-50 px-4 sm:px-6  "
+                            className="dark:bg-[theme('colors.licorice')] max-w-8xl text-xl sticky pt-4 pb-8 -top-4 z-50 px-4 sm:px-6  "
                         >
                             <Header />
                         </div>

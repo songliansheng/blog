@@ -5,7 +5,7 @@ module.exports = {
     experimental: {
         applyComplexClasses: true,
     },
-
+variants:{},
     // ALERT Use "./src/**/*.{ js, ts, jsx, tsx, mdx } " instead if you are using `src` directory
 
     content: [
@@ -16,7 +16,12 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'primary-bg-dark': '#1c1b22',
+                'outer-space': '#414A4C',
+                'dark-gray': '#A9A9A9',
+                silver: '#C0C0C0',
+                'off-white': '#F2F0EF',
+                licorice: '#1A1110',
+                onyx: '#353839',
             },
         },
     },

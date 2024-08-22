@@ -37,6 +37,7 @@ export default function Editor() {
                 contentEditable={
                     <div id="lexical-editor">
                         <ContentEditable
+                            id="comment-input-box"
                             className=" relative py-2 px-auto border"
                             aria-placeholder="Enter a comment here"
                             placeholder={
@@ -44,9 +45,13 @@ export default function Editor() {
                                     Add a comment
                                 </div>
                             }
-                            onFocus={()=>{const contentEditableElement =
-                                document.getElementById('comment-input-box')
-                            contentEditableElement!.classList.add('lg:flex')}}
+                            onFocus={() => {
+                                // const contentEditableElement =
+                                //     document.getElementById('comment-input-box')
+                                document
+                                    .getElementById('comment-input-box')!
+                                    .classList.add('lg:flex')
+                            }}
                         />
                     </div>
                 }
