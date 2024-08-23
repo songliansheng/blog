@@ -107,7 +107,7 @@ export default async function Page({
     return (
         <main className=" flex flex-row max-w-7xl mx-auto lg:justify-between justify-center">
             <Suspense fallback={<div>Main is loading</div>}>
-                <article className="pr-12 lg:w-[calc(100vw-19.5rem)] max-w-[888px] prose-stone">
+                <article className="pr-12 lg:w-[calc(100vw-19.5rem)] max-w-[888px]">
                     <div
                         id="breadcrumbs"
                         className=" top-10 pb-8 dark:bg-[theme(colors.primary-bg-dark)]"
