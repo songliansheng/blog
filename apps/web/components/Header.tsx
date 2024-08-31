@@ -13,6 +13,9 @@ import Image from 'next/image'
 import { Avatar } from '@/components/Avatar'
 import { Menu } from '@headlessui/react'
 import { codeBracketSquare } from './Icons'
+/*
+ * Return a <header> element
+ */
 const NavItem = ({ name, url, isActive, children }: any) => {
     return (
         <Link
@@ -36,12 +39,20 @@ const SignOut = async () => {
         </form>
     )
 }
-export const RootHeader = async () => {
+/*
+ * Return a <header> element
+ */
+export const RootHeader = async ({ className,id }) => {
+    /*
+     * Return a <header> element
+     */
     const session = await auth()
     const avatar = session?.user?.image
 
     return (
-        <header className=" flex max-w-7xl items-center justify-between  mx-auto">
+        <header id={id}
+            className={clsx(className, ' flex  items-center justify-between ')}
+        >
             <a className="flex items-center w-32" href="">
                 {codeBracketSquare}
                 <span className="mx-2">Liansheng</span>

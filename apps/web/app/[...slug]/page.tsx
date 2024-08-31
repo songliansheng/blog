@@ -5,6 +5,7 @@ import Toc from '@/components/Toc'
 //   { content }
 import Editor from '@/components/Lexical/LexicalEditor'
 import Breadcrumbs from 'components/Breadcrumb'
+import { commentIcon, pencilSquareIcon, lightIcon } from '@/components/Icons'
 import { promises as fs } from 'fs'
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 // import dynamic from 'next/dynamic'
@@ -12,6 +13,10 @@ import { ContentEditable } from '@/components/Lexical/ContentEditableWrapper'
 import Comments from '@/components/Comments/Comments'
 import { useContext } from 'react'
 import { Suspense } from 'react'
+import ContentWrapper from './ContentWrapper'
+import { Button } from '@/components/Button'
+import ActionMenu from './ActionsMenu'
+
 // import { CommentInputBox } from '@/components/Comments/Comments'
 /*  TODO Use <Suspense>
  * Auto attach must be set disabled , Figure out why?
@@ -23,6 +28,7 @@ import { Suspense } from 'react'
 
 import { auth } from '@/auth'
 import { SupbaseClientContext } from '@/components/providers'
+import clsx from 'clsx'
 const prepareData = async () => {
     const supabase = createSupabaseClient()
     const { data: article } = await supabase
@@ -37,6 +43,7 @@ const prepareData = async () => {
         .from('comments')
         .select('content')
     // const comments2 = comments1?.map(async (comment) => await comment + 'sss')
+    if (!article) return { Article: null }
     const { content: Article, headings } = await compileMdx({
         mdxString: article![0].content,
     })
@@ -66,6 +73,7 @@ const prepareData = async () => {
     //  })
     // console.log('wtf', commentsTest)
     return {
+        article,
         Article,
         headings,
         commentElements,
@@ -83,7 +91,7 @@ export default async function Page({
 }) {
     const session = await auth()
 
-    const { Article, headings, comments1, comments, commentsTest } =
+    const { article, Article, headings, comments1, comments, commentsTest } =
         await prepareData()
     // const filepath = path.join(
     //     process.cwd(),
@@ -105,33 +113,23 @@ export default async function Page({
      */
 
     return (
-        <main className=" flex flex-row max-w-7xl mx-auto lg:justify-between justify-center">
-            <Suspense fallback={<div>Main is loading</div>}>
-                <article className="pr-12 lg:w-[calc(100vw-19.5rem)] max-w-[888px]">
-                    <div
-                        id="breadcrumbs"
-                        className=" top-10 pb-8 dark:bg-[theme(colors.primary-bg-dark)]"
-                    >
-                        <Breadcrumbs />
-                    </div>
-                    {Article}
-                    <section id="comments" className="py-5">
-                        <h2 className="text-3xl mb-6">Comments</h2>
-                        <div id="editor-wrapper" className="relative mb-6">
-                            <Editor />
-                            {/* <CommentInputBox /> */}
-                        </div>
-                        <Comments comments={commentsTest} />
-                    </section>
-                </article>
+        <>
+            <Breadcrumbs id='breadcrumbs'
+                className={clsx(
+                    ' top-10 pb-8 dark:bg-[theme(colors.primary-bg-dark)]'
+                )}
+            />
 
-                <div
-                    id="toc-wrapper"
-                    className="sticky top-[5.5rem] h-[calc(100vh-9rem)] hidden  lg:block mr-2 pl-4 w-[19.5rem] shadow-inner shrink-0 shadow-black/30 dark:shadow-white/10 "
-                >
-                    <Toc headings={headings} title="On THIS PAGE" />
-                </div>
-            </Suspense>
-        </main>
+            {Article && (
+                <ContentWrapper
+                    article={Article}
+                    headings={headings}
+                    comments={commentsTest}
+                    className=""
+                    mdx={article![0].content}
+                />
+            )}
+            {!Article && <p>Content load failed !</p>}
+        </>
     )
 }

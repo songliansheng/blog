@@ -21,6 +21,7 @@ module.exports = {
                 silver: '#C0C0C0',
                 'off-white': '#F2F0EF',
                 licorice: '#1A1110',
+                'licorice-light': '#221716',
                 onyx: '#353839',
                 test: '#1F1918',
             },

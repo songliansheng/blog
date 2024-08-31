@@ -1,22 +1,39 @@
 'use client'
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
-
+import ToolbarPlugin from './Plugins/ToolbarPlugin'
+import EditorTheme from './EditorTheme'
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
+import { HorizontalRulePlugin } from '@lexical/react/LexicalHorizontalRulePlugin'
 import OnChangePlugin from '@/components/Lexical/Plugins/OnChangePlugin'
 import { ContentEditable } from './ContentEditableWrapper'
+import LixicalNodes from './LexicalNodes'
+import { HeadingNode } from '@lexical/rich-text'
+import { ListItemNode, ListNode } from '@lexical/list'
+import { LineBreakNode } from 'lexical'
+import { LexicalComposer } from '@/components/Lexical/LexicalComposerWrapper'
 // import ContentEditable from '@lexical/react/LexicalContentEditable'
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary'
 
-import React, { useState, useContext, useEffect, Ref, RefObject } from 'react'
+import React, {
+    useState,
+    useContext,
+    useEffect,
+    Ref,
+    RefObject,
+    useRef,
+} from 'react'
+import clsx from 'clsx'
 // import { ContentEditableContext } from './ContentEditableProvider'
 export const initialConfig = {
     namespace: 'MyEditor',
-    theme: {},
+    nodes: LixicalNodes,
+    theme: EditorTheme,
     onError: console.error,
     editorState: null,
 }
 
-export default function Editor() {
+export default function Editor({ className }: { className?: string }) {
+    const ref = useRef()
     const clearContent = () => {}
     // const [ref, setRef] =
     //     useState<React.MutableRefObject<React.ReactElement | undefined>>()
@@ -32,34 +49,35 @@ export default function Editor() {
     /* ALERT Css of placeholder(in ContentEditable) must set 'pointer-events-none'
      */
     return (
-        <>
+        <div
+            id="lexical"
+            className={
+                `${className}`
+                // `${className}` + ' flex flex-col items-center justify-center '
+            }
+        >
+            <ToolbarPlugin className="" />
             <RichTextPlugin
                 contentEditable={
-                    <div id="lexical-editor">
-                        <ContentEditable
-                            id="comment-input-box"
-                            className=" relative py-2 px-auto border"
-                            aria-placeholder="Enter a comment here"
-                            placeholder={
-                                <div className="absolute top-2 left-4 right-4 pointer-events-none">
-                                    Add a comment
-                                </div>
-                            }
-                            onFocus={() => {
-                                // const contentEditableElement =
-                                //     document.getElementById('comment-input-box')
-                                document
-                                    .getElementById('comment-input-box')!
-                                    .classList.add('lg:flex')
-                            }}
-                        />
-                    </div>
+                    <ContentEditable
+                        id="lexical-contentEditable"
+                        className={clsx('outline-none',
+                            'px-4  relative py-4 px-auto dark:bg-white/5'
+                        )}
+                        aria-placeholder="Enter a comment here"
+                        placeholder={
+                            <div className="absolute top-2 left-4 right-4 pointer-events-none">
+                                Add a comment
+                            </div>
+                        }
+                    />
                 }
                 ErrorBoundary={LexicalErrorBoundary}
             />
 
             <OnChangePlugin onChange={onChange} />
             <AutoFocusPlugin />
-        </>
+            <HorizontalRulePlugin />
+        </div>
     )
 }

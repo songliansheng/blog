@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronRightIcon } from './Icons'
+import clsx from 'clsx'
 function getBreadcrumbs() {
     const currentPath = usePathname()
     const routeSegments = currentPath.split('/').filter((v) => v.length > 0)
@@ -14,10 +15,10 @@ function getBreadcrumbs() {
     return breadcrumbs
 }
 /* TODO Set the Route title centered horitally */
-export default function Breadcrumbs({}) {
+export default function Breadcrumbs({className,id}:{className?,id?}) {
     const breadcrumbs = getBreadcrumbs()
     return (
-        <div className="flex gap-x-4 flex-wrap">
+        <div id={id} className={clsx(className, 'flex gap-x-4 flex-wrap')}>
             {breadcrumbs.map((breadcrumb, index) => (
                 <div className="flex items-center capitalize" key={index}>
                     <Link href={'/' + breadcrumb.subRoutePath}>

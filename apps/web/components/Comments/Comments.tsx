@@ -32,9 +32,9 @@ const CommentItem = ({
 
             {isTargeted ? null : (
                 <div id="comment-actions">
-                    <div className="flex">
+                    <div className="flex justify-end">
                         <Button
-                            className="flex px-sm"
+                            className="flex px-sm items-center"
                             onClick={() => {
                                 setIsTargeted(true)
                                 prepareEdit({ comment })
@@ -43,7 +43,7 @@ const CommentItem = ({
                             {commentIcon}Edit
                         </Button>
                         <Button
-                            className="flex px-sm"
+                            className="flex px-sm items-center"
                             onClick={() => {
                                 setIsTargeted(true)
                                 prepareEdit({ comment })
