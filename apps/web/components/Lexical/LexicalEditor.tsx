@@ -56,12 +56,13 @@ export default function Editor({ className }: { className?: string }) {
                 // `${className}` + ' flex flex-col items-center justify-center '
             }
         >
-            <ToolbarPlugin className="" />
+            <ToolbarPlugin className="text-sm dark:bg-[theme('colors.licorice')]/10" />
             <RichTextPlugin
                 contentEditable={
                     <ContentEditable
                         id="lexical-contentEditable"
-                        className={clsx('outline-none',
+                        className={clsx(
+                            'outline-none',
                             'px-4  relative py-4 px-auto dark:bg-white/5'
                         )}
                         aria-placeholder="Enter a comment here"

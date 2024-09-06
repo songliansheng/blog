@@ -1,27 +1,14 @@
-import path from 'path'
 import compileMdx from './compileMdx'
-import Toc from '@/components/Toc'
-// import fs from 'fs'
-//   { content }
-import Editor from '@/components/Lexical/LexicalEditor'
 import Breadcrumbs from 'components/Breadcrumb'
-import { commentIcon, pencilSquareIcon, lightIcon } from '@/components/Icons'
 import { promises as fs } from 'fs'
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
-// import dynamic from 'next/dynamic'
-import { ContentEditable } from '@/components/Lexical/ContentEditableWrapper'
-import Comments from '@/components/Comments/Comments'
-import { useContext } from 'react'
-import { Suspense } from 'react'
 import ContentWrapper from './ContentWrapper'
-import { Button } from '@/components/Button'
-import ActionMenu from './ActionsMenu'
 
-// import { CommentInputBox } from '@/components/Comments/Comments'
 /*  TODO Use <Suspense>
  * Auto attach must be set disabled , Figure out why?
  */
-/* ALERT Use dynamic import and set ssr to false , or runtime error will happen!
+/* ALERT
+ * Use dynamic import and set ssr to false , or runtime error will happen!
  */
 // const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
 // const Comments2 = dynamic(() => import('components/Comments'))
@@ -114,7 +101,8 @@ export default async function Page({
 
     return (
         <>
-            <Breadcrumbs id='breadcrumbs'
+            <Breadcrumbs
+                id="breadcrumbs"
                 className={clsx(
                     ' top-10 pb-8 dark:bg-[theme(colors.primary-bg-dark)]'
                 )}

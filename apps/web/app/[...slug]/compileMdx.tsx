@@ -8,7 +8,10 @@ import remarkHeadingIds from 'remark-heading-id'
 import { compile } from '@mdx-js/mdx'
 import rehypeToc from '@jsdevtools/rehype-toc'
 
-//The order of Plugins matters
+/* MARK
+ *
+ * The order of Plugins matters
+ */
 const REMARK_PLUGINS = [remarkHeadingId]
 const REHYPE_PLUGINS = []
 

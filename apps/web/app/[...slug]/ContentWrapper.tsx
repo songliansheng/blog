@@ -4,10 +4,10 @@ import { Button } from '@/components/Button'
 import Editor from '@/components/Lexical/LexicalEditor'
 import { ContentEditable } from '@/components/Lexical/ContentEditableWrapper'
 import { commentIcon, pencilSquareIcon, lightIcon } from '@/components/Icons'
-// import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
-import { useLexicalComposerContext } from '@/components/Lexical/LexicalComposerWrapper'
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
+// import { useLexicalComposerContext } from '@/components/Lexical/LexicalComposerWrapper'
 import { $generateNodesFromDOM } from '@lexical/html'
-import { $getRoot, $insertNodes, $getSelection } from 'lexical'
+import { $getRoot, $insertNodes, $getSelection, LexicalEditor } from 'lexical'
 import { renderToString } from 'react-dom/server'
 import Toc from '@/components/Toc'
 import Comments from '@/components/Comments/Comments'
@@ -35,17 +35,31 @@ export default function ContentWrapper({
 }) {
     useEffect(() => {
         setParser(new DOMParser())
+        setLexicalEditor(editor)
     }, [])
     const [isEditable, setIsEditable] = useState<boolean>(false)
+    const [lexicalEditor, setLexicalEditor] = useState<LexicalEditor>()
     let [parser, setParser] = useState<DOMParser>()
     const [editor] = useLexicalComposerContext()
     const [editorState, setEditorState] = useState()
     const clearContent = () => {
         editor.setRootElement(null)
     }
-    const prepareEditForMdx = (mdx) => {
-        editor.update(() => {
-            $convertFromMarkdownString(mdx, TRANSFORMERS)
+    /* TODO
+     * onClick={prepareEditForMdx} doesn't work
+     */
+    const prepareEditForMdx = (mdxString) => {
+        document.getElementById('lexical')?.classList.remove('hidden')
+
+        document
+            .getElementsByTagName('main')[0]
+            .classList.replace('max-w-7xl', 'max-w-[60rem]')
+        document
+            .getElementById('global-header')
+            ?.classList.replace('max-w-7xl', 'max-w-[60rem]')
+        setIsEditable(true)
+        editor?.update(() => {
+            $convertFromMarkdownString(mdxString, TRANSFORMERS)
         })
     }
     const prepareEdit = (content) => {
@@ -84,27 +98,7 @@ export default function ContentWrapper({
                         <div className="flex justify-end">
                             <Button
                                 className="flex px-sm items-center"
-                                onClick={() => {
-                                    document
-                                        .getElementById('lexical')
-                                        ?.classList.remove('hidden')
-
-                                    document
-                                        .getElementsByTagName('main')[0]
-                                        .classList.replace(
-                                            'max-w-7xl',
-                                            'max-w-[60rem]'
-                                        )
-                                    document
-                                        .getElementById('global-header')
-                                        ?.classList.replace(
-                                            'max-w-7xl',
-                                            'max-w-[60rem]'
-                                        )
-
-                                    setIsEditable(true)
-                                    prepareEditForMdx(mdx)
-                                }}
+                                onClick={() => prepareEditForMdx(mdx)}
                             >
                                 {pencilSquareIcon}
                                 <span>Edit</span>
@@ -171,15 +165,17 @@ export default function ContentWrapper({
                                 setIsEditable(false)
                             }}
                         >
-                            {commentIcon}Cancel
+                            {commentIcon}
+                            <span>Cancel</span>
                         </Button>
                         <Button
-                            className="flex px-sm  items-center"
+                            className="flex px-sm items-center"
                             onClick={() => {
                                 setIsEditable(true)
                             }}
                         >
-                            {commentIcon}Submit
+                            {commentIcon}
+                            <span>Submit</span>
                         </Button>
                     </div>
                 </>
