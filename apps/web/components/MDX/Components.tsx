@@ -1,6 +1,13 @@
 import * as React from 'react'
 import clsx from 'clsx'
-export const BR = ({ children }) => <br className="" />
+export const BR = () => <br className="" />
+export const CODE = ({ children, ...props }) => (
+    <>
+        <code className="dark:bg-[theme('colors.onyx')]" {...props}>
+            {children}
+        </code>
+    </>
+)
 export const H1 = ({ children }) => <h1 className="text-2xl">{children}</h1>
 /*  className="mb-8 h-[3px] bg-gray-600"  */
 export const H2 = ({ children, ...props }) => (

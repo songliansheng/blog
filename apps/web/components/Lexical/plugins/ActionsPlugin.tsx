@@ -1,5 +1,5 @@
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
-import { Button } from '@/components/Button'
+import Button  from '@/components/Button'
 import { commentIcon, lightIcon } from '@/components/Icons'
 export function ActionsMenu({ submitContent }): JSX.Element {
     const [editor] = useLexicalComposerContext()

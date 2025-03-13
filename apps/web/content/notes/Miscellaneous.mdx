@@ -1,3 +1,10 @@
+## Cookie、Session
+When a user log in, the server create a session object with a unique ID(session ID)
+- Session object (Session data) is stored on the server side, Usually,in a file or database
+- Usually, session ID can be set as session variable's name
+- In every request、response，the session ID is contained in the Cookie
+- Data in Cookie、localStorage is accessible across all tabs(windows) of the same origin ; data stored in sessionStorage is isolated to the specific tab
+- While cookies are automatically included in every request sent by the browser, data stored in localStorage or sessionStorage can be manually transmitted to the server by writing custom code
 ## JWT
 - JWT : JSON Web Tokens , Json data+signature
 - **Jwt format** :EncodedHeader.EncodedPayload.Signature
@@ -54,3 +61,34 @@ SAML also stands for protocols that use claims in SAML format
 - STS (security token service) is a web service that packages claims into encrypted security tokens
 
 For example, Active Directory Federation Services (ADFS)
+
+## Regular expression
+* Wildcard  `.`matches any **single character** except \n
+
+* `[]`Matches a **single character** that is contained within the brackets ; `[^]` matches a **single character** that is not contained within the brackets
+
+* Boolean "or" `|`
+* Grouping `()`
+
+### Quantification
+
+* `?` indicates zero or one occurrences of the preceding element
+
+* `*`
+
+* `+`
+### Position
+* `^` matches the **starting position** within the string
+* `$` matches the ending position of the string
+### Regex examples
+
+(zdmimg|pstatp|soboten)\.com  
+
+
+   
+   
+(cecdc)\.com
+
+`x(?!y)`  // Matches "x" only if "x" is not followed by "y"
+
+\/(?!(api|_next\/static|_next\/image|favicon.ico).*)

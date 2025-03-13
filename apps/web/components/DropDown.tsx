@@ -67,6 +67,9 @@ export default function DropDown({
                         return
                     }
                 }
+                /* MARK
+                 *  If somewhere other than the dropDown Button is clicked , dropDownItems will be hidden
+                 */
                 if (!button.contains(target as Node)) {
                     setShowDropDown(false)
                 }

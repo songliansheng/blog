@@ -1,2 +1,2 @@
 'use client'
-export {Button} from './index'
+export {default} from './index';

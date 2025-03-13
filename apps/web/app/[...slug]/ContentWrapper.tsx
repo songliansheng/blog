@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { Button } from '@/components/Button'
+import Button from '@/components/Button'
 import Editor from '@/components/Lexical/LexicalEditor'
 import { ContentEditable } from '@/components/Lexical/ContentEditableWrapper'
 import { commentIcon, pencilSquareIcon, lightIcon } from '@/components/Icons'
@@ -14,9 +14,9 @@ import Comments from '@/components/Comments/Comments'
 import {
     $convertFromMarkdownString,
     $convertToMarkdownString,
-    TRANSFORMERS,
 } from '@lexical/markdown'
 import clsx from 'clsx'
+import { TRANSFORMERS } from '@/components/Lexical/MarkDown/Transformers'
 
 export default function ContentWrapper({
     mdx,
@@ -33,18 +33,42 @@ export default function ContentWrapper({
 
     className
 }) {
-    useEffect(() => {
-        setParser(new DOMParser())
-        setLexicalEditor(editor)
-    }, [])
-    const [isEditable, setIsEditable] = useState<boolean>(false)
+    const [isEditable, setIsEditable] = useState<boolean | null>(null)
     const [lexicalEditor, setLexicalEditor] = useState<LexicalEditor>()
     let [parser, setParser] = useState<DOMParser>()
     const [editor] = useLexicalComposerContext()
     const [editorState, setEditorState] = useState()
+    useEffect(() => {
+        setParser(new DOMParser())
+        setLexicalEditor(editor)
+        if (editor) {
+            editor.update(() => {
+                $convertFromMarkdownString(mdx, TRANSFORMERS)
+            })
+        }
+        if (sessionStorage.getItem('isEditable')) {
+            // sessionStorage.setItem('isEditable', 'false')
+            setIsEditable(sessionStorage.getItem('isEditable') === 'true')
+            // setIsEditable(true)
+        }
+    }, [])
+
+    useEffect(() => {
+        //  if (sessionStorage.getItem('isEditable')) {
+        //      // sessionStorage.setItem('isEditable', 'false')
+        //      setIsEditable(sessionStorage.getItem('isEditable') === 'true')
+        //      // setIsEditable(true)
+        //  }
+        // sessionStorage.setItem(
+        //     'isEditable',
+        //     isEditable === true ? 'true' : 'false'
+        // )
+    }, [isEditable])
+
     const clearContent = () => {
         editor.setRootElement(null)
     }
+
     /* TODO
      * onClick={prepareEditForMdx} doesn't work
      */
@@ -58,9 +82,12 @@ export default function ContentWrapper({
             .getElementById('global-header')
             ?.classList.replace('max-w-7xl', 'max-w-[60rem]')
         setIsEditable(true)
-        editor?.update(() => {
-            $convertFromMarkdownString(mdxString, TRANSFORMERS)
-        })
+        sessionStorage.setItem('isEditable', 'true')
+        if (editor) {
+            editor.update(() => {
+                $convertFromMarkdownString(mdxString, TRANSFORMERS)
+            })
+        }
     }
     const prepareEdit = (content) => {
         const htmlElementString = renderToString(content)
@@ -88,9 +115,6 @@ export default function ContentWrapper({
                 className
             )}
         >
-            {' '}
-            {/* <Editor className="hidden" /> */}
-            {/* {isEditable && <Editor />} */}
             {!isEditable && (
                 <>
                     <article className="pr-12 lg:w-[calc(100vw-19.5rem)] max-w-[900px]">
@@ -133,19 +157,10 @@ export default function ContentWrapper({
             {isEditable && (
                 <>
                     <Editor className=" mx-auto dark:bg-white/[0.01]" />
-                    {/* <ContentEditable
-                        id="content-editable"
-                        className="py-3 px-12 max-w-[950px] dark:bg-white/5"
-                        placeholder={
-                            <div className="absolute top-2 left-4 right-4 pointer-events-none">
-                                Add a comment
-                            </div>
-                        }
-                        aria-placeholder="Enter a comment here"
-                    /> */}
+
                     <div className="flex justify-end">
                         <Button
-                            className="flex px-sm  items-center"
+                            className="flex px-sm items-center"
                             onClick={() => {
                                 document
                                     .getElementById('root')

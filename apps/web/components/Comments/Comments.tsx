@@ -8,7 +8,7 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable'
 import React, { useState, useEffect } from 'react'
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 import { commentIcon, lightIcon } from '../Icons'
-import { Button } from '../Button'
+import  Button  from '../Button'
 import {
     $convertFromMarkdownString,
     $convertToMarkdownString,

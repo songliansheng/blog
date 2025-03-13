@@ -6,21 +6,25 @@ import clsx from 'clsx'
  *ALERT So if a button has been used by a client component ,
 
 */
-export function Button({
+export default function Button({
     children,
     className,
-
+disabled,
     type,
     onClick,
 }: {
-    children: any
-    className?: string
+        children: any;
+        className?: string;
+        disabled?:boolean
 
     type?: string
     onClick?: (params?) => void
 }): JSX.Element {
     return (
-        <button className={clsx('px-4 py-2', className)} onClick={onClick}>
+        <button
+            className={clsx('px-4 py-2', disabled && 'cursor-not-allowed',className)}
+            onClick={onClick}
+        >
             {children}
         </button>
     )

@@ -23,7 +23,6 @@ module.exports = {
                 licorice: '#1A1110',
                 'licorice-light': '#221716',
                 onyx: '#353839',
-                test: '#1F1918',
             },
         },
     },

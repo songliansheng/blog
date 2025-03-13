@@ -104,7 +104,7 @@ export default async function Page({
             <Breadcrumbs
                 id="breadcrumbs"
                 className={clsx(
-                    ' top-10 pb-8 dark:bg-[theme(colors.primary-bg-dark)]'
+                    ' top-10 pb-8 dark:bg-[theme(colors.licorice)]'
                 )}
             />
 

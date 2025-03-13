@@ -8,7 +8,6 @@ export function useTocHighlight() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry?.isIntersecting) {
-                        // console.log('hello')
                         // console.log(entry.target.id)
                         setCurrentId(entry.target.id)
                     }
