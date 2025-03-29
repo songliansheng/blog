@@ -1,4 +1,6 @@
-// CONFIG authjs configuration file- four
+/* CONFIG
+ * authjs configuration file- four
+ */
 import { edgeCompatibleConfig } from './auth'
 import NextAuth from 'next-auth'
 import { NextResponse, NextRequest } from 'next/server'

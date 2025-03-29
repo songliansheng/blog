@@ -63,8 +63,9 @@ SAML also stands for protocols that use claims in SAML format
 For example, Active Directory Federation Services (ADFS)
 
 ## Regular expression
-* Wildcard  `.`matches any **single character** except \n
-
+* Delimiters : slashes `//` are used as delimiters in Regex
+* Wildcard `.` matches any **single character** except \n
+* `\s` (lowercase s ) matches a whitespace (blank, tab \t , and newline \r or \n ) ; `\S` (uppercase S ) matches non-whitespace
 * `[]`Matches a **single character** that is contained within the brackets ; `[^]` matches a **single character** that is not contained within the brackets
 
 * Boolean "or" `|`
@@ -77,6 +78,7 @@ For example, Active Directory Federation Services (ADFS)
 * `*`
 
 * `+`
+* `{m,n}` Matches the preceding element at least m and not more than n times
 ### Position
 * `^` matches the **starting position** within the string
 * `$` matches the ending position of the string

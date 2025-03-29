@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./*"],
+            "@/*": ["./*"]
             // "react": ["./node_modules/@types/react"]
         },
         "plugins": [
@@ -21,7 +21,8 @@
         ".next/types/**/*.ts",
         "dust/ApolloClient-SSR.js",
         "app/page.tsx",
-        "src/auth/authProviders.js"
+        "src/auth/authProviders.js",
+        "app/[...slug]/compileMdx.tsx"
     ],
     "exclude": ["node_modules"]
 }

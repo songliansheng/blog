@@ -23,25 +23,24 @@
 
     }
 
-# async/await
-&nbsp;&nbsp;&nbsp;*async/await* is a **special syntax** to work with promises
-## async
-&nbsp;&nbsp;&nbsp; *async* key word is used when **declaring a *async* function** ,then *await* is permited within the function body.
+# Asynchronous function
+&nbsp;&nbsp;&nbsp;
+## `async`/`await`
+`async`/`await` is a **special syntax** to work with promises
 
- &nbsp;&nbsp;&nbsp; A *async* fuction **always** return a *Promise* , which will be **resolved/rejected**
+`async function` declare a **async function**(whick always return a Promise).
 
- &nbsp;&nbsp;&nbsp; Async functions can contain **zero or more** *await* expressions.
- ## await
- &nbsp;&nbsp;&nbsp; The *await* keyword is **only valid inside** *async* functions.
+`await` makes a function (The function containing `await` expressions) pause、wait for a (resolved) Promise ; after the `await` expression returns the resolved value of the promise ，the function continues
+* The `await` keyword is only valid inside `async function`( Since `await` wait for a promise ).
+* An `async function` can contain **zero or more** *await* expressions.
+* `await` makes an `async function` behave as though they're synchronous (by suspending execution until the returned promise is fulfilled or rejected)
+* A promise can be resolved or rejected
 
- &nbsp;&nbsp;&nbsp; *Await expressions* *return* a **resolved Promise**(not promise itself)
-
- &nbsp;&nbsp;&nbsp; *await* is used with promise-returning function , which makes the functions behave as though they're synchronous (by suspending execution until the returned promise is fulfilled or rejected)
 # Primitives
 ## Boolean
 - Everything With a "Value" is True. (**0**, **0n**, **-0** is false)
 
-- Everything Without a "Value" is False. (**“”**, **null**, **undefined** and **NaN** is false)
+- Everything Without a "Value" is False. (`""`, `null`, `undefined` and `NaN` is false)
 - Booleans are generally used for **Conditional testing**
 
 

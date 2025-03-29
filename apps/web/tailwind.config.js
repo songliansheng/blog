@@ -16,11 +16,13 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                'egg-shell': '#F0EAD6',
                 'outer-space': '#414A4C',
                 'dark-gray': '#A9A9A9',
                 silver: '#C0C0C0',
                 'off-white': '#F2F0EF',
                 licorice: '#1A1110',
+                'dark-licorice': '#120b0b',
                 'licorice-light': '#221716',
                 onyx: '#353839',
             },

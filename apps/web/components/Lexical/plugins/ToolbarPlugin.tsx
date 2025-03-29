@@ -13,6 +13,7 @@ import DropDown, { DropDownItem } from '@/components/DropDown'
  * editor.dispatchCommand() can be used in Event listener
  *
  */
+
 export default function ToolbarPlugin({ className }) {
     const [editor] = useLexicalComposerContext()
 

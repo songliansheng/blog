@@ -47,10 +47,11 @@ export default function Editor({ className }: { className?: string }) {
     return (
         <div
             id="lexical"
-            className={
+            className={clsx(className)}
+           /*  className={
                 `${className}`
                 // `${className}` + ' flex flex-col items-center justify-center '
-            }
+            } */
         >
             <ToolbarPlugin className="text-sm dark:bg-[theme('colors.licorice')]/10" />
             <RichTextPlugin

@@ -9,20 +9,23 @@ import clsx from 'clsx'
 export default function Button({
     children,
     className,
-disabled,
+    disabled,
     type,
     onClick,
 }: {
-        children: any;
-        className?: string;
-        disabled?:boolean
-
+    children: any
+    className?: string
+    disabled?: boolean
     type?: string
     onClick?: (params?) => void
 }): JSX.Element {
     return (
         <button
-            className={clsx('px-4 py-2', disabled && 'cursor-not-allowed',className)}
+            className={clsx(
+                'px-4 py-2',
+                disabled && 'cursor-not-allowed',
+                className
+            )}
             onClick={onClick}
         >
             {children}

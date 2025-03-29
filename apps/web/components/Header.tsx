@@ -13,6 +13,7 @@ import Image from 'next/image'
 import { Avatar } from '@/components/Avatar'
 import { Menu } from '@headlessui/react'
 import { codeBracketSquare } from './Icons'
+import ContactMeButton from '@/components/ContactMeButton'
 /*
  * Return a <header> element
  */
@@ -42,7 +43,7 @@ const SignOut = async () => {
 /*
  * Return a <header> element
  */
-export const RootHeader = async ({ className,id }) => {
+export const RootHeader = async ({ className, id }) => {
     /*
      * Return a <header> element
      */
@@ -50,7 +51,8 @@ export const RootHeader = async ({ className,id }) => {
     const avatar = session?.user?.image
 
     return (
-        <header id={id}
+        <header
+            id={id}
             className={clsx(className, ' flex  items-center justify-between ')}
         >
             <a className="flex items-center w-32" href="">
@@ -68,9 +70,10 @@ export const RootHeader = async ({ className,id }) => {
                 >
                     <NavItem name="Home" isActive="false" url="/" />
                     <NavItem name="Projects" isActive="false" url="/projects" />
-                    <NavItem name="Posts" isActive="false" url="/posts" />
+
                     <NavItem name="Notes" isActive="false" url="/notes" />
                 </nav>
+                
                 <ThemeSwitcher />
             </div>
         </header>

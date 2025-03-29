@@ -1,3 +1,4 @@
+// 'use server'
 /* MARK For server component ,'@supabase/ssr' should be used instead of '@supabase/supabase-js' */
 import {
     createBrowserClient,
@@ -48,3 +49,4 @@ export function createServersideClient() {
         }
     )
 }
+// export const ServersideSupabaseClient = createServersideClient()

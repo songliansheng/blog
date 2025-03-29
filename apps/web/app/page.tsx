@@ -2,44 +2,84 @@ import Header from '../components/Header'
 // import Comments from 'components/CommentDemo'
 // import { headers } from 'next/headers'  mr-[calc(theme('w-full') - 33rem)]
 import { signIn } from 'auth'
+import { createServersideClient } from '@/lib/supabase-client'
+import { ProjectCard } from '@/components/Card'
+import Card from '@/components/Card'
 import dynamic from 'next/dynamic'
-
-export default function HomePage() {
+import clsx from 'clsx'
+const ProjectItem = ({
+    item,
+}: {
+    item: {
+        sourceUrl: string
+        demoUrl: string
+        title: string
+        description: string
+    }
+}) => {
+    return (
+        <>
+            <a
+                className={clsx("block max-w-[20rem]  ",'text-sky-400')}
+                href={item.sourceUrl}
+                target="_blank"
+            >
+                {item.title}
+            </a>
+            <p>{item.description}</p>
+            <a
+                className={clsx('text-sky-400')}
+                href={item.demoUrl}
+                target="_blank"
+            >
+                <span>Demo</span>
+            </a>
+        </>
+    )
+}
+export default async function HomePage() {
+    async function getDate() {
+        const supabaseClient = createServersideClient()
+        const { data: projects } = await supabaseClient
+            .from('projects')
+            .select('title,description,sourceUrl,demoUrl')
+            .eq('id', '1')
+        const { data: article } = await supabaseClient
+            .from('notes')
+            .select('content')
+            .eq('id', '2')
+        
+        return { projects, article }
+    }
+    const { projects, article } = await getDate()
+    // console.log('WTF' + projects[0].sourceurl)
+    // console.log('WTF' + article[0].content)
+  
     // const headersList = headers()
     return (
-        <main className=" flex flex-col mx-auto max-w-7xl lg:justify-start">
-            <div className=" px-1.5">
-                <p className="pt-16 pb-4 font-bold text-2xl">
-                    Hi , I'm Liansheng , I'm a
-                </p>
-                <p className="w-[40rem] typewriter text-3xl pb-12 font-bold indent-72 text-black/70 dark:text-[theme('colors.dark-gray')]">
-                    Web developer ,
-                </p>
-
-                <p className="pb-12 font-bold text-2xl">
-                    I'm now at a junior level , I'm able ( Of course I'm still
-                    learning ) to build websites using nextjs、Reactjs ,
-                </p>
-                <p className="pb-4 font-bold text-2xl">You can find me on </p>
-                <p className="w-[40rem] typewriter pb-8 text-3xl indent-56 font-bold text-[#36454F] dark:text-[theme('colors.dark-gray')]">
-                    <a
-                        href="https://www.x.com/lianshengsong"
-                        className=" dark:hover:text-white hover:text-black hover:font-bold underline"
-                        target="_blank"
+        <div className={clsx('gap-8 grid grid-cols-[1fr,3fr]')}>
+            <section className={clsx('pr-4')}>
+                <h3>Latest</h3>
+                <p>No items to display .</p>
+            </section>
+            <div
+                className={clsx(
+                    'pl-8 border-l-2 border-solid border-[theme(colors.outer-space)]'
+                )}
+            >
+                <h2 className={clsx('')}>Posts</h2>
+                <p>No items to display .</p>
+                <h2>Projects</h2>
+                <div className={clsx('grid grid-cols-3 gap-5')}>
+                    <Card
+                        className={clsx(
+                            'border-2 rounded-xl border-solid border-[theme(colors.outer-space)]'
+                        )}
                     >
-                        X(Twitter)
-                    </a>
-                    、
-                    <a
-                        href="https://github.com/songliansheng"
-                        className=" dark:hover:text-white hover:text-black hover:font-bold underline "
-                        target="_blank"
-                    >
-                        Github
-                    </a>
-                    .
-                </p>
+                        <ProjectItem item={projects[0]} />
+                    </Card>
+                </div>
             </div>
-        </main>
+        </div>
     )
 }

@@ -1,7 +1,8 @@
 import compileMdx from './compileMdx'
 import Breadcrumbs from 'components/Breadcrumb'
 import { promises as fs } from 'fs'
-import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
+// import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
+import { createServersideClient } from '@/lib/supabase-client'
 import ContentWrapper from './ContentWrapper'
 
 /*  TODO Use <Suspense>
@@ -14,19 +15,20 @@ import ContentWrapper from './ContentWrapper'
 // const Comments2 = dynamic(() => import('components/Comments'))
 
 import { auth } from '@/auth'
-import { SupbaseClientContext } from '@/components/providers'
+// import { SupbaseClientContext } from '@/app/providers'
 import clsx from 'clsx'
+import Content from './Content'
 const prepareData = async () => {
-    const supabase = createSupabaseClient()
-    const { data: article } = await supabase
+    const supabaseClient = createServersideClient()
+    const { data: article } = await supabaseClient
         .from('notes')
         .select('content')
         .eq('id', '2')
-    const { data: comments } = await supabase
+    const { data: comments } = await supabaseClient
         .from('comments')
         .select('content')
         .eq('id', '1')
-    const { data: comments1 } = await supabase
+    const { data: comments1 } = await supabaseClient
         .from('comments')
         .select('content')
     // const comments2 = comments1?.map(async (comment) => await comment + 'sss')
@@ -37,10 +39,10 @@ const prepareData = async () => {
     const { content: commentElements } = await compileMdx({
         mdxString: comments![0].content,
     })
-    /* TODO Figure out  how to use promise below
+    /* TODO Figure out how to use promise below
      * How to handle 'comments1' is possibly 'null'
      */
-    const compiledComments = comments1!.map(
+    const compiledComments = await comments1!.map(
         async (comment) =>
             await compileMdx({
                 mdxString: comment.content,
@@ -101,22 +103,28 @@ export default async function Page({
 
     return (
         <>
-            <Breadcrumbs
+            {/* <Breadcrumbs
                 id="breadcrumbs"
                 className={clsx(
                     ' top-10 pb-8 dark:bg-[theme(colors.licorice)]'
                 )}
-            />
+            /> */}
 
             {Article && (
-                <ContentWrapper
+                <Content
+                    article={Article}
+                    headings={headings}
+                    mdxString={article![0].content}
+                />
+            )}
+            {/* <ContentWrapper
                     article={Article}
                     headings={headings}
                     comments={commentsTest}
                     className=""
                     mdx={article![0].content}
-                />
-            )}
+                /> */}
+
             {!Article && <p>Content load failed !</p>}
         </>
     )
