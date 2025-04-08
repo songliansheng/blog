@@ -39,7 +39,7 @@ export default function ThemeSwitcher() {
             <div className="flex dark:hidden">
                 <button
                     type="button"
-                    className="active:scale-95 p-1.5 rounded-full  hover:bg-[theme('colors.silver')] hover:dark:bg-[theme('colors.outer-space')]"
+                    className="active:scale-95 text-sm p-1.5 rounded-full  hover:bg-[theme('colors.silver')] hover:dark:bg-[theme('colors.outer-space')]"
                     onClick={switchToDark}
                 >
                     {darkIcon}
@@ -49,7 +49,7 @@ export default function ThemeSwitcher() {
                 {' '}
                 <button
                     type="button"
-                    className="active:scale-95 p-1.5 rounded-full hover:bg-[theme('colors.silver')] hover:dark:bg-[theme('colors.outer-space')]"
+                    className="active:scale-95 p-1.5 text-sm rounded-full hover:bg-[theme('colors.silver')] hover:dark:bg-[theme('colors.outer-space')]"
                     onClick={switchToLight}
                 >
                     {lightIcon}

@@ -1,11 +1,7 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
+  "autoAttachChildProcesses": false,
   "configurations": [
-    
-  
     {
       "name": "Next.js: debug server-side",
       "type": "node-terminal",
@@ -19,16 +15,32 @@
       "url": "http://localhost:3000"
     },
     {
-      "name": "Next.js: debug full stack",
-      "type": "node-terminal",
+      "name": "Next.js: debug client-side (Firefox)",
+      "type": "firefox",
       "request": "launch",
-      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "reAttach": true,
+      "pathMappings": [
+        {
+          "url": "webpack://_N_E",
+          "path": "${workspaceFolder}"
+        }
+      ]
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "runtimeArgs": ["--inspect"],
+      "skipFiles": ["<node_internals>/**"],
       "serverReadyAction": {
-        "pattern": "started server on .+, url: (https?://.+)",
+        "action": "debugWithEdge",
+        "killOnServerStop": true,
+        "pattern": "- Local:.+(https?://.+)",
         "uriFormat": "%s",
-        "action": "debugWithChrome"
-      },
-      "cwd": "${workspaceRoot}/web-app"
+        "webRoot": "${workspaceFolder}"
+      }
     }
   ]
 }

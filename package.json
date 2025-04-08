@@ -1,6 +1,6 @@
 {
-   "name": "blog-monorepo",
-  "packageManager": "pnpm@7.15.0",
+  "name": "blog-monorepo",
+  "packageManager": "pnpm@10.7.1",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -14,5 +14,4 @@
     "prettier": "^2.5.1",
     "turbo": "latest"
   }
-  
 }

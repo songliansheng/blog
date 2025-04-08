@@ -16,8 +16,8 @@ export function createClientsideClient() {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     )
 }
-export function createServersideClient() {
-    const cookieStore = cookies()
+export async function createServersideClient() {
+    const cookieStore =await cookies()
 
     return createServerClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,

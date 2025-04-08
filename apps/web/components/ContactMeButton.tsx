@@ -12,13 +12,13 @@ export default function ContactMeButton(): JSX.Element {
         <>
             <button
                 className={clsx(
-                    'rounded bg-sky-700 dark:hover:bg-transparent py-2 outline-2 px-4 border text-base border-sky-700 dark:text-[theme(colors.egg-shell)]'
+                    ' text-base rounded bg-sky-700 dark:hover:bg-transparent py-2 outline-2 px-4 border border-sky-700 dark:text-[theme(colors.egg-shell)]'
                 )}
                 onClick={() => showContactMe.setShowContactMe(true)}
             >
                 <span
                     className={clsx(
-                        ' font-bold dark:hover:text-sky-400 dark:text-white'
+                        'font-bold dark:hover:text-sky-400 dark:text-white '
                     )}
                 >
                     Contact Me

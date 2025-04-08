@@ -1,9 +1,10 @@
 import compileMdx from './compileMdx'
-import Breadcrumbs from 'components/Breadcrumb'
+// import Breadcrumbs from 'components/Breadcrumb'
 import { promises as fs } from 'fs'
 // import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import { createServersideClient } from '@/lib/supabase-client'
-import ContentWrapper from './ContentWrapper'
+// import ContentWrapper from './ContentWrapper'
+import CustomMDX from '@/components/MDXRemote'
 
 /*  TODO Use <Suspense>
  * Auto attach must be set disabled , Figure out why?
@@ -14,12 +15,12 @@ import ContentWrapper from './ContentWrapper'
 // const Comments2 = dynamic(() => import('components/Comments'), { ssr: false })
 // const Comments2 = dynamic(() => import('components/Comments'))
 
-import { auth } from '@/auth'
+import { auth } from '@/auth.config'
 // import { SupbaseClientContext } from '@/app/providers'
 import clsx from 'clsx'
 import Content from './Content'
 const prepareData = async () => {
-    const supabaseClient = createServersideClient()
+    const supabaseClient = await createServersideClient()
     const { data: article } = await supabaseClient
         .from('notes')
         .select('content')
@@ -103,29 +104,16 @@ export default async function Page({
 
     return (
         <>
-            {/* <Breadcrumbs
-                id="breadcrumbs"
-                className={clsx(
-                    ' top-10 pb-8 dark:bg-[theme(colors.licorice)]'
-                )}
-            /> */}
-
-            {Article && (
+            <CustomMDX source={article![0].content}></CustomMDX>
+            {/* {Article && (
                 <Content
                     article={Article}
                     headings={headings}
                     mdxString={article![0].content}
                 />
             )}
-            {/* <ContentWrapper
-                    article={Article}
-                    headings={headings}
-                    comments={commentsTest}
-                    className=""
-                    mdx={article![0].content}
-                /> */}
 
-            {!Article && <p>Content load failed !</p>}
+            {!Article && <p>Content load failed !</p>} */}
         </>
     )
 }

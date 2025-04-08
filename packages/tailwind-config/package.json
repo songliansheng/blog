@@ -1,0 +1,15 @@
+{
+  "name": "tailwind-config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-config-turbo": "latest",
+    "@tailwindcss/typography": "^0.5.14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

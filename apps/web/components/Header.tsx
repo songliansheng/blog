@@ -4,16 +4,17 @@
 import Link from 'next/link'
 import ThemeSwitcher from './ThemeSwitcher'
 // import { } from './'
-import { auth } from '@/auth'
+import { auth } from '@/auth.config'
 // import Headerr from './RootDiv'
 import clsx from 'clsx'
-import { signIn, signOut } from '@/auth'
+import { signIn, signOut } from '@/auth.config'
 import { handleSignOut } from '../app/actions'
 import Image from 'next/image'
-import { Avatar } from '@/components/Avatar'
+import Button from './Button'
 import { Menu } from '@headlessui/react'
 import { codeBracketSquare } from './Icons'
 import ContactMeButton from '@/components/ContactMeButton'
+import SignIn from './SignInButton'
 /*
  * Return a <header> element
  */
@@ -28,7 +29,7 @@ const NavItem = ({ name, url, isActive, children }: any) => {
     )
 }
 
-const SignOut = async () => {
+const SignOutButton = async () => {
     return (
         <form
             action={async () => {
@@ -36,7 +37,12 @@ const SignOut = async () => {
                 await signOut()
             }}
         >
-            <button type="submit">Sign Out</button>
+            <Button
+                type="submit"
+                className={clsx('text-sm !dark:bg-inherit font-bold !px-2')}
+            >
+                Sign Out
+            </Button>
         </form>
     )
 }
@@ -60,7 +66,10 @@ export const RootHeader = async ({ className, id }) => {
                 <span className="mx-2">Liansheng</span>
             </a>
 
-            <div id="group-in-header" className="flex items-center gap-x-8">
+            <div
+                id="group-in-header"
+                className={clsx('flex items-center gap-x-8')}
+            >
                 <nav
                     className={
                         clsx('items-center hidden lg:flex gap-x-6 ')
@@ -73,8 +82,14 @@ export const RootHeader = async ({ className, id }) => {
 
                     <NavItem name="Notes" isActive="false" url="/notes" />
                 </nav>
-                
-                <ThemeSwitcher />
+                <div className={clsx('flex')}>
+                    <ThemeSwitcher />
+                    {session?.user && (
+                        <SignOutButton  />
+                    )}
+                </div>
+
+                {/* <SignIn /> */}
             </div>
         </header>
     )

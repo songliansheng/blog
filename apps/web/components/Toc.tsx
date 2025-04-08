@@ -1,7 +1,7 @@
 'use client'
 import clsx from 'clsx'
 import { useTocHighlight } from './useTocHighlight'
-import cx from 'classnames'
+
 /*  h-[calc(100vh-121px)] hidden  lg:block mr-2 pl-4 w-[19.5rem] shadow-inner shrink-0 shadow-black/30 dark:shadow-white/10 overflow-y-auto */
 export default function Toc({
     headings,
@@ -18,7 +18,13 @@ export default function Toc({
                     return (
                         <li
                             key={index}
-                            className={cx(
+                            className={clsx('space-y-2 ', {
+                                'bg-highlight dark:bg-highlight-dark':
+                                    currentId === heading.data.id,
+                                'ps-3': heading?.depth === 3,
+                                hidden: heading.depth && heading.depth > 3,
+                            })}
+                            /*  className={cx(
                                 'space-y-2 ',
                                 currentId === heading.data.id
                                     ? 'bg-highlight dark:bg-highlight-dark'
@@ -27,14 +33,13 @@ export default function Toc({
                                     'ps-3': heading?.depth === 3,
                                     hidden: heading.depth && heading.depth > 3,
                                 }
-                            )}
+                            )} */
                         >
                             <a
-                                className={cx(
+                                className={clsx(
                                     'space-y-2 hover:text-sky-400',
-                                    currentId === heading.data.id
-                                        ? 'font-bold'
-                                        : null
+                                    {'font-bold':currentId === heading.data.id}
+                                       
                                 )}
                                 href={`#${heading.data.id}`}
                             >
@@ -56,7 +61,7 @@ export function TOC({ headings }) {
                     return (
                         <li
                             key={index}
-                            className={cx(
+                            className={clsx(
                                 'space-y-2 ',
                                 currentId === heading.data.id
                                     ? 'bg-highlight dark:bg-highlight-dark'
@@ -68,7 +73,7 @@ export function TOC({ headings }) {
                             )}
                         >
                             <a
-                                className={cx(
+                                className={clsx(
                                     'space-y-2 ',
                                     currentId === heading.data.id
                                         ? 'font-bold'

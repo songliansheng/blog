@@ -1,0 +1,11 @@
+{
+  "name": "authjs",
+  "version": "1.0.0",
+  "description": "Files to config authjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liansheng",
+  "license": "ISC"
+}

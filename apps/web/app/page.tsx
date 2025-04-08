@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 // import Comments from 'components/CommentDemo'
 // import { headers } from 'next/headers'  mr-[calc(theme('w-full') - 33rem)]
-import { signIn } from 'auth'
+import { signIn } from '@/auth.config'
 import { createServersideClient } from '@/lib/supabase-client'
 import { ProjectCard } from '@/components/Card'
 import Card from '@/components/Card'
@@ -20,7 +20,7 @@ const ProjectItem = ({
     return (
         <>
             <a
-                className={clsx("block max-w-[20rem]  ",'text-sky-400')}
+                className={clsx('block max-w-[20rem]  ', 'text-sky-400')}
                 href={item.sourceUrl}
                 target="_blank"
             >
@@ -48,13 +48,13 @@ export default async function HomePage() {
             .from('notes')
             .select('content')
             .eq('id', '2')
-        
+
         return { projects, article }
     }
     const { projects, article } = await getDate()
     // console.log('WTF' + projects[0].sourceurl)
     // console.log('WTF' + article[0].content)
-  
+
     // const headersList = headers()
     return (
         <div className={clsx('gap-8 grid grid-cols-[1fr,3fr]')}>
@@ -64,7 +64,7 @@ export default async function HomePage() {
             </section>
             <div
                 className={clsx(
-                    'pl-8 border-l-2 border-solid border-[theme(colors.outer-space)]'
+                    'pl-8 border-l-2 border-solid border-[theme(colors.outer-space)] min-h-screen'
                 )}
             >
                 <h2 className={clsx('')}>Posts</h2>

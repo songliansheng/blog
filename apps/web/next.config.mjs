@@ -28,6 +28,7 @@ const nextConfig = {
     transpilePackages: [],
     // swcMinify:true,
     reactStrictMode: true,
+    // transpilePackages: ['next-mdx-remote'],
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
     experimental: {
         mdxRs: true,
