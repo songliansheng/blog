@@ -45,7 +45,7 @@ export default function ThemeSwitcher() {
                     {darkIcon}
                 </button>
             </div>
-            <div className="hidden dark:flex">
+    <div className="hidden dark:flex">
                 {' '}
                 <button
                     type="button"

@@ -22,7 +22,7 @@
         "dust/ApolloClient-SSR.js",
         "app/page.tsx",
         "src/auth/authProviders.js",
-        "app/[...slug]/compileMdx.tsx"
+        "app/english_pronunciation/compileMdx.tsx"
     ],
     "exclude": ["node_modules"]
 }

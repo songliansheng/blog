@@ -1,8 +1,13 @@
 import nextMDX from '@next/mdx'
-
+import path from 'node:path'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import remarkToc from 'remark-toc'
 /**
  * @type {import('next').NextConfig}
  */
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 const webpackConfig = (config, options) => {
     config.module.rules.push({})
     return config
@@ -10,30 +15,44 @@ const webpackConfig = (config, options) => {
 // CAUTION: Turbo config below will break @next/mdx
 const turboConfig = {
     rules: {
-        // Option format
-        '*.md': [
-            {
-                loader: '@mdx-js/loader',
-                options: {
-                    format: 'md',
-                },
+        // '*.md': [
+
+        //     options: {
+        //         loader: '@mdx-js/loader',
+        //         format: 'md',
+        //     },
+        // ],
+
+        '*.mdx': {
+            loader: '@mdx-js/loader',
+            options: {
+                format: 'mdx',
             },
-        ],
-        // Option-less format
-        '*.mdx': ['@mdx-js/loader'],
+        },
     },
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
 }
 const nextConfig = {
-    transpilePackages: [],
-    // swcMinify:true,
+    turbopack: {
+        resolveExtensions: [
+            '.mdx',
+            '.tsx',
+            '.ts',
+            '.jsx',
+            '.js',
+            '.mjs',
+            '.json',
+        ],
+    },
+
     reactStrictMode: true,
-    // transpilePackages: ['next-mdx-remote'],
-    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+
+    pageExtensions: ['md', 'mdx', 'ts', 'tsx'],
+    turbopack: {},
     experimental: {
-        mdxRs: true,
+        mdxRs: false,
+
         // ppr: 'incremental',
-        // turbo: turboConfig,
     },
     // MARK images.remotePatterns needs to be configured if src prop of next/image is an absolute external URL
     images: {
@@ -48,11 +67,15 @@ const nextConfig = {
     },
     // webpack: webpackConfig,
 }
+if (process.env.NODE_ENV === 'development') {
+    nextConfig.outputFileTracingRoot = path.join(__dirname, '../../')
+}
 
 const withMDX = nextMDX({
+    extension: /\.mdx?$/,
     // CAUTION: Plugins configured here won't be used by next-mdx-remote
     options: {
-        remarkPlugins: [],
+        remarkPlugins: [[remarkToc]],
         rehypePlugins: [],
     },
 })

@@ -2,6 +2,7 @@
   "version": "0.2.0",
   "autoAttachChildProcesses": false,
   "configurations": [
+
     {
       "name": "Next.js: debug server-side",
       "type": "node-terminal",
@@ -41,6 +42,14 @@
         "uriFormat": "%s",
         "webRoot": "${workspaceFolder}"
       }
+    },
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "Launch Firefox",
+      "reAttach": true,
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }
