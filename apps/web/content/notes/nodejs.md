@@ -19,6 +19,8 @@ npm --proxy http://127.0.0.1:9910 install pnpm
 ```
 npm config ls -l
 ```
+### List Node.js versions available locally or remotely(`--remote`)
+`pnpm env list`
 # Environment variables
 * Environment variables are configured in `.env*`
 

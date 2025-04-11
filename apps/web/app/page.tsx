@@ -7,6 +7,19 @@ import { ProjectCard } from '@/components/Card'
 import Card from '@/components/Card'
 import dynamic from 'next/dynamic'
 import clsx from 'clsx'
+async function getDate() {
+    const supabaseClient =await createServersideClient()
+    const { data: projects } = await supabaseClient
+        .from('projects')
+        .select('title,description,sourceUrl,demoUrl')
+        .eq('id', '1')
+    const { data: article } = await supabaseClient
+        .from('notes')
+        .select('content')
+        .eq('id', '2')
+
+    return { projects, article }
+}
 const ProjectItem = ({
     item,
 }: {
@@ -38,19 +51,7 @@ const ProjectItem = ({
     )
 }
 export default async function HomePage() {
-    async function getDate() {
-        const supabaseClient = createServersideClient()
-        const { data: projects } = await supabaseClient
-            .from('projects')
-            .select('title,description,sourceUrl,demoUrl')
-            .eq('id', '1')
-        const { data: article } = await supabaseClient
-            .from('notes')
-            .select('content')
-            .eq('id', '2')
-
-        return { projects, article }
-    }
+    
     const { projects, article } = await getDate()
     // console.log('WTF' + projects[0].sourceurl)
     // console.log('WTF' + article[0].content)

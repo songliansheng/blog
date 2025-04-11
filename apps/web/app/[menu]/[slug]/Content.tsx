@@ -6,7 +6,7 @@ import { $convertFromMarkdownString } from '@lexical/markdown'
 // import { TRANSFORMERS } from "@/components/Lexical/Transformers"
 import { TRANSFORMERS } from '@/components/Lexical/MarkDown/Transformers'
 import Toc from '@/components/Toc'
-import { isEditableContext } from '../providers'
+import { isEditableContext } from '@/app/providers'
 import Editor from '@/components/Lexical/LexicalEditor'
 import clsx from 'clsx'
 import Card from '@/components/Card'

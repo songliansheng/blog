@@ -5,10 +5,10 @@ export default function Button({
     children,
     className,
 }: {
-    type: 'button' | 'submit' | 'reset' | undefined
+    type?: 'button' | 'submit' | 'reset' | undefined
     children: React.ReactNode
     className?: string
-    // onClick?: () => void
+    onClick?: () => void
     // disabled?: boolean
 }) {
     return (

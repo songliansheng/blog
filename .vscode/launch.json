@@ -2,21 +2,21 @@
   "version": "0.2.0",
   "autoAttachChildProcesses": false,
   "configurations": [
-
     {
-      "name": "Next.js: debug server-side",
+      "name": "Next.js:Debug server-side",
       "type": "node-terminal",
       "request": "launch",
-      "command": "npm run dev"
+      "command": "NODE_OPTIONS='--inspect' pnpm dev",
+      "cwd": "${workspaceFolder}/apps/web"
     },
     {
-      "name": "Next.js: debug client-side",
+      "name": "Next.js:Debug client-side",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:3000"
     },
     {
-      "name": "Next.js: debug client-side (Firefox)",
+      "name": "Next.js:Debug client-side(Firefox)",
       "type": "firefox",
       "request": "launch",
       "url": "http://localhost:3000",
@@ -29,11 +29,12 @@
       ]
     },
     {
-      "name": "Next.js: debug full stack",
-      "type": "node",
+      "name": "Next.js: Debug full stack",
+      "type": "node-terminal",
       "request": "launch",
-      "program": "${workspaceFolder}/node_modules/.bin/next",
-      "runtimeArgs": ["--inspect"],
+      
+      "cwd": "${workspaceFolder}/apps/web",
+      "command": "NODE_OPTIONS='--inspect' pnpm dev",
       "skipFiles": ["<node_internals>/**"],
       "serverReadyAction": {
         "action": "debugWithEdge",
@@ -43,13 +44,6 @@
         "webRoot": "${workspaceFolder}"
       }
     },
-    {
-      "type": "firefox",
-      "request": "launch",
-      "name": "Launch Firefox",
-      "reAttach": true,
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
-    }
-  ]
+    
+  ],
 }

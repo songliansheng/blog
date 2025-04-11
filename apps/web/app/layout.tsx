@@ -8,7 +8,7 @@ import ContactMeButton from '@/components/ContactMeButton'
 import { auth } from '@/auth.config'
 import { SessionProvider } from 'next-auth/react'
 // import  SessionProvider  from '@/app/SessionProvider'
-import SignIn from '@/components/SignInButton'
+// import SignIn from '@/components/SignInButton'
 export default async function RootLayout({
     children,
 }: {

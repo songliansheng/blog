@@ -48,7 +48,18 @@ const nextConfig = {
     reactStrictMode: true,
 
     pageExtensions: ['md', 'mdx', 'ts', 'tsx'],
-    turbopack: {},
+    turbopack: {
+        
+        resolveExtensions: [
+            '.mdx',
+            '.tsx',
+            '.ts',
+            '.jsx',
+            '.js',
+            '.mjs',
+            '.json',
+        ],
+    },
     experimental: {
         mdxRs: false,
 
