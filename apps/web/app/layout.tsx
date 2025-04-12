@@ -1,10 +1,11 @@
-import { RootHeader as Header } from '../components/Header'
-import Footer from '@/components/Footer'
-import ContactMe from '@/components/ContactMe'
-import './globals.css'
+import { RootHeader as Header } from '../lib/components/Header'
+import Footer from '@/lib/components/Footer'
+import ContactMe from '@/lib/components/ContactMe'
+import './global.css'
 import clsx from 'clsx'
 import Providers from './providers'
-import ContactMeButton from '@/components/ContactMeButton'
+import {MDXProvider} from '@mdx-js/react'
+import ContactMeButton from '@/lib/components/ContactMeButton'
 import { auth } from '@/auth.config'
 import { SessionProvider } from 'next-auth/react'
 // import  SessionProvider  from '@/app/SessionProvider'
@@ -41,6 +42,7 @@ export default async function RootLayout({
             <body className={clsx('h-full ', 'text-lg leading-10')}>
                 <SessionProvider basePath={'/auth'} session={session}>
                     <Providers>
+                       
                         <div id="root" className="h-full">
                             <div className={clsx(``, '')}>
                                 <Header
@@ -70,7 +72,8 @@ export default async function RootLayout({
                                     'fixed bottom-2 right-4 max-h-screen overflow-y-scroll'
                                 )}
                             />
-                        </div>
+                            </div>
+                           
                     </Providers>
                 </SessionProvider>
             </body>

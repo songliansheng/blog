@@ -1,8 +1,8 @@
-import Button from '@/components/Button'
-import { plusIcon, ChevronDownIcon } from '@/components/Icons'
+import Button from '@/lib/components/Button'
+import { plusIcon, ChevronDownIcon } from '@/lib/components/Icons'
 import { INSERT_HORIZONTAL_RULE_COMMAND } from '@lexical/react/LexicalHorizontalRuleNode'
-import { useLexicalComposerContext } from '@/components/Lexical/LexicalComposerWrapper'
-import DropDown, { DropDownItem } from '@/components/DropDown'
+import { useLexicalComposerContext } from '@/lib/components/Lexical/LexicalComposerWrapper'
+import DropDown, { DropDownItem } from '@/lib/components/DropDown'
 /* CONFIG👉 Lexical
  *
  * Steps to use commands :

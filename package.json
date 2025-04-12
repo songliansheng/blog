@@ -2,6 +2,7 @@
   "name": "blog-monorepo",
   "packageManager": "pnpm@10.7.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",

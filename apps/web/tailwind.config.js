@@ -1,3 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 /*  */
-module.exports = require('tailwind-config/tailwind-v3.config')
+import tailwindV3Config from 'tailwind-config/tailwind-v3.config'
+// module.exports = require('tailwind-config/tailwind-v3.config')
+
+export default tailwindV3Config

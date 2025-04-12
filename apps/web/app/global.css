@@ -9,7 +9,7 @@
         @apply text-4xl font-bold;
     }
     h2 {
-        @apply text-4xl font-semibold dark:text-[theme('colors.egg-shell')];
+        @apply  font-semibold dark:text-[theme('colors.egg-shell')];
     }
      h3 {
         @apply text-2xl font-semibold py-4 dark:text-[theme('colors.egg-shell')];

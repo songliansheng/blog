@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import * as React from 'react'
-import Modal from "@/components/Modal";
+import Modal from "@/lib/components/Modal";
 export default function useModal() {
     const [modalContent, setModalContent] = useState<null | {
         closeOnClickOutside: boolean

@@ -1,10 +1,10 @@
-import Header from '../components/Header'
+import Header from '../lib/components/Header'
 // import Comments from 'components/CommentDemo'
 // import { headers } from 'next/headers'  mr-[calc(theme('w-full') - 33rem)]
 import { signIn } from '@/auth.config'
 import { createServersideClient } from '@/lib/supabase-client'
-import { ProjectCard } from '@/components/Card'
-import Card from '@/components/Card'
+import { ProjectCard } from '@/lib/components/Card'
+import Card from '@/lib/components/Card'
 import dynamic from 'next/dynamic'
 import clsx from 'clsx'
 async function getDate() {

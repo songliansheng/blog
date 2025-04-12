@@ -1,28 +1,25 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./*"]
-            // "react": ["./node_modules/@types/react"]
-        },
-        "plugins": [
-            {
-                "name": "next"
-            }
-        ],
-        "strictNullChecks": true
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+      // "react": ["./node_modules/@types/react"]
     },
-    "extends": "tsconfig/nextjs.json",
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.mdx",
-        ".next/types/**/*.ts",
-        "dust/ApolloClient-SSR.js",
-        "app/page.tsx",
-        "src/auth/authProviders.js",
-        "app/english_pronunciation/compileMdx.tsx"
+    "plugins": [
+      {
+        "name": "next"
+      }
     ],
-    "exclude": ["node_modules"]
+    "strictNullChecks": true
+  },
+  "extends": "tsconfig/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mdx",
+    ".next/types/**/*.ts",
+    "app/[menu]/[slug]/client.mjs"
+  ],
+  "exclude": ["node_modules"]
 }

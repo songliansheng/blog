@@ -4,10 +4,10 @@ import ToolbarPlugin from './plugins/ToolbarPlugin'
 import EditorTheme from './EditorTheme'
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
 import { HorizontalRulePlugin } from '@lexical/react/LexicalHorizontalRulePlugin'
-import OnChangePlugin from '@/components/Lexical/plugins/OnChangePlugin'
+import OnChangePlugin from '@/lib/components/Lexical/plugins/OnChangePlugin'
 import { ContentEditable } from './ContentEditableWrapper'
 import LixicalNodes from './LexicalNodes'
-import { LexicalComposer } from '@/components/Lexical/LexicalComposerWrapper'
+import { LexicalComposer } from '@/lib/components/Lexical/LexicalComposerWrapper'
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary'
 
 import React, {

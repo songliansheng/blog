@@ -2,7 +2,7 @@
 import { IdentificationIcon } from './Icons'
 import { useContext } from 'react'
 import { ShowContactMeContext } from '@/app/providers'
-import ContactMeButton from '@/components/ContactMeButton'
+import ContactMeButton from '@/lib/components/ContactMeButton'
 import { CopyIcon } from './Icons'
 import clsx from 'clsx'
 import Card from './Card'

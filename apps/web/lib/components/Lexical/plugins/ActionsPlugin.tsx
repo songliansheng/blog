@@ -1,6 +1,6 @@
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
-import Button  from '@/components/Button'
-import { commentIcon, lightIcon } from '@/components/Icons'
+import Button  from '@/lib/components/Button'
+import { commentIcon, lightIcon } from '@/lib/components/Icons'
 export function ActionsMenu({ submitContent }): JSX.Element {
     const [editor] = useLexicalComposerContext()
     // const commentInputBox = document.getElementById('default-comment-box')

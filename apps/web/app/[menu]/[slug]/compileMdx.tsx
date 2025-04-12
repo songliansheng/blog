@@ -1,7 +1,7 @@
 /* TODO Figure out how to use 'remark-heading-id'
  */
 import { compileMDX } from 'remote-mdx/rsc'
-import { MdxComponents } from 'components/MDX/MDXComponents'
+import { MdxComponents } from '@/lib/components/MDX/MDXComponents'
 import remarkHeadings from '@vcarl/remark-headings'
 import remarkHeadingId from 'lib/mdxPlugins/remark-heading-id'
 import remarkHeadingIds from 'remark-heading-id'

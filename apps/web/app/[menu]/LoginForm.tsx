@@ -1,10 +1,10 @@
 import { auth } from '@/auth.config'
 // import Redirect from '@/components/Redirect'
-import LoginForm from '@/components/LoginForm'
+import LoginForm from '@/lib/components/LoginForm'
 import { AuthError } from 'next-auth'
 import { signIn, providersMetadata as providers } from '@/auth.config'
 import { redirect } from 'next/navigation'
-import Button from '@/components/Button'
+import Button from '@/lib/components/Button'
 const SignInButton = ({ provider }) => {
     return (
         <form

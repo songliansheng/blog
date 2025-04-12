@@ -45,7 +45,7 @@ const nextConfig = {
         ],
     },
 
-    reactStrictMode: true,
+    // reactStrictMode: true,
 
     pageExtensions: ['md', 'mdx', 'ts', 'tsx'],
     turbopack: {

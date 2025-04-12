@@ -1,4 +1,4 @@
-import { LinkCard } from '@/components/Card'
+import { LinkCard } from '@/lib/components/Card'
 export default async function Page({
     params,
     searchParams,

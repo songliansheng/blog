@@ -4,14 +4,14 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 import { useContext, useEffect, useState } from 'react'
 import { $convertFromMarkdownString } from '@lexical/markdown'
 // import { TRANSFORMERS } from "@/components/Lexical/Transformers"
-import { TRANSFORMERS } from '@/components/Lexical/MarkDown/Transformers'
-import Toc from '@/components/Toc'
+import { TRANSFORMERS } from '@/lib/components/Lexical/MarkDown/Transformers'
+import Toc from '@/lib/components/Toc'
 import { isEditableContext } from '@/app/providers'
-import Editor from '@/components/Lexical/LexicalEditor'
+import Editor from '@/lib/components/Lexical/LexicalEditor'
 import clsx from 'clsx'
-import Card from '@/components/Card'
-import Button from '@/components/Button'
-import { commentIcon, pencilSquareIcon } from '@/components/Icons'
+import Card from '@/lib/components/Card'
+import Button from '@/lib/components/Button'
+import { commentIcon, pencilSquareIcon } from '@/lib/components/Icons'
 // const isEditable = useContext(isEditableContext)
 
 export default function Content({ article, headings, mdxString }) {

@@ -2,9 +2,9 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { serialize } from 'next-mdx-remote/serialize'
 import { auth } from '@/auth.config'
 // import { LoginForm } from '@/components/LoginForm'
-import LoginForm from '@/components/LoginForm'
-import Redirect from '@/components/Redirect'
-import Stopwatch from '@/components/Demo/Stopwatch'
+import LoginForm from '@/lib/components/LoginForm'
+import Redirect from '@/lib/components/Redirect'
+import Stopwatch from '@/lib/components/Demo/Stopwatch'
 
 // import { redirect } from 'next/navigation'
 
@@ -16,13 +16,14 @@ export default async function Page({
     params,
     searchParams,
 }: {
-    params: { section: string }
+    params: Promise<{ menu: string }>
     searchParams: { [key: string]: string | string[] | undefined }
-}) {
+    }) {
+    const { menu } = await params
     const session = await auth()
 
     // return <>You have to login</>
-    if (params.section === 'test')
+    if (menu === 'test')
         return (
             <>
                 <Redirect message="You have loged in" link="/" />

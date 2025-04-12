@@ -1,4 +1,4 @@
-    // ALERT: ESM's 'export' seems doesn't work
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     plugins: {
         tailwindcss: {},

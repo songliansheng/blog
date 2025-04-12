@@ -37,14 +37,14 @@ import {
     $isImageNode,
     ImageNode,
     ImagePayload,
-} from '@/components/Lexical/nodes/ImageNode/ImageNode'
-import Button from '@/components/Button'
+} from '@/lib/components/Lexical/nodes/ImageNode/ImageNode'
+import Button from '@/lib/components/Button'
 import {
     DialogActions,
     DialogButtonsList,
-} from '@/components/Lexical/ui/Dialog'
-import FileInput from '@/components/Lexical/ui/FileInput'
-import TextInput from '@/components/Lexical/ui/TextInput'
+} from '@/lib/components/Lexical/ui/Dialog'
+import FileInput from '@/lib/components/Lexical/ui/FileInput'
+import TextInput from '@/lib/components/Lexical/ui/TextInput'
 
 export type InsertImagePayload = typeof Image
 

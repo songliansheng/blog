@@ -5,7 +5,7 @@ import { SessionProvider } from 'next-auth/react'
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import { auth } from '@/auth.config'
 // export const SupbaseClientContext = createContext({})
-
+import {MDXProvider} from '@mdx-js/react'
 const ShowContactMeContext = createContext({
    
 })
@@ -19,10 +19,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         <ShowContactMeContext.Provider
             value={{ showContactMe, setShowContactMe }}
         >
-            <isEditableContext.Provider value={{ isEditable, setIsEditable }}>
+            <isEditableContext.Provider value={{ isEditable, setIsEditable }}> <MDXProvider >
                 {/* <SessionProvider basePath={'/auth'} > */}
                 {children}
                 {/* </SessionProvider> */}
+                 </MDXProvider>
             </isEditableContext.Provider>
         </ShowContactMeContext.Provider>
         // </SupbaseClientContext.Provider>
