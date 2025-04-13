@@ -1,7 +1,7 @@
 import { RootHeader as Header } from "../components/Header";
 import Footer from "@/components/Footer";
 import ContactMe from "@/components/ContactMe";
-import "./global.css";
+import "./globals.css";
 import clsx from "clsx";
 import Providers from "./providers";
 import { MDXProvider } from "@mdx-js/react";
