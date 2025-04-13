@@ -2,7 +2,7 @@ import { toc } from 'mdast-util-toc'
 /* TODO Complete this !!! 
 *
 */
-export default function remarkToc({ tree, options }) {
+export function remarkToc(options ) {
     const settings = {
         ...options,
         heading:

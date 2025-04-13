@@ -140,6 +140,9 @@ importers:
       remark-heading-id:
         specifier: ^1.0.1
         version: 1.0.1
+      remark-rehype:
+        specifier: ^11.1.2
+        version: 11.1.2
       remark-toc:
         specifier: ^9.0.0
         version: 9.0.0

@@ -86,7 +86,7 @@ const withMDX = nextMDX({
     extension: /\.mdx?$/,
     // CAUTION: Plugins configured here won't be used by next-mdx-remote
     options: {
-        remarkPlugins: [[remarkToc]],
+        remarkPlugins: [],
         rehypePlugins: [],
     },
 })

@@ -49,6 +49,7 @@
         "react-dom": "^19.1.0",
         "remark-gfm": "^4.0.1",
         "remark-heading-id": "^1.0.1",
+        "remark-rehype": "^11.1.2",
         "remark-toc": "^9.0.0",
         "unist-util-visit": "^5.0.0",
         "use-count-up": "^3.0.1",
