@@ -1,6 +1,6 @@
 'use client'
 import clsx from 'clsx'
-import { useTocHighlight } from './useTocHighlight'
+import { useTocHighlight } from '../hooks/useTocHighlight'
 
 /*  h-[calc(100vh-121px)] hidden  lg:block mr-2 pl-4 w-[19.5rem] shadow-inner shrink-0 shadow-black/30 dark:shadow-white/10 overflow-y-auto */
 export default function Toc({
@@ -16,37 +16,27 @@ export default function Toc({
             <ul className={clsx('space-y-2 pb-4 text-base ', className)}>
                 {headings.map((heading, index) => {
                     return (
-                        <li
-                            key={index}
-                            className={clsx('space-y-2 ', {
-                                'bg-highlight dark:bg-highlight-dark':
-                                    currentId === heading.data.id,
-                                'ps-3': heading?.depth === 3,
-                                hidden: heading.depth && heading.depth > 3,
-                            })}
-                            /*  className={cx(
-                                'space-y-2 ',
-                                currentId === heading.data.id
-                                    ? 'bg-highlight dark:bg-highlight-dark'
-                                    : null,
-                                {
-                                    'ps-3': heading?.depth === 3,
-                                    hidden: heading.depth && heading.depth > 3,
-                                }
-                            )} */
+                      <li
+                        key={index}
+                        className={clsx("space-y-2 ", {
+                          "":
+                            currentId === heading.data.id,
+                          "ps-3": heading?.depth === 3,
+                          hidden: heading.depth && heading.depth > 3,
+                        })}
+                        
+                      >
+                        <a
+                          className={clsx("space-y-2 hover:text-sky-400", {
+                            "text-sky-400 font-bold":
+                              currentId === heading.data.id,
+                          })}
+                          href={`#${heading.data.id}`}
                         >
-                            <a
-                                className={clsx(
-                                    'space-y-2 hover:text-sky-400',
-                                    {'font-bold':currentId === heading.data.id}
-                                       
-                                )}
-                                href={`#${heading.data.id}`}
-                            >
-                                {heading.value}
-                            </a>
-                        </li>
-                    )
+                          {heading.value}
+                        </a>
+                      </li>
+                    );
                 })}
             </ul>
         </>
@@ -59,32 +49,31 @@ export function TOC({ headings }) {
             <ul className="space-y-2 pb-16">
                 {headings.map((heading, index) => {
                     return (
-                        <li
-                            key={index}
-                            className={clsx(
-                                'space-y-2 ',
-                                currentId === heading.data.id
-                                    ? 'bg-highlight dark:bg-highlight-dark'
-                                    : null,
-                                {
-                                    'ps-3': heading?.depth === 3,
-                                    hidden: heading.depth && heading.depth > 3,
-                                }
-                            )}
+                      <li
+                        key={index}
+                        className={clsx(
+                          "space-y-2 ",
+                          currentId === heading.data.id
+                            ? "bg-highlight dark:bg-highlight-dark"
+                            : null,
+                          {
+                            "ps-3": heading?.depth === 3,
+                            hidden: heading.depth && heading.depth > 3,
+                          }
+                        )}
+                      >
+                        <a
+                          className={clsx(
+                            "scroll-mt-16",
+                            "space-y-2 ",
+                            currentId === heading.data.id ? "font-bold" : null
+                          )}
+                          href={`#${heading.data.id}`}
                         >
-                            <a
-                                className={clsx(
-                                    'space-y-2 ',
-                                    currentId === heading.data.id
-                                        ? 'font-bold'
-                                        : null
-                                )}
-                                href={`#${heading.data.id}`}
-                            >
-                                {heading.value}
-                            </a>
-                        </li>
-                    )
+                          {heading.value}
+                        </a>
+                      </li>
+                    );
                 })}
             </ul>
         </div>

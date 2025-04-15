@@ -7,14 +7,14 @@ export default function Footer({className}):JSX.Element {
       >
           <a
               href="https://www.x.com/lianshengsong"
-              className="font-bold rounded-full dark:hover:bg-[theme('colors.outer-space')] hover:bg-[theme('colors.silver')] underline py-1.5 px-2"
+              className="font-bold rounded-full dark:hover:bg-(--color-outer-space) hover:bg-(--color-silver) underline py-1.5 px-2"
               target="_blank"
           >
               X(Twitter)
           </a>
           <a
               href="https://github.com/songliansheng"
-              className="font-bold rounded-full dark:hover:bg-[theme('colors.outer-space')] hover:bg-[theme('colors.silver')] underline  py-1.5 px-2"
+              className="font-bold rounded-full dark:hover:bg-(--color-outer-space) hover:bg-(--color-silver) underline  py-1.5 px-2"
               target="_blank"
           >
               Github

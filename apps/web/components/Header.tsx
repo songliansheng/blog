@@ -14,7 +14,7 @@ import Button from "./Button";
 import { Menu } from "@headlessui/react";
 import { codeBracketSquare } from "./Icons";
 import ContactMeButton from "@/components/ContactMeButton";
-import SignIn from "./SignInButton";
+// import SignIn from "./SignInButton";
 /*
  * Return a <header> element
  */
@@ -22,7 +22,7 @@ const NavItem = ({ name, url, isActive, children }: any) => {
   return (
     <Link
       href={url}
-      className="p-2 py-1.5 rounded-full dark:hover:bg-[theme('colors.outer-space')] hover:bg-[theme('colors.silver')] font-bold"
+      className={clsx("p-2 py-1.5 rounded-full hover:bg-outer-space font-bold")}
     >
       {name}
     </Link>
@@ -39,7 +39,7 @@ const SignOutButton = async () => {
     >
       <Button
         type="submit"
-        className={clsx("text-sm !dark:bg-inherit font-bold !px-2")}
+        className={clsx("text-sm !dark:bg-inherit font-bold px-2!")}
       >
         Sign Out
       </Button>

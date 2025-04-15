@@ -34,7 +34,7 @@ export default async function RootLayout({
        */
       className={clsx(
         "h-full",
-        "dark dark:bg-[theme('colors.licorice')] bg-[theme('colors.off-white')]"
+        "dark dark:bg-(--color-licorice) bg-(--color-off-white)"
       )}
       lang="en"
     >
@@ -46,20 +46,20 @@ export default async function RootLayout({
               <div className={clsx(``, "")}>
                 <Header
                   id="global-header"
-                  // className="dark:bg-[theme('colors.licorice')] bg-[theme('colors.off-white')] max-w-7xl mx-auto text-xl"
+                  // className="dark:bg-(--color-licorice) bg-(--color-off-white) max-w-7xl mx-auto text-xl"
                   className={clsx(
-                    `dark:bg-[theme('colors.licorice')] bg-[theme('colors.off-white')]`,
+                    `dark:bg-(--color-licorice) bg-(--color-off-white)`,
                     "text-xl ",
-                    "py-2 pl-12 pr-[25rem]",
+                    "h-(--rootheader-height) pl-12 pr-[25rem]",
                     "sticky top-0 z-50 ",
-                    "border-b-2 border-[theme(colors.outer-space)]"
+                    "border-b-2 border-(--color-outer-space)"
                   )}
                 />
 
                 <main
                   className={clsx(
                     " pl-12 pr-[25rem]",
-                    " basis-auto flex-shrink-0 relative"
+                    " basis-auto shrink-0 relative"
                   )}
                 >
                   {children}

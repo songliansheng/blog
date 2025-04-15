@@ -20,7 +20,7 @@ export default function ToolbarPlugin({ className }) {
   return (
     <div
       id="lexical-toolbar"
-      className={`${className} sticky top-12 z-50 flex flex-row justify-start w-full dark:bg-[theme(colors.licorice-light)]`}
+      className={`${className} sticky top-12 z-50 flex flex-row justify-start w-full dark:bg-(--color-licorice-light)`}
     >
       <Button>Bold</Button>
       <Button className="flex items-center">
@@ -28,7 +28,7 @@ export default function ToolbarPlugin({ className }) {
         {ChevronDownIcon}
       </Button>
       <DropDown
-        dropDownItemsClassName={`dark:bg-[theme('colors.licorice')] flex flex-col`}
+        dropDownItemsClassName={`dark:bg-(--color-licorice) flex flex-col`}
         buttonIcon={plusIcon}
         buttonLabel="Insert"
       >

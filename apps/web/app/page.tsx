@@ -53,14 +53,14 @@ export default async function HomePage() {
 
   // const headersList = headers()
   return (
-    <div className={clsx("gap-8 grid grid-cols-[1fr,3fr]")}>
+    <div className={clsx("gap-8 grid grid-cols-[1fr_3fr]")}>
       <section className={clsx("pr-4")}>
         <h3>Latest</h3>
         <p>No items to display .</p>
       </section>
       <div
         className={clsx(
-          "pl-8 border-l-2 border-solid border-[theme(colors.outer-space)] min-h-screen"
+          "pl-8 border-l-2 border-solid border-(--color-outer-space) min-h-screen"
         )}
       >
         <h2 className={clsx("")}>Posts</h2>
@@ -69,7 +69,7 @@ export default async function HomePage() {
         <div className={clsx("grid grid-cols-3 gap-5")}>
           <Card
             className={clsx(
-              "border-2 rounded-xl border-solid border-[theme(colors.outer-space)]"
+              "border-2 rounded-xl border-solid border-(--color-outer-space)"
             )}
           >
             <ProjectItem item={projects[0]} />

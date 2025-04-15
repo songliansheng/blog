@@ -3,6 +3,7 @@ import path from 'node:path'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import remarkToc from 'remark-toc'
+import remarkHeadingId from "./mdxPlugins/remark-heading-id.js";
 /**
  * @type {import('next').NextConfig}
  */
@@ -83,13 +84,13 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const withMDX = nextMDX({
-    extension: /\.mdx?$/,
-    // CAUTION: Plugins configured here won't be used by next-mdx-remote
-    options: {
-        remarkPlugins: [],
-        rehypePlugins: [],
-    },
-})
+  extension: /\.mdx?$/,
+  // CAUTION: Plugins configured here won't be used by next-mdx-remote
+  options: {
+    remarkPlugins: [remarkHeadingId],
+    rehypePlugins: [],
+  },
+});
 
 // export default nextConfig
 

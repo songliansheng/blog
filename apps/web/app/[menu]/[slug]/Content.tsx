@@ -34,17 +34,17 @@ export default function Content({ article, headings, mdxString }) {
   return (
     <div
       id="content"
-      className={clsx({ "grid grid-cols-[1fr,3fr]": !isEditable })}
+      className={clsx({ "grid grid-cols-[1fr_3fr]": !isEditable })}
     >
       {/* h-[calc(100vh-8rem)] */}
       {!isEditable && (
         <div
           className={clsx(
             "sticky  top-[77.6px] overflow-y-scroll rounded-xl",
-            // 'border-l-2 border-[theme(colors.outer-space)]',
-            // 'dark:bg-[theme(colors.dark-licorice)]',
+            // 'border-l-2 border-(--color-outer-space)',
+            // 'dark:bg-(--color-dark-licorice)',
             "max-h-[calc(100vh-6.75rem)]"
-            // 'rounded-xl dark:border-none border-2 border-[theme(colors.outer-space)]'
+            // 'rounded-xl dark:border-none border-2 border-(--color-outer-space)'
           )}
         >
           <h2 className="text-xl py-2 sticky top-0 font-serif px-4 bg-inherit">
@@ -56,8 +56,8 @@ export default function Content({ article, headings, mdxString }) {
       <article
         className={clsx(
           "pl-8",
-          "border-l-2 border-r-2 border-[theme(colors.outer-space)]"
-          // 'border-l-2 border-r-2 border-[theme(colors.outer-space)]'
+          "border-l-2 border-r-2 border-(--color-outer-space)"
+          // 'border-l-2 border-r-2 border-(--color-outer-space)'
         )}
       >
         <Editor className={clsx({ hidden: !isEditable })} />

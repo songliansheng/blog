@@ -16,17 +16,17 @@ export default function ContactMe({ className }): JSX.Element {
     <>
       <div
         className={clsx(
-          "rounded-xl dark:border-none border-2 border-[theme(colors.outer-space)]",
+          "rounded-xl dark:border-none border-2 border-(--color-outer-space)",
           className
         )}
       >
         {!showContactMe.showContactMe && <ContactMeButton />}
         {showContactMe.showContactMe && (
-          <Card className={clsx("", "dark:bg-[theme(colors.dark-licorice)]")}>
+          <Card className={clsx("", "dark:bg-(--color-dark-licorice)")}>
             <div className={clsx("flex justify-end")}>
               <button
                 className={clsx(
-                  `font-bold py-1.5 px-2 text-xl rounded-full dark:hover:bg-[theme('colors.outer-space')] hover:bg-[theme('colors.silver')]`,
+                  `font-bold py-1.5 px-2 text-xl rounded-full dark:hover:bg-(--color-outer-space) hover:bg-(--color-silver)`,
                   "font-serif"
                 )}
                 onClick={() => showContactMe.setShowContactMe(false)}
@@ -44,7 +44,7 @@ export default function ContactMe({ className }): JSX.Element {
                   <span className="px-2 text-lg">Email :</span>
                   <span className="text-sm">lianshengsong@outlook.com</span>
                   <button onClick={copy} className="">
-                    <CopyIcon className="dark:hover:bg-[theme('colors.outer-space')] rounded-md fill-black dark:fill-zinc-400 stroke-white size-6 p-[0.25rem]" />
+                    <CopyIcon className="dark:hover:bg-(--color-outer-space) rounded-md fill-black dark:fill-zinc-400 stroke-white size-6 p-[0.25rem]" />
                   </button>
                 </div>
               </li>

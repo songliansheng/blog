@@ -122,7 +122,7 @@ export default function DropDown({
       {showDropDown &&
         createPortal(
           <DropDownItems
-            className={`text-sm dark:bg-[theme('colors.licorice-light')] ${dropDownItemsClassName}`}
+            className={`text-sm dark:bg-(--color-licorice-light) ${dropDownItemsClassName}`}
             onClose={handleClose}
             dropDownItemsRef={dropDownItemsRef}
           >

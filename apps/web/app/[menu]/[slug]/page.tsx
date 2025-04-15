@@ -10,6 +10,7 @@ import remarkRehype from "remark-rehype";
 // import remarkToc from "remark-toc";
 import remarkHeadings from "@vcarl/remark-headings";
 import fs from "node:fs/promises";
+import path from "node:path";
 export default async function Page({
   params,
 }: {
@@ -17,6 +18,7 @@ export default async function Page({
 }) {
   const { menu, slug } = await params;
   const { default: Post } = await import(`@/content/${menu}/${slug}.mdx`);
+  const filePath = path.join(process.cwd(), "content", menu, `${slug}.mdx`);
 
   /* CAUTION
    *await compile(await fs.readFile('/home/songliansheng/english_pronunciation.mdx')) doesn't work
@@ -33,29 +35,24 @@ export default async function Page({
     data: { headings },
   } = await compile(
     (
-      await fs.readFile("/home/songliansheng/english_pronunciation.mdx")
+      await fs.readFile(filePath)
     ).toString(),
     {
       outputFormat: "function-body",
-      remarkPlugins: [remarkHeadingId,remarkHeadings],
+      remarkPlugins: [remarkHeadingId, remarkHeadings],
       rehypePlugins: [],
     }
   );
   const data = String(
-    await compile(
-      (
-        await fs.readFile("/home/songliansheng/english_pronunciation.mdx")
-      ).toString(),
-      {
-        outputFormat: "function-body",
-        remarkPlugins: [remarkToc],
-      }
-    )
+    await compile((await fs.readFile(filePath)).toString(), {
+      outputFormat: "function-body",
+      remarkPlugins: [remarkToc],
+    })
   );
 
   const { default: Content } = await evaluate(
     (
-      await fs.readFile("/home/songliansheng/english_pronunciation.mdx")
+      await fs.readFile(filePath)
     ).toString(),
     {
       ...runtime,
@@ -64,20 +61,21 @@ export default async function Page({
       remarkPlugins: [remarkToc, remarkHeadingId],
     }
   );
-  console.log(headings);
+  console.log(filePath);
   return (
-    <div className={clsx("grid grid-cols-[1fr,3fr]")}>
-      <div>
+    <div className={clsx("grid grid-cols-[1fr_3fr]")}>
+      <div
+        className={clsx(
+          "sticky top-[3.85rem] h-[calc(100vh-3.85rem)] overflow-y-auto"
+        )}
+      >
         <h2 className="text-xl py-2 sticky top-0 font-serif px-4 bg-inherit">
           On This Page
         </h2>
         <Toc headings={headings} />
       </div>
-      <div id="">
-        {/* <English_pronunciation /> */}
-        {/* {headings} */}
-        {/* <Content /> */}
-        {/* <Compiled/> */}
+      <div id="scrollArea" className="">
+        <English_pronunciation />
       </div>
     </div>
   );
