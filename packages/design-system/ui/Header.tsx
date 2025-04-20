@@ -10,10 +10,9 @@ import clsx from "clsx";
 import { signIn, signOut } from "@/auth.config";
 import { handleSignOut } from "../app/actions";
 import Image from "next/image";
-// import Button from "./Button";
-import Button from "design-system/ui/Button";
+import Button from "./Button";
 import { Menu } from "@headlessui/react";
-import { codeBracketSquare } from "design-system/ui/Icons";
+import { codeBracketSquare } from "./Icons";
 
 // import SignIn from "./SignInButton";
 /*

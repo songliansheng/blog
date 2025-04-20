@@ -4,10 +4,10 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import { useContext, useEffect, useState } from "react";
 import { $convertFromMarkdownString } from "@lexical/markdown";
 // import { TRANSFORMERS } from "@/components/Lexical/Transformers"
-import { TRANSFORMERS } from "@/components/Lexical/MarkDown/Transformers";
+import { TRANSFORMERS } from "@/lexicalCompoments/MarkDown/Transformers";
 import Toc from "@/components/Toc";
 import { isEditableContext } from "@/app/providers";
-import Editor from "@/components/Lexical/LexicalEditor";
+import Editor from "@/lexicalCompoments/LexicalEditor";
 import clsx from "clsx";
 import Card from "@/components/Card";
 import Button from "@/components/Button";

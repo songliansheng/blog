@@ -66,15 +66,18 @@ export default async function Page({
     <div className={clsx("grid grid-cols-[1fr_3fr]")}>
       <div
         className={clsx(
-          "sticky top-[3.85rem] h-[calc(100vh-3.85rem)] overflow-y-auto"
+          "dark:bg-(--color-licorice) sticky top-[3.85rem] h-[calc(100vh-3.85rem)] overflow-y-auto"
         )}
       >
-        <h2 className="text-xl py-2 sticky top-0 font-serif px-4 bg-inherit">
+        <h2 className="text-xl py-6 sticky top-0 font-serif bg-inherit">
           On This Page
         </h2>
         <Toc headings={headings} />
       </div>
-      <div id="scrollArea" className="">
+      <div
+        id="scrollArea"
+        className={clsx("pt-4 pl-8 border-l-2 border-(--color-outer-space)")}
+      >
         <English_pronunciation />
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { darkIcon, lightIcon } from "design-system/ui/Icons";
+import { darkIcon, lightIcon } from "./Icons";
 
 function switchToDark() {
   const rootElement = document.documentElement;

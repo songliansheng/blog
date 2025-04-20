@@ -1,11 +1,11 @@
 import { RootHeader as Header } from "../components/Header";
-import Footer from "@/components/Footer";
-import ContactMe from "@/components/ContactMe";
+import Footer from "design-system/ui/Footer";
+import {ContactMe }from "@/components/ContactMe";
 import "./globals.css";
 import clsx from "clsx";
 import Providers from "./providers";
 import { MDXProvider } from "@mdx-js/react";
-import ContactMeButton from "@/components/ContactMeButton";
+// import ContactMeButton from "@/components/ContactMeButton";
 import { auth } from "@/auth.config";
 import { SessionProvider } from "next-auth/react";
 // import  SessionProvider  from '@/app/SessionProvider'

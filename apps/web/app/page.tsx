@@ -3,10 +3,12 @@ import Header from "../components/Header";
 // import { headers } from 'next/headers'  mr-[calc(theme('w-full') - 33rem)]
 import { signIn } from "@/auth.config";
 import { createServersideClient } from "@/lib/supabase-client";
-import { ProjectCard } from "@/components/Card";
-import Card from "@/components/Card";
+import { ProjectCard } from "design-system/ui/Card";
+import Card from "design-system/ui/Card";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
+import { ArrowTopRightOnSquare, GithubIcon } from "design-system/ui/Icons";
+
 async function getDate() {
   const supabaseClient = await createServersideClient();
   const { data: projects } = await supabaseClient
@@ -39,10 +41,15 @@ const ProjectItem = ({
       >
         {item.title}
       </a>
-      <p>{item.description}</p>
-      <a className={clsx("text-sky-400")} href={item.demoUrl} target="_blank">
-        <span>Demo</span>
-      </a>
+      <p className={clsx('py-5')}>{item.description}</p>
+      <div className={clsx("flex gap-5 ")}>
+        <a>
+          <ArrowTopRightOnSquare className={clsx("size-6")} />
+        </a>
+        <a className={clsx("text-sky-400")} href={item.demoUrl} target="_blank">
+          <GithubIcon className={clsx("size-6 fill-white")} />
+        </a>
+      </div>
     </>
   );
 };
@@ -56,25 +63,29 @@ export default async function HomePage() {
     <div className={clsx("gap-8 grid grid-cols-[1fr_3fr]")}>
       <section className={clsx("pr-4")}>
         <h3>Latest</h3>
-        <p>No items to display .</p>
+        <p>No items to display</p>
       </section>
       <div
         className={clsx(
-          "pl-8 border-l-2 border-solid border-(--color-outer-space) min-h-screen"
+          "border-l-2 border-solid border-(--color-outer-space) min-h-screen"
         )}
       >
-        <h2 className={clsx("")}>Posts</h2>
-        <p>No items to display .</p>
-        <h2>Projects</h2>
-        <div className={clsx("grid grid-cols-3 gap-5")}>
-          <Card
-            className={clsx(
-              "border-2 rounded-xl border-solid border-(--color-outer-space)"
-            )}
-          >
-            <ProjectItem item={projects[0]} />
-          </Card>
-        </div>
+        <section className={clsx("pl-8 mt-4")}>
+          <h2 className={clsx("text-3xl")}>Posts</h2>
+          <p>No items to display</p>
+        </section>
+        <section className={clsx("pl-8 mt-4")}>
+          <h2 className={clsx("text-3xl pb-4")}>Projects</h2>
+          <div className={clsx("grid grid-cols-3 gap-5")}>
+            <Card
+              className={clsx(
+                "border-2 rounded-xl border-solid border-(--color-outer-space)"
+              )}
+            >
+              <ProjectItem item={projects[0]} />
+            </Card>
+          </div>
+        </section>
       </div>
     </div>
   );

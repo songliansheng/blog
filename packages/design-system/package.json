@@ -1,0 +1,24 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "description": "A set of reactjs components used for building projects!",
+  "exports": {
+    "./theme.css": "./theme.css",
+    "./ui/*": "./ui/*.tsx"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "eslint": "^9.25.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.20",
+    "typescript": "^4.9.5"
+  }
+}

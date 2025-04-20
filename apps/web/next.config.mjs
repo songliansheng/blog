@@ -34,51 +34,37 @@ const turboConfig = {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
 }
 const nextConfig = {
-    turbopack: {
-        resolveExtensions: [
-            '.mdx',
-            '.tsx',
-            '.ts',
-            '.jsx',
-            '.js',
-            '.mjs',
-            '.json',
-        ],
-    },
+  turbopack: {
+    resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".mjs", ".json"],
+  },
 
-    // reactStrictMode: true,
+  // reactStrictMode: true,
 
-    pageExtensions: ['md', 'mdx', 'ts', 'tsx'],
-    turbopack: {
-        
-        resolveExtensions: [
-            '.mdx',
-            '.tsx',
-            '.ts',
-            '.jsx',
-            '.js',
-            '.mjs',
-            '.json',
-        ],
-    },
-    experimental: {
-        mdxRs: false,
+  pageExtensions: ["md", "mdx", "ts", "tsx"],
+  turbopack: {
+    resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".mjs", ".json"],
+  },
+  experimental: {
+    mdxRs: false,
 
-        // ppr: 'incremental',
-    },
-    // MARK images.remotePatterns needs to be configured if src prop of next/image is an absolute external URL
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'avatars.githubusercontent.com',
-                port: '',
-                pathname: '/**',
-            },
-        ],
-    },
-    // webpack: webpackConfig,
-}
+    // ppr: 'incremental',
+  },
+  // MARK images.remotePatterns needs to be configured if src prop of next/image is an absolute external URL
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
+  transpilePackages: [
+    // "design-system"
+  ],
+  // webpack: webpackConfig,
+};
 if (process.env.NODE_ENV === 'development') {
     nextConfig.outputFileTracingRoot = path.join(__dirname, '../../')
 }

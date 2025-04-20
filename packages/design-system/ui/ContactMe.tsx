@@ -1,10 +1,10 @@
 "use client";
-import { IdentificationIcon } from "design-system/ui/Icons";
+import { IdentificationIcon } from "./Icons";
 import { useContext } from "react";
 import { ShowContactMeContext } from "@/app/providers";
-import { CopyIcon } from "design-system/ui/Icons";
+import { CopyIcon } from "./Icons";
 import clsx from "clsx";
-import Card from "design-system/ui/Card";
+import Card from "./Card";
 const ContactMeButton = () => {
   const showContactMe = useContext(ShowContactMeContext);
   return (

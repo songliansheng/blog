@@ -12,11 +12,10 @@ export const H1 = ({ children }) => <h1 className="text-2xl">{children}</h1>;
 /*  className="mb-8 h-[3px] bg-gray-600"  */
 export const H2 = ({ children, ...props }) => (
   <>
-    
     <h2
       className={clsx(
-        "text-3xl font-bold mb-2 dark:bg-white/5 bg-[#A9A9A9]",
-        "scroll-mt-(--rootheader-height)"
+        "text-3xl font-bold mb-2",
+        "scroll-mt-[calc(var(--rootheader-height)+1rem)]"
       )}
       {...props}
     >
@@ -28,8 +27,8 @@ export const H2 = ({ children, ...props }) => (
 export const H3 = ({ children, ...props }) => (
   <h3
     className={clsx(
-      "scroll-mt-(--rootheader-height)",
-      "text-xl mb-3 mt-6 font-bold dark:bg-white/[0.03] bg-[#C0C0C0]"
+      "scroll-mt-[calc(var(--rootheader-height)+1rem)]",
+      "text-xl font-bold "
     )}
     {...props}
   >

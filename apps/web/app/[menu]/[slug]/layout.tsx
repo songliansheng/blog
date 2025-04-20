@@ -1,9 +1,9 @@
 // import { LexicalComposer } from '@lexical/react/LexicalComposer'
-import { LexicalComposer } from "@/components/Lexical/LexicalComposerWrapper";
-import { initialConfig } from "@/components/Lexical/LexicalEditor";
+import { LexicalComposer } from "@/lexicalCompoments/LexicalComposerWrapper";
+import { initialConfig } from "@/lexicalCompoments/LexicalEditor";
 
-import ContentEditableProvider from "@/components/Lexical/ContentEditableProvider";
-import TargetedCommentProvider from "@/components/Comments/TargetedCommentProvider";
+import ContentEditableProvider from "@/lexicalCompoments/ContentEditableProvider";
+// import TargetedCommentProvider from "@/components/Comments/TargetedCommentProvider";
 export default function SlugLayout({
   children,
 }: {
@@ -11,7 +11,8 @@ export default function SlugLayout({
 }) {
   return (
     <LexicalComposer initialConfig={initialConfig}>
-      <TargetedCommentProvider>{children}</TargetedCommentProvider>
+      {children}
+      {/* <TargetedCommentProvider>{children}</TargetedCommentProvider> */}
     </LexicalComposer>
   );
 }

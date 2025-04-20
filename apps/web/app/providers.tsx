@@ -1,14 +1,18 @@
 'use client'
-import { createContext,useState } from 'react'
+import { createContext,Dispatch,SetStateAction,useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
 /* ALERT supbase client in ssr only work in server side */
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import { auth } from '@/auth.config'
 // export const SupbaseClientContext = createContext({})
-import {MDXProvider} from '@mdx-js/react'
-const ShowContactMeContext = createContext({
-   
-})
+import { MDXProvider } from '@mdx-js/react'
+interface ShowContactMeContextType {
+  showContactMe: boolean;
+  setShowContactMe: Dispatch<SetStateAction<boolean>>;
+}
+
+
+const ShowContactMeContext = createContext<ShowContactMeContextType>({showContactMe: false, setShowContactMe: () => {}});
 const isEditableContext = createContext({})
 export default function Providers({ children }: { children: React.ReactNode }) {
     const [showContactMe, setShowContactMe] = useState(true)

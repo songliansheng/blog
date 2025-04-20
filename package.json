@@ -1,5 +1,5 @@
 {
-  "name": "blog-monorepo",
+  "name": "my-monorepo",
   "packageManager": "pnpm@10.7.1",
   "private": true,
   "type": "module",

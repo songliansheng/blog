@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "react-jsx",
+  },
+  
+
+  "exclude": ["node_modules", "dist"]
+}

@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+    
       // "react": ["./node_modules/@types/react"]
     },
     "plugins": [
@@ -17,6 +18,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "next.config.js",
     "**/*.mdx",
     ".next/types/**/*.ts",
     "app/[menu]/[slug]/client.mjs"

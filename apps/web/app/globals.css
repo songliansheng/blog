@@ -11,6 +11,7 @@
 */
 @theme {
   --rootheader-height: 4rem;
+  --foreground-color-blue: oklch(74.6% 0.16 232.661);
   --color-egg-shell: #f0ead6;
   --color-outer-space: #414a4c;
   --color-dark-gray: #a9a9a9;
@@ -46,15 +47,12 @@
     @apply dark:hover:text-white font-bold;
   }
 }
-/* MARK :root is a CSS pseudo-class , it represents the <html> element
+/* NOTE :root is a CSS pseudo-class , it represents the <html> element
  * Alternative to CSS variables in Tailwind: theme function + design tokens in tailwind.config.js
  */
 :root {
   --onyx: #353839;
   --silver: #c0c0c0;
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
 /* @media (prefers-color-scheme: dark) {
