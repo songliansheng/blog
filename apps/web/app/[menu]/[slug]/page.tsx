@@ -17,7 +17,7 @@ export default async function Page({
   params: Promise<{ menu: string; slug: string }>;
 }) {
   const { menu, slug } = await params;
-  const { default: Post } = await import(`@/content/${menu}/${slug}.mdx`);
+  // const { default: Post } = await import(`@/content/${menu}/${slug}.mdx`);
   const filePath = path.join(process.cwd(), "content", menu, `${slug}.mdx`);
 
   /* CAUTION

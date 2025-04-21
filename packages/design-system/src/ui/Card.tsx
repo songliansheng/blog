@@ -11,9 +11,9 @@ export default function Card({
 }
 export function LinkCard({ item }: { item: { url; title; description } }) {
     return (
-        <div className="flex justify-center items-center w-[25rem] md:w-full group dark:bg-(--color-onyx) h-48  dark:hover:bg-(--color-outer-space) hover:bg-(--color-silver) bg-(--color-dark-gray)">
+        <div className="flex justify-center p-16 items-center w-[25rem] md:w-full group dark:bg-(--color-onyx) h-48  dark:hover:bg-(--color-outer-space) hover:bg-(--color-silver) bg-(--color-dark-gray)">
             <a
-                className="block   max-w-[20rem]"
+                className="block max-w-[20rem]"
                 href={item.url}
                 target="_blank"
             >

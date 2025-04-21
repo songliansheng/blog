@@ -2,8 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-    
+      "@/*": [
+        "./*"
+      ]
       // "react": ["./node_modules/@types/react"]
     },
     "plugins": [
@@ -11,9 +12,10 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "extends": "tsconfig/nextjs.json",
+  "extends": "@repo/typescript-config/nextjs.json",
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -21,7 +23,10 @@
     "next.config.js",
     "**/*.mdx",
     ".next/types/**/*.ts",
-    "app/[menu]/[slug]/client.mjs"
-, "../../packages/demo/Stopwatch.tsx"  ],
-  "exclude": ["node_modules"]
+    "app/[menu]/[slug]/client.mjs",
+    "../../packages/demo/Stopwatch.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,16 +1,7 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { serialize } from "next-mdx-remote/serialize";
 import { auth } from "@/auth.config";
-// import { LoginForm } from '@/components/LoginForm'
-import LoginForm from "@/components/LoginForm";
 import Redirect from "@/components/Redirect";
-// import { redirect } from 'next/navigation'
 import { ProjectItem } from "@/components/ProjectMeta";
-// import { promises as fs } from 'fs'
-import fs from "fs";
-import path from "path";
 import clsx from "clsx";
-import Card from "design-system/ui/Card";
 import { createServersideClient } from "@/lib/supabase-client";
 async function getData() {
   const supabaseClient = await createServersideClient();
@@ -32,6 +23,12 @@ export default async function Page({
   params: Promise<{ menu: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  const item = {
+    url: "https://github.com/songliansheng/blog",
+    title: "Blog",
+    description:
+      "A personal blog created using Nextjs、Reactjs , obviously , this is the site you are visiting .",
+  };
   const { menu } = await params;
   const session = await auth();
   const { projects, article } = await getData();
@@ -78,13 +75,9 @@ export default async function Page({
             <p>Open source projects I've made </p>
           </header>
           <div className={clsx("grid grid-cols-3 gap-5")}>
-            <Card
-              className={clsx(
-                "border-2 rounded-xl border-solid border-(--color-outer-space)"
-              )}
-            >
-              {projects && <ProjectItem item={projects[0]} />}
-            </Card>
+            {menu == "projects" && projects && (
+              <ProjectItem item={projects[0]} />
+            )}
           </div>
         </section>
       </div>
