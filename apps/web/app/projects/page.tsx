@@ -1,4 +1,4 @@
-import { LinkCard } from "@/components/Card";
+import { LinkCard } from "design-system/ui/Card";
 export default async function Page({
   params,
   searchParams,

@@ -4,15 +4,27 @@ import { auth } from "@/auth.config";
 // import { LoginForm } from '@/components/LoginForm'
 import LoginForm from "@/components/LoginForm";
 import Redirect from "@/components/Redirect";
-import Stopwatch from "@/components/Demo/Stopwatch";
-
 // import { redirect } from 'next/navigation'
-
+import { ProjectItem } from "@/components/ProjectMeta";
 // import { promises as fs } from 'fs'
 import fs from "fs";
 import path from "path";
 import clsx from "clsx";
-import  Card  from "design-system/ui/Card";
+import Card from "design-system/ui/Card";
+import { createServersideClient } from "@/lib/supabase-client";
+async function getData() {
+  const supabaseClient = await createServersideClient();
+  const { data: projects } = await supabaseClient
+    .from("projects")
+    .select("title,description,sourceUrl,demoUrl")
+    .eq("id", "1");
+  const { data: article } = await supabaseClient
+    .from("notes")
+    .select("content")
+    .eq("id", "2");
+
+  return { projects, article };
+}
 export default async function Page({
   params,
   searchParams,
@@ -22,6 +34,7 @@ export default async function Page({
 }) {
   const { menu } = await params;
   const session = await auth();
+  const { projects, article } = await getData();
 
   // return <>You have to login</>
   if (menu === "test")
@@ -70,7 +83,7 @@ export default async function Page({
                 "border-2 rounded-xl border-solid border-(--color-outer-space)"
               )}
             >
-              <ProjectItem item={projects[0]} />
+              {projects && <ProjectItem item={projects[0]} />}
             </Card>
           </div>
         </section>

@@ -8,8 +8,8 @@ import Card from "design-system/ui/Card";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
 import { ArrowTopRightOnSquare, GithubIcon } from "design-system/ui/Icons";
-
-async function getDate() {
+import { ProjectItem } from "@/components/ProjectMeta";
+async function getData() {
   const supabaseClient = await createServersideClient();
   const { data: projects } = await supabaseClient
     .from("projects")
@@ -22,39 +22,9 @@ async function getDate() {
 
   return { projects, article };
 }
-const ProjectItem = ({
-  item,
-}: {
-  item: {
-    sourceUrl: string;
-    demoUrl: string;
-    title: string;
-    description: string;
-  };
-}) => {
-  return (
-    <>
-      <a
-        className={clsx("block max-w-[20rem]  ", "text-sky-400")}
-        href={item.sourceUrl}
-        target="_blank"
-      >
-        {item.title}
-      </a>
-      <p className={clsx('py-5')}>{item.description}</p>
-      <div className={clsx("flex gap-5 ")}>
-        <a>
-          <ArrowTopRightOnSquare className={clsx("size-6")} />
-        </a>
-        <a className={clsx("text-sky-400")} href={item.demoUrl} target="_blank">
-          <GithubIcon className={clsx("size-6 fill-white")} />
-        </a>
-      </div>
-    </>
-  );
-};
+
 export default async function HomePage() {
-  const { projects, article } = await getDate();
+  const { projects, article } = await getData();
   // console.log('WTF' + projects[0].sourceurl)
   // console.log('WTF' + article[0].content)
 
@@ -82,7 +52,7 @@ export default async function HomePage() {
                 "border-2 rounded-xl border-solid border-(--color-outer-space)"
               )}
             >
-              <ProjectItem item={projects[0]} />
+            { projects && <ProjectItem item={projects[0]} />}
             </Card>
           </div>
         </section>
