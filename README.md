@@ -2,7 +2,7 @@
 ## About
 My personal website built with [Next.js](https://nextjs.org/).
 
-This is [demo](https://debris.icu/):(my blog).
+The demo is [here](https://debris.icu/):(my blog).
 
 ## Getting Started
 
