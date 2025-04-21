@@ -1,7 +1,7 @@
 import Button from "design-system/ui/Button";
 import { plusIcon, ChevronDownIcon } from "design-system/ui/Icons";
 import { INSERT_HORIZONTAL_RULE_COMMAND } from "@lexical/react/LexicalHorizontalRuleNode";
-import { useLexicalComposerContext } from "@/lexicalCompoments/LexicalComposerWrapper";
+import { useLexicalComposerContext } from "@/lexical/LexicalComposerWrapper";
 import DropDown, { DropDownItem } from "design-system/ui/DropDown";
 /* CONFIG👉 Lexical
  *

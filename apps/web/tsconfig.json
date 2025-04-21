@@ -22,6 +22,6 @@
     "**/*.mdx",
     ".next/types/**/*.ts",
     "app/[menu]/[slug]/client.mjs"
-  ],
+, "../../packages/demo/Stopwatch.tsx"  ],
   "exclude": ["node_modules"]
 }
