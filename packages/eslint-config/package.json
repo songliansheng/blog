@@ -1,8 +1,11 @@
 {
-  "name": "eslint-config-custom",
+  "name": "@repo/eslint-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
+  "exports": {
+    "./next-js": "./next.js"
+  },
   "dependencies": {
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^8.3.0",

@@ -1,17 +1,17 @@
-import nextMDX from '@next/mdx'
-import path from 'node:path'
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+import nextMDX from "@next/mdx";
+import path from "node:path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 import remarkHeadingId from "./mdxPlugins/remark-heading-id.js";
 /**
  * @type {import('next').NextConfig}
  */
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const webpackConfig = (config, options) => {
-    config.module.rules.push({})
-    return config
-}
+  config.module.rules.push({});
+  return config;
+};
 
 const nextConfig = {
   turbopack: {
@@ -26,8 +26,8 @@ const nextConfig = {
   ],
   // webpack: webpackConfig,
 };
-if (process.env.NODE_ENV === 'development') {
-    nextConfig.outputFileTracingRoot = path.join(__dirname, '../../')
+if (process.env.NODE_ENV === "development") {
+  nextConfig.outputFileTracingRoot = path.join(__dirname, "../../");
 }
 
 const withMDX = nextMDX({
@@ -38,4 +38,4 @@ const withMDX = nextMDX({
     rehypePlugins: [],
   },
 });
-export default withMDX(nextConfig)
+export default withMDX(nextConfig);

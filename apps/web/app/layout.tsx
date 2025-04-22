@@ -3,7 +3,7 @@ import { RootHeader as Header } from "../components/Header";
 import { ContactMe } from "@/components/ContactMe";
 import "./globals.css";
 import clsx from "clsx";
-import "design-system/styles.css";
+import "@repo/design-system/styles.css";
 import Providers from "./providers";
 import { MDXProvider } from "@mdx-js/react";
 // import ContactMeButton from "@/components/ContactMeButton";

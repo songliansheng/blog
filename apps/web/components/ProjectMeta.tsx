@@ -1,6 +1,9 @@
 import clsx from "clsx";
-import { ArrowTopRightOnSquare, GithubIcon } from "design-system/ui/Icons";
-import Card from "design-system/ui/Card";
+import {
+  ArrowTopRightOnSquare,
+  GithubIcon,
+} from "@repo/design-system/ui/Icons";
+import Card from "@repo/design-system/ui/Card";
 const ProjectItem = ({
   item,
 }: {

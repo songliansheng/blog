@@ -1,11 +1,11 @@
 import { Field, Formik, useFormik, Form } from 'formik'
-import { Input } from "design-system/ui/Input";
+import { Input } from "@repo/design-system/ui/Input";
 import { signIn, providersMetadata as providers } from '@/auth.config'
 import { handleSignIn } from '@/app/actions'
 import { AuthError } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
-import Button from "design-system/ui/Button";
+import Button from "@repo/design-system/ui/Button";
 const SignInButton = ({ provider }) => {
     return (
         <div>
