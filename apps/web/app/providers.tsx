@@ -1,7 +1,7 @@
 'use client'
 import { createContext,Dispatch,SetStateAction,useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
-/* ALERT supbase client in ssr only work in server side */
+/* CAUTION supbase client in ssr only work in server side */
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import { auth } from '@/auth.config'
 // export const SupbaseClientContext = createContext({})

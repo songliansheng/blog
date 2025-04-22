@@ -1,24 +1,13 @@
-// 'use client'
-// 'use server'
-// import cn from 'classnames'
+
 import Link from "next/link";
 import ThemeSwitcher from "./ThemeSwitcher";
-// import { } from './'
 import { auth } from "@/auth.config";
-// import Headerr from './RootDiv'
 import clsx from "clsx";
 import { signIn, signOut } from "@/auth.config";
-import { handleSignOut } from "../app/actions";
-import Image from "next/image";
-// import Button from "./Button";
 import Button from "@repo/design-system/ui/Button";
 import { Menu } from "@headlessui/react";
 import { codeBracketSquare } from "@repo/design-system/ui/Icons";
 
-// import SignIn from "./SignInButton";
-/*
- * Return a <header> element
- */
 const NavItem = ({ name, url, isActive, children }: any) => {
   return (
     <Link
@@ -50,7 +39,7 @@ const SignOutButton = async () => {
 /*
  * Return a <header> element
  */
-export const RootHeader = async ({ className, id }) => {
+export const RootHeader = async ({ className, id }:{className:string,id:string}) => {
   /*
    * Return a <header> element
    */
@@ -83,6 +72,7 @@ export const RootHeader = async ({ className, id }) => {
         <div className={clsx("flex")}>
           <ThemeSwitcher />
           {session?.user && <SignOutButton />}
+          <SignOutButton />
         </div>
 
         {/* <SignIn /> */}
@@ -90,10 +80,3 @@ export const RootHeader = async ({ className, id }) => {
     </header>
   );
 };
-export default function ArticleHeader({ title, author, date }) {
-  return (
-    <div className="flex flex-col">
-      <h1>{title}</h1>
-    </div>
-  );
-}

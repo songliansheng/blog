@@ -28,7 +28,7 @@ export default async function HomePage() {
 
   // const headersList = headers()
   return (
-    <div className={clsx("gap-8 grid grid-cols-[1fr_3fr]")}>
+    <>
       <section className={clsx("pr-4")}>
         <h3>Latest</h3>
         <p>No items to display</p>
@@ -44,11 +44,11 @@ export default async function HomePage() {
         </section>
         <section className={clsx("pl-8 mt-4")}>
           <h2 className={clsx("text-3xl pb-4")}>Projects</h2>
-          <div className={clsx("grid grid-cols-3 gap-5")}>
+          <div className={clsx("grid grid-cols-2 gap-5")}>
             {projects && <ProjectItem item={projects[0]} />}
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 }

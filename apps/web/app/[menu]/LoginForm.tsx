@@ -4,7 +4,7 @@ import LoginForm from "@/components/LoginForm";
 import { AuthError } from "next-auth";
 import { signIn, providersMetadata as providers } from "@/auth.config";
 import { redirect } from "next/navigation";
-import Button from "design-system/ui/Button";
+import Button from "@repo/design-system/ui/Button";
 const SignInButton = ({ provider }) => {
   return (
     <form

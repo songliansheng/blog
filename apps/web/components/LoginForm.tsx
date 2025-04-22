@@ -6,7 +6,11 @@ import { AuthError } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
 import Button from "@repo/design-system/ui/Button";
-const SignInButton = ({ provider }) => {
+interface Provider {
+    id: string
+    name: string
+}
+const SignInButton = ({ provider }:{provider:{id:string,name:string}|Function}) => {
     return (
         <div>
             <form

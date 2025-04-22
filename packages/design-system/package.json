@@ -2,9 +2,11 @@
   "name": "@repo/design-system",
   "version": "1.0.0",
   "description": "A set of reactjs components used for building projects!",
+  
   "exports": {
     "./styles.css": "./dist/styles.css",
     "./theme.css": "./src/theme.css",
+    "./CAUTION":"./CAUTION: Don't use ./src/ui/* , use ./src/ui/*.tsx instead",
     "./ui/*": "./src/ui/*.tsx"
   },
   "scripts": {

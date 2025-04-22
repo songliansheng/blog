@@ -63,7 +63,7 @@ export default async function Page({
   );
   console.log(filePath);
   return (
-    <div className={clsx("grid grid-cols-[1fr_3fr]")}>
+    <>
       <div
         className={clsx(
           "dark:bg-(--color-licorice) sticky top-[3.85rem] h-[calc(100vh-3.85rem)] overflow-y-auto"
@@ -80,6 +80,6 @@ export default async function Page({
       >
         <English_pronunciation />
       </div>
-    </div>
+    </>
   );
 }

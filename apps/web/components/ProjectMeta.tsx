@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import {
-  ArrowTopRightOnSquare,
+  ArrowTopRightOnSquareSolid,
   GithubIcon,
 } from "@repo/design-system/ui/Icons";
 import Card from "@repo/design-system/ui/Card";
@@ -15,30 +15,26 @@ const ProjectItem = ({
   };
 }) => {
   return (
-    
-    <Card className={ clsx('')}>
-        <a
-          className={clsx("block max-w-[20rem]  ", "text-sky-400")}
-          href={item.sourceUrl}
-          target="_blank"
-        >
-          {item.title}
+    <Card className={clsx("dark:bg-(--color-dark-licorice)")}>
+      <span className={clsx("text-2xl text-(--color-egg-shell)")}>
+        {item.title}
+      </span>
+      <p className={clsx("py-5")}>{item.description}</p>
+      <div className={clsx("flex gap-5 ")}>
+        <a href={item.demoUrl}>
+          <ArrowTopRightOnSquareSolid
+            className={clsx(
+              "size-6 dark:fill-(--foreground-color-blue) stroke-(--foreground-color-blue)"
+            )}
+          />
         </a>
-        <p className={clsx("py-5")}>{item.description}</p>
-        <div className={clsx("flex gap-5 ")}>
-          <a>
-            <ArrowTopRightOnSquare className={clsx("size-6")} />
-          </a>
-          <a
-            className={clsx("text-sky-400")}
-            href={item.demoUrl}
-            target="_blank"
-          >
-            <GithubIcon className={clsx("size-6 fill-white")} />
-          </a>
-        </div>
-      </Card>
-   
+        <a className={clsx("")} href={item.sourceUrl} target="_blank">
+          <GithubIcon
+            className={clsx("size-6 dark:fill-(--foreground-color-blue)")}
+          />
+        </a>
+      </div>
+    </Card>
   );
 };
-export {ProjectItem}
+export { ProjectItem };

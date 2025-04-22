@@ -74,7 +74,7 @@ function ContactMe({ className }: { className?: string }): JSX.Element {
                   )}
                   target="_blank"
                 >
-                  X(Twitter)
+                  <span>X(Twitter)</span>
                 </a>
               </li>
               <li>
@@ -86,7 +86,7 @@ function ContactMe({ className }: { className?: string }): JSX.Element {
                   )}
                   target="_blank"
                 >
-                  Github
+                  <span>Github</span>
                 </a>
               </li>
             </ul>

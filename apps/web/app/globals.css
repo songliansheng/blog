@@ -1,6 +1,6 @@
 /* MARK When @tailwind base is added ,Preflight will be injected */
 @import "tailwindcss";
-
+@import "@repo/design-system/theme.css";
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -9,19 +9,7 @@
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
 */
-@theme {
-  --rootheader-height: 4rem;
-  --foreground-color-blue: oklch(74.6% 0.16 232.661);
-  --color-egg-shell: #f0ead6;
-  --color-outer-space: #414a4c;
-  --color-dark-gray: #a9a9a9;
-  --color-silver: #c0c0c0;
-  --color-off-white: #f2f0ef;
-  --color-licorice: #1a1110;
-  --color-dark-licorice: #120b0b;
-  --color-licorice-light: #221716;
-  --color-onyx: #353839;
-}
+
 @custom-variant dark (&:where(.dark, .dark *));
 @layer base {
   *,

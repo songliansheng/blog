@@ -8,7 +8,7 @@ export interface Routes {
     routes: RouteItem[]
 }
 
-function getBreadcrumb({ urlPath: string }) {
+function getBreadcrumb({ urlPath: string }:{urlPath:string}) {
     
     
 }

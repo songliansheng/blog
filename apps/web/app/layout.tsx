@@ -1,5 +1,5 @@
 import { RootHeader as Header } from "../components/Header";
-
+import Head from "@/components/head";
 import { ContactMe } from "@/components/ContactMe";
 import "./globals.css";
 import clsx from "clsx";
@@ -39,7 +39,8 @@ export default async function RootLayout({
       )}
       lang="en"
     >
-      {/* session={session} */}
+      <Head />
+
       <body className={clsx("h-full ", "text-lg leading-10")}>
         <SessionProvider basePath={"/auth"} session={session}>
           <Providers>
@@ -60,7 +61,8 @@ export default async function RootLayout({
                 <main
                   className={clsx(
                     " pl-12 pr-[25rem]",
-                    " basis-auto shrink-0 relative"
+                    " basis-auto shrink-0 relative",
+                    "gap-8 grid grid-cols-[1fr_3fr]"
                   )}
                 >
                   {children}

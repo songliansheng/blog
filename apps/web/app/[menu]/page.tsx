@@ -33,7 +33,6 @@ export default async function Page({
   const session = await auth();
   const { projects, article } = await getData();
 
-  // return <>You have to login</>
   if (menu === "test")
     return (
       <>
@@ -59,29 +58,19 @@ export default async function Page({
   //     return <>You have to login</>
   // }
   return (
-    <main className="max-w-7xl mx-auto">
-      <div className={clsx("gap-8 grid grid-cols-[1fr_3fr]")}></div>
+    <>
       <section className={clsx("pr-4")}>
         <h3>Latest</h3>
         <p>No items to display</p>
       </section>
-      <div
-        className={clsx(
-          "border-l-2 border-solid border-(--color-outer-space) min-h-screen"
-        )}
-      >
-        <section className={clsx("pl-8 mt-4")}>
-          <header>
-            <p>Open source projects I've made </p>
-          </header>
-          <div className={clsx("grid grid-cols-3 gap-5")}>
-            {menu == "projects" && projects && (
-              <ProjectItem item={projects[0]} />
-            )}
-          </div>
-        </section>
-      </div>
-      <div className={clsx("gap-8 grid grid-cols-[1fr_3fr]")}></div>
-    </main>
+      <section className={clsx("pl-8 mt-4")}>
+        <header>
+          <p>Open source projects I've made </p>
+        </header>
+        <div className={clsx("grid grid-cols-2 gap-5")}>
+          {menu == "projects" && projects && <ProjectItem item={projects[0]} />}
+        </div>
+      </section>
+    </>
   );
 }

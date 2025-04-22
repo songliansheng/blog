@@ -12,7 +12,7 @@ export default function Button({
     // disabled?: boolean
 }) {
     return (
-        <button className={clsx(className)} type={type}>
+        <button className={clsx(className,'')} type={type}>
             {children}
         </button>
     )

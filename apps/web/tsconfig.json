@@ -1,9 +1,9 @@
 {
+  "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-      // "react": ["./node_modules/@types/react"]
     },
     "plugins": [
       {
@@ -13,7 +13,7 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true
   },
-  "extends": "@repo/typescript-config/nextjs.json",
+
   "include": [
     "next-env.d.ts",
     "**/*.ts",
