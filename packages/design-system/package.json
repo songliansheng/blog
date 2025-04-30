@@ -1,16 +1,17 @@
 {
-  "name": "@repo/design-system",
+  "name": "@turborepo/design-system",
   "version": "1.0.0",
   "description": "A set of reactjs components used for building projects!",
-  
   "exports": {
     "./styles.css": "./dist/styles.css",
+    "./globals.css": "./src/globals.css",
     "./theme.css": "./src/theme.css",
-    "./CAUTION":"./CAUTION: Don't use ./src/ui/* , use ./src/ui/*.tsx instead",
+    "./CAUTION": "./CAUTION: Don't use ./src/ui/* , use ./src/ui/*.tsx instead",
     "./ui/*": "./src/ui/*.tsx"
   },
   "scripts": {
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "dev": "tailwindcss -i ./src/globals.css -o ./dist/styles.css --watch",
+    "dev2": "npx @tailwindcss/cli -i ./src/globals.css -o ./dist/styles.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

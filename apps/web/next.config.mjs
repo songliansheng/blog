@@ -22,7 +22,7 @@ const nextConfig = {
     mdxRs: false,
   },
   transpilePackages: [
-    // "design-system"
+    "@repo/design-system"
   ],
   // webpack: webpackConfig,
 };

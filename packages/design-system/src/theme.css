@@ -1,5 +1,7 @@
 @theme {
   --rootheader-height: 4rem;
+  --layout-padding-vertical: 3rem;
+  --layout-padding-horizontal: 1rem;
   --foreground-color-blue: oklch(74.6% 0.16 232.661);
   --color-egg-shell: #f0ead6;
   --color-outer-space: #414a4c;
@@ -11,3 +13,4 @@
   --color-licorice-light: #221716;
   --color-onyx: #353839;
 }
+@custom-variant dark (&:where(.dark, .dark *));

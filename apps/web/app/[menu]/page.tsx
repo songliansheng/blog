@@ -3,36 +3,72 @@ import Redirect from "@/components/Redirect";
 import { ProjectItem } from "@/components/ProjectMeta";
 import clsx from "clsx";
 import { createServersideClient } from "@/lib/supabase-client";
+import NotFound from "@/components/NotFound";
 async function getData() {
   const supabaseClient = await createServersideClient();
-  const { data: projects } = await supabaseClient
+  const { data: items } = await supabaseClient
     .from("projects")
-    .select("title,description,sourceUrl,demoUrl")
-    .eq("id", "1");
+    .select("title,description,sourceUrl,demoUrl");
   const { data: article } = await supabaseClient
     .from("notes")
     .select("content")
     .eq("id", "2");
 
-  return { projects, article };
+  return { items, article };
 }
+const itemsExample = [
+  {
+    url: "https://github.com/songliansheng/blog",
+    title: "Blog",
+    description:
+      "A personal blog created using Nextjs、Reactjs , obviously , this is the site you are visiting .",
+  },
+];
+
 export default async function Page({
   params,
   searchParams,
 }: {
   params: Promise<{ menu: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const item = {
-    url: "https://github.com/songliansheng/blog",
-    title: "Blog",
-    description:
-      "A personal blog created using Nextjs、Reactjs , obviously , this is the site you are visiting .",
-  };
-  const { menu } = await params;
+  }) {
+  const routes = ['posts', 'projects']
+   const { menu } = await params;
+  if (!routes.includes(menu)) {
+    return (
+      <NotFound />
+    )
+  }
+ 
   const session = await auth();
-  const { projects, article } = await getData();
+  let description = "";
+  let { items, article } = await getData();
+  const Items1 = items!.map((item, index) => (
+    menu === "projects" ? (
+      <ProjectItem
+        sourceUrl={item.sourceUrl}
+        demoUrl={item.sourceUrl}
+        title={item.title}
+        description={item.description}
+        key={index}
+      />
+    ) : (
+      <li key={index}>{item.title}</li>
+    )
+    
+  ));
+  
+  const descriptionOfProjects = "Open source projects I have made";
+  const descriptionOfNotes = "Notes I have take during coding";
 
+  if (menu === "projects") {
+    description = descriptionOfProjects;
+  }
+  if (menu === "notes") {
+    description = descriptionOfNotes;
+  }
+  description =
+    menu === "projects" ? descriptionOfProjects : descriptionOfNotes;
   if (menu === "test")
     return (
       <>
@@ -63,12 +99,17 @@ export default async function Page({
         <h3>Latest</h3>
         <p>No items to display</p>
       </section>
-      <section className={clsx("pl-8 mt-4")}>
+      <section
+        className={clsx(
+          "pl-8 border-l-2 border-(--color-outer-space) pt-(--layout-padding-vertical)"
+        )}
+      >
         <header>
-          <p>Open source projects I've made </p>
+          <p className={clsx("pb-12 text-xl")}>{description}</p>
         </header>
         <div className={clsx("grid grid-cols-2 gap-5")}>
-          {menu == "projects" && projects && <ProjectItem item={projects[0]} />}
+          {/* {menu == "projects" && projects && <ProjectItem item={projects[0]} />} */}
+          {items && <>{Items1}</>}
         </div>
       </section>
     </>

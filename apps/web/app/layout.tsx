@@ -1,16 +1,16 @@
-import { RootHeader as Header } from "../components/Header";
+import { RootHeader as Header } from "@/components/Header";
 import Head from "@/components/head";
 import { ContactMe } from "@/components/ContactMe";
 import "./globals.css";
+import "@repo/design-system/globals.css";
+// import "@repo/design-system/styles.css";
 import clsx from "clsx";
-import "@repo/design-system/styles.css";
+
 import Providers from "./providers";
-import { MDXProvider } from "@mdx-js/react";
-// import ContactMeButton from "@/components/ContactMeButton";
+
 import { auth } from "@/auth.config";
 import { SessionProvider } from "next-auth/react";
-// import  SessionProvider  from '@/app/SessionProvider'
-// import SignIn from '@/components/SignInButton'
+
 export default async function RootLayout({
   children,
 }: {
@@ -62,7 +62,8 @@ export default async function RootLayout({
                   className={clsx(
                     " pl-12 pr-[25rem]",
                     " basis-auto shrink-0 relative",
-                    "gap-8 grid grid-cols-[1fr_3fr]"
+                    "gap-8 grid grid-cols-[1fr_3fr] ",
+                    `min-h-[calc(100vh-var(--rootheader-height))]`
                   )}
                 >
                   {children}

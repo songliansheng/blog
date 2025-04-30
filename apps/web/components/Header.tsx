@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { auth } from "@/auth.config";
@@ -59,7 +58,7 @@ export const RootHeader = async ({ className, id }:{className:string,id:string})
       <div id="group-in-header" className={clsx("flex items-center gap-x-8")}>
         <nav
           className={
-            clsx("items-center hidden  gap-x-6 ", "lg:flex !important")
+            clsx("items-center hidden lg:flex gap-x-6")
 
             // ' mx-auto max-w-[1408px] w-[calc(100%-160px)] duration-300 backdrop-filter backdrop-blur-lg backdrop-saturate-200 transition-shadow bg-opacity-90 items-center flex justify-between dark:bg-opacity-95 px-1.5 lg:pe-5 lg:ps-4 '
           }
@@ -72,7 +71,7 @@ export const RootHeader = async ({ className, id }:{className:string,id:string})
         <div className={clsx("flex")}>
           <ThemeSwitcher />
           {session?.user && <SignOutButton />}
-          <SignOutButton />
+          {/* <SignOutButton /> */}
         </div>
 
         {/* <SignIn /> */}

@@ -5,32 +5,33 @@ import {
 } from "@repo/design-system/ui/Icons";
 import Card from "@repo/design-system/ui/Card";
 const ProjectItem = ({
-  item,
+  sourceUrl,
+  demoUrl,
+  title,
+  description,
 }: {
-  item: {
-    sourceUrl: string;
-    demoUrl: string;
-    title: string;
-    description: string;
-  };
+  sourceUrl: string;
+  demoUrl: string;
+  title: string;
+  description: string;
 }) => {
   return (
     <Card className={clsx("dark:bg-(--color-dark-licorice)")}>
       <span className={clsx("text-2xl text-(--color-egg-shell)")}>
-        {item.title}
+        {title}
       </span>
-      <p className={clsx("py-5")}>{item.description}</p>
+      <p className={clsx("py-5")}>{description}</p>
       <div className={clsx("flex gap-5 ")}>
-        <a href={item.demoUrl}>
+        <a href={demoUrl}>
           <ArrowTopRightOnSquareSolid
             className={clsx(
-              "size-6 dark:fill-(--foreground-color-blue) stroke-(--foreground-color-blue)"
+              "size-6 fill-(--foreground-color-blue) stroke-(--foreground-color-blue)"
             )}
           />
         </a>
-        <a className={clsx("")} href={item.sourceUrl} target="_blank">
+        <a className={clsx("")} href={sourceUrl} target="_blank">
           <GithubIcon
-            className={clsx("size-6 dark:fill-(--foreground-color-blue)")}
+            className={clsx("size-6 fill-(--foreground-color-blue)", "")}
           />
         </a>
       </div>

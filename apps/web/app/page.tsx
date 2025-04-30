@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+// import Header from "@/components/Header";
 // import Comments from 'components/CommentDemo'
 // import { headers } from 'next/headers'  mr-[calc(theme('w-full') - 33rem)]
 import { signIn } from "@/auth.config";
@@ -6,6 +6,7 @@ import { createServersideClient } from "@/lib/supabase-client";
 import { ProjectItem } from "@/components/ProjectMeta";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
+import NoContent from "@/components/NoContent";
 
 async function getData() {
   const supabaseClient = await createServersideClient();
@@ -38,13 +39,13 @@ export default async function HomePage() {
           "border-l-2 border-solid border-(--color-outer-space) min-h-screen"
         )}
       >
-        <section className={clsx("pl-8 mt-4")}>
+        <section className={clsx("pl-8 pt-(--layout-padding-vertical)")}>
           <h2 className={clsx("text-3xl")}>Posts</h2>
-          <p>No items to display</p>
+          <NoContent className="py-4 my-8"/>
         </section>
-        <section className={clsx("pl-8 mt-4")}>
+        <section className={clsx("pl-8 mt-4 ")}>
           <h2 className={clsx("text-3xl pb-4")}>Projects</h2>
-          <div className={clsx("grid grid-cols-2 gap-5")}>
+          <div className={clsx("pt-4 grid grid-cols-2 gap-5")}>
             {projects && <ProjectItem item={projects[0]} />}
           </div>
         </section>
