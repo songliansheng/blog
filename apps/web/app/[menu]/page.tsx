@@ -32,13 +32,13 @@ export default async function Page({
   params: Promise<{ menu: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
   }) {
-  const routes = ['posts', 'projects']
+  // const routes = ['posts', 'projects']
    const { menu } = await params;
-  if (!routes.includes(menu)) {
-    return (
-      <NotFound />
-    )
-  }
+  // if (!routes.includes(menu)) {
+  //   return (
+  //     <NotFound />
+  //   )
+  // }
  
   const session = await auth();
   let description = "";
@@ -107,11 +107,23 @@ export default async function Page({
         <header>
           <p className={clsx("pb-12 text-xl")}>{description}</p>
         </header>
-        <div className={clsx("grid grid-cols-2 gap-5")}>
-          {/* {menu == "projects" && projects && <ProjectItem item={projects[0]} />} */}
-          {items && <>{Items1}</>}
+        <div
+          className={clsx(
+            "relative ",
+            "border-2 border-(--color-outer-space)"
+          )}
+        >
+          
+          <div className={clsx("grid grid-cols-2 gap-5 relative")}>
+            {/* {menu == "projects" && projects && <ProjectItem item={projects[0]} />} */}
+            {items && <>{Items1}</>}
+          </div>
         </div>
       </section>
     </>
   );
+}
+
+export function generateStaticParams() {
+  return [{ menu: "posts" }, { menu: "projects" }];
 }

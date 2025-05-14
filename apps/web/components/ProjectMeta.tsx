@@ -16,22 +16,23 @@ const ProjectItem = ({
   description: string;
 }) => {
   return (
-    <Card className={clsx("dark:bg-(--color-dark-licorice)")}>
-      <span className={clsx("text-2xl text-(--color-egg-shell)")}>
-        {title}
-      </span>
-      <p className={clsx("py-5")}>{description}</p>
+    <Card className={clsx("dark:bg-(--color-carbon) p-5 rounded-xl")}>
+      <span className={clsx("text-2xl text-white")}>{title}</span>
+      <p className={clsx("")}>{description}</p>
       <div className={clsx("flex gap-5 ")}>
         <a href={demoUrl}>
           <ArrowTopRightOnSquareSolid
             className={clsx(
-              "size-6 fill-(--foreground-color-blue) stroke-(--foreground-color-blue)"
+              "size-6 fill-(--color-deep-sky-blue) stroke-(--color-deep-sky-blue) dark:hover:stroke-white"
             )}
           />
         </a>
         <a className={clsx("")} href={sourceUrl} target="_blank">
           <GithubIcon
-            className={clsx("size-6 fill-(--foreground-color-blue)", "")}
+            className={clsx(
+              "size-6 fill-(--color-deep-sky-blue) dark:hover:fill-white",
+              ""
+            )}
           />
         </a>
       </div>

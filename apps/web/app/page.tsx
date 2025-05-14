@@ -1,12 +1,11 @@
-// import Header from "@/components/Header";
-// import Comments from 'components/CommentDemo'
-// import { headers } from 'next/headers'  mr-[calc(theme('w-full') - 33rem)]
+
 import { signIn } from "@/auth.config";
 import { createServersideClient } from "@/lib/supabase-client";
 import { ProjectItem } from "@/components/ProjectMeta";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
 import NoContent from "@/components/NoContent";
+import Card from "@repo/design-system/ui/Card";
 
 async function getData() {
   const supabaseClient = await createServersideClient();
@@ -24,32 +23,65 @@ async function getData() {
 
 export default async function HomePage() {
   const { projects, article } = await getData();
-  // console.log('WTF' + projects[0].sourceurl)
-  // console.log('WTF' + article[0].content)
-
   // const headersList = headers()
   return (
-    <>
-      <section className={clsx("pr-4")}>
-        <h3>Latest</h3>
-        <p>No items to display</p>
-      </section>
+    <main
+      className={clsx(
+        "w-full",
+        "flex justify-between items-start"
+        // " pl-12 pr-[25rem]",
+        // " basis-auto shrink-0 relative",
+        // "grid grid-cols-[1fr_3fr] ",
+        // `min-h-[calc(100vh-var(--rootheader-height))]`
+      )}
+    >
       <div
         className={clsx(
-          "border-l-2 border-solid border-(--color-outer-space) min-h-screen"
+          "border-x-(length:--global-border-width) border-(--color-outer-space)",
+          "w-full max-w-[50rem] min-h-[calc(100vh-var(--rootheader-height))]"
         )}
+        id="content"
       >
-        <section className={clsx("pl-8 pt-(--layout-padding-vertical)")}>
-          <h2 className={clsx("text-3xl")}>Posts</h2>
-          <NoContent className="py-4 my-8"/>
-        </section>
-        <section className={clsx("pl-8 mt-4 ")}>
-          <h2 className={clsx("text-3xl pb-4")}>Projects</h2>
-          <div className={clsx("pt-4 grid grid-cols-2 gap-5")}>
-            {projects && <ProjectItem item={projects[0]} />}
+        <section className={clsx("")}>
+          <h2 className={clsx("font-serif", "text-3xl p-4")}>Posts</h2>
+          <div className={clsx("px-7 mb-4")}>
+            <NoContent className="py-4 rounded-xl" />
           </div>
+
+          <div
+            className={clsx("bg-(--color-outer-space) w-full h-[1px]")}
+          ></div>
+        </section>
+        <section className={clsx(" mt-4 ")}>
+          <h2 className={clsx("font-serif", "text-3xl p-4")}>Projects</h2>
+          <div className={clsx("grid grid-cols-2", "px-7 gap-5")}>
+            {projects && (
+              <ProjectItem
+                sourceUrl={projects[0]?.sourceUrl}
+                demoUrl={projects[0]?.demoUrl}
+                title={projects[0]?.title}
+                description={projects[0]?.description}
+              />
+            )}
+          </div>
+          <div
+            className={clsx("bg-(--color-outer-space) w-full h-[1px] mt-4")}
+          ></div>
         </section>
       </div>
-    </>
+
+      <Card
+        className={clsx(
+          "w-[23.5rem] m-5",
+          " rounded-xl",
+          "border-2 border-(--color-outer-space)"
+        )}
+      >
+        <section className={clsx("pr-4")}>
+          <h3 className={clsx("font-serif", "text-3xl p-4")}>Latest</h3>
+          <p className={clsx("px-4")}>No items to display</p>
+        </section>
+      </Card>
+    </main>
   );
 }

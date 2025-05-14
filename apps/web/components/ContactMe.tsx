@@ -34,7 +34,7 @@ function ContactMe({ className }: { className?: string }): JSX.Element {
     <>
       <div
         className={clsx(
-          "rounded-xl dark:border-none border-2 border-(--color-outer-space)",
+          "rounded-xl dark:border-none border-2 border-(--color-outer-space) dark:bg-(--color-licorice)",
           className
         )}
       >

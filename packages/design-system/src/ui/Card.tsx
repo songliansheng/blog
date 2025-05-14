@@ -7,11 +7,11 @@ export default function Card({
     children: React.ReactNode
     className?: string
 }) {
-    return <div className={clsx('p-5 rounded-xl', className)}>{children}</div>
+    return <div className={clsx(className)}>{children}</div>
 }
 export function LinkCard({ item }: { item: { url; title; description } }) {
     return (
-        <div className="flex justify-center p-16 items-center w-[25rem] md:w-full group dark:bg-(--color-onyx) h-48  dark:hover:bg-(--color-outer-space) hover:bg-(--color-silver) bg-(--color-dark-gray)">
+        <div className="flex justify-center mx-8 items-center w-[25rem] md:w-full group dark:bg-(--color-onyx) h-48  dark:hover:bg-(--color-outer-space) hover:bg-(--color-silver) bg-(--color-dark-gray)">
             <a
                 className="block max-w-[20rem]"
                 href={item.url}

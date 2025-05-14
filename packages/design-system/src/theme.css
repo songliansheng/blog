@@ -3,14 +3,17 @@
   --layout-padding-vertical: 3rem;
   --layout-padding-horizontal: 1rem;
   --foreground-color-blue: oklch(74.6% 0.16 232.661);
-  --color-egg-shell: #f0ead6;
-  --color-outer-space: #414a4c;
+  --color-carbon: #333333;
   --color-dark-gray: #a9a9a9;
-  --color-silver: #c0c0c0;
-  --color-off-white: #f2f0ef;
+  --color-deep-sky-blue: #00bcff;
+  --color-eerie-black: #1B1B1B;
+  --color-egg-shell: #f0ead6;
   --color-licorice: #1a1110;
-  --color-dark-licorice: #120b0b;
-  --color-licorice-light: #221716;
+  --color-off-white: #f2f0ef;
   --color-onyx: #353839;
+  --color-outer-space: #414a4c;
+  --color-silver: #c0c0c0;
+  --color-stormy-gray: #3a3b3c;
+  --color-taupe: #483c32;
 }
 @custom-variant dark (&:where(.dark, .dark *));

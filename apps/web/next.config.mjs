@@ -21,10 +21,27 @@ const nextConfig = {
   experimental: {
     mdxRs: false,
   },
-  transpilePackages: [
-    "@repo/design-system"
-  ],
-  // webpack: webpackConfig,
+  transpilePackages: ["@repo/design-system"],
+  async rewrites() {
+    return {
+      afterFiles: [
+        {
+          // source: "/\\^\\(\\(\\?\\!projects\\|posts\\)\\.\\)\\*\\$/:slug*",
+          source: "/((?!projects|posts).*)",
+          // source: "/non-existent",
+          destination: "/",
+        },
+      ],
+      fallback: [
+        // These rewrites are checked after both pages/public files
+        // and dynamic routes are checked
+        // {
+        //   source: "/non-existent",
+        //   destination: "/notes/english_pronunciation",
+        // },
+      ],
+    };
+  },
 };
 if (process.env.NODE_ENV === "development") {
   nextConfig.outputFileTracingRoot = path.join(__dirname, "../../");

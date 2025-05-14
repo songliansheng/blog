@@ -44,6 +44,9 @@
  * Alternative to CSS variables in Tailwind: theme function + design tokens in tailwind.config.js
  */
 :root {
+  --contactme-dialog-width: 20.55rem;
+  --root-padding-horizontal: 5rem;
+  --global-border-width: 1px;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;

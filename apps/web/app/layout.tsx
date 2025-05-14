@@ -5,12 +5,12 @@ import "./globals.css";
 import "@repo/design-system/globals.css";
 // import "@repo/design-system/styles.css";
 import clsx from "clsx";
-
+import { EmailIcon } from "@repo/design-system/ui/Icons";
 import Providers from "./providers";
-
+import { GithubIcon } from "@repo/design-system/ui/Icons";
 import { auth } from "@/auth.config";
 import { SessionProvider } from "next-auth/react";
-
+import SideBar from "@/components/SideBar";
 export default async function RootLayout({
   children,
 }: {
@@ -35,7 +35,8 @@ export default async function RootLayout({
        */
       className={clsx(
         "h-full",
-        "dark dark:bg-(--color-licorice) bg-(--color-off-white)"
+        "font-sans",
+        "dark dark:bg-(--color-eerie-black) bg-(--color-off-white)"
       )}
       lang="en"
     >
@@ -45,36 +46,32 @@ export default async function RootLayout({
         <SessionProvider basePath={"/auth"} session={session}>
           <Providers>
             <div id="root" className="h-full">
-              <div className={clsx(``, "")}>
-                <Header
-                  id="global-header"
-                  // className="dark:bg-(--color-licorice) bg-(--color-off-white) max-w-7xl mx-auto text-xl"
+              <Header
+                id="global-header"
+                // className="dark:bg-(--color-licorice) bg-(--color-off-white) max-w-7xl mx-auto text-xl"
+                className={clsx(
+                  "text-xl ",
+                  "h-(--rootheader-height) px-(--root-padding-horizontal)",
+                  "sticky top-0 z-50 ",
+                  "border-b-(length:--global-border-width) border-(--color-outer-space)"
+                )}
+              />
+              <div className={clsx("flex px-(--root-padding-horizontal)")}>
+                <SideBar
                   className={clsx(
-                    `dark:bg-(--color-licorice) bg-(--color-off-white)`,
-                    "text-xl ",
-                    "h-(--rootheader-height) pl-12 pr-[25rem]",
-                    "sticky top-0 z-50 ",
-                    "border-b-2 border-(--color-outer-space)"
+                    "flex flex-col items-start justify-start  shrink-0",
+                    "w-28 gap-8 pt-6"
                   )}
                 />
 
-                <main
-                  className={clsx(
-                    " pl-12 pr-[25rem]",
-                    " basis-auto shrink-0 relative",
-                    "gap-8 grid grid-cols-[1fr_3fr] ",
-                    `min-h-[calc(100vh-var(--rootheader-height))]`
-                  )}
-                >
-                  {children}
-                </main>
+                {children}
               </div>
 
-              <ContactMe
+              {/* <ContactMe
                 className={clsx(
                   "fixed bottom-2 right-4 max-h-screen overflow-y-scroll"
                 )}
-              />
+              /> */}
             </div>
           </Providers>
         </SessionProvider>
