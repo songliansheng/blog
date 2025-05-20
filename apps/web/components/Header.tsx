@@ -12,7 +12,7 @@ const NavItem = ({ name, url, isActive, children }: any) => {
     <Link
       href={url}
       className={clsx(
-        "p-2 py-1.5 rounded-full dark:hover:bg-outer-space hover:bg-silver font-bold"
+        "p-2 py-1.5 rounded-full dark:hover:bg-carbon hover:bg-silver font-bold"
       )}
     >
       {name}

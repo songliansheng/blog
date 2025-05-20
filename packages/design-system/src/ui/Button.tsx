@@ -13,7 +13,7 @@ export default function Button({
     // disabled?: boolean
 }) {
     return (
-        <button className={clsx(className,'text-red-600')} type={type} onClick={onClick}>
+        <button className={clsx(className,'')} type={type} onClick={onClick}>
             {children}
         </button>
     )

@@ -48,7 +48,7 @@ export default function ThemeSwitcher() {
         {" "}
         <button
           type="button"
-          className="active:scale-95 p-1.5 text-sm rounded-full hover:bg-(--color-silver) dark:hover:bg-(--color-outer-space)"
+          className="active:scale-95 p-1.5 text-sm rounded-full hover:bg-(--color-silver) dark:hover:bg-carbon"
           onClick={switchToLight}
         >
           {lightIcon}

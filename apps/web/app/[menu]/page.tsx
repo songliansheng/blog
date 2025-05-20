@@ -3,7 +3,7 @@ import Redirect from "@/components/Redirect";
 import { ProjectItem } from "@/components/ProjectMeta";
 import clsx from "clsx";
 import { createServersideClient } from "@/lib/supabase-client";
-import NotFound from "@/components/NotFound";
+
 async function getData() {
   const supabaseClient = await createServersideClient();
   const { data: items } = await supabaseClient
@@ -115,7 +115,6 @@ export default async function Page({
         >
           
           <div className={clsx("grid grid-cols-2 gap-5 relative")}>
-            {/* {menu == "projects" && projects && <ProjectItem item={projects[0]} />} */}
             {items && <>{Items1}</>}
           </div>
         </div>

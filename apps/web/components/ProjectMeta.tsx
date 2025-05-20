@@ -16,8 +16,12 @@ const ProjectItem = ({
   description: string;
 }) => {
   return (
-    <Card className={clsx("dark:bg-(--color-carbon) p-5 rounded-xl")}>
-      <span className={clsx("text-2xl text-white")}>{title}</span>
+    <Card
+      className={clsx(
+        "bg-(--color-silver) dark:bg-(--color-carbon)  p-5 rounded-xl"
+      )}
+    >
+      <span className={clsx("text-2xl ")}>{title}</span>
       <p className={clsx("")}>{description}</p>
       <div className={clsx("flex gap-5 ")}>
         <a href={demoUrl}>

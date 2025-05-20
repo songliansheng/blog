@@ -69,7 +69,7 @@ export default function SideBar({
             "hidden group-hover:flex delay-[0.5s] ",
             // "flex shrink-0",
             // "hidden",
-            "dark:bg-(--color-carbon) "
+            "dark:bg-(--color-carbon) bg-(--color-silver)"
             // " transition-all"
             // "absolute left-8"
           )}
@@ -86,13 +86,13 @@ export default function SideBar({
           </span>
           <Button
             onClick={handleCopy}
-            className={clsx("relative rounded-md dark:hover:bg-outer-space")}
+            className={clsx("relative rounded-md font-bold dark:hover:bg-outer-space")}
           >
             <CopyIcon className="size-5  fill-(--color-deep-sky-blue)" />
             <span
               className={clsx(
-                "hidden absolute left-8 top-0  text-sm",
-                "text-white"
+                "hidden absolute left-8 top-0 text-sm",
+                "dark:text-white"
               )}
               id="copiedNotification"
             >

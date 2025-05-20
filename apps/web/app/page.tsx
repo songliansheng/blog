@@ -1,8 +1,5 @@
-
-import { signIn } from "@/auth.config";
 import { createServersideClient } from "@/lib/supabase-client";
 import { ProjectItem } from "@/components/ProjectMeta";
-import dynamic from "next/dynamic";
 import clsx from "clsx";
 import NoContent from "@/components/NoContent";
 import Card from "@repo/design-system/ui/Card";
@@ -23,7 +20,6 @@ async function getData() {
 
 export default async function HomePage() {
   const { projects, article } = await getData();
-  // const headersList = headers()
   return (
     <main
       className={clsx(
