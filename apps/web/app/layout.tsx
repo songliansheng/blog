@@ -45,7 +45,7 @@ export default async function RootLayout({
                 <SideBar
                   className={clsx(
                     "flex flex-col items-start justify-start  shrink-0",
-                    "w-28 gap-8 pt-6"
+                    "w-28 gap-9 pt-6"
                   )}
                 />
 

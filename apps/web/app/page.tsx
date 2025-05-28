@@ -41,7 +41,12 @@ export default async function HomePage() {
         <section className={clsx("")}>
           <h2 className={clsx("font-serif", "text-3xl p-4")}>Posts</h2>
           <div className={clsx("px-7 mb-4")}>
-            <NoContent className="py-4 rounded-xl" />
+            <NoContent
+              className={clsx(
+                "py-4 rounded-xl ",
+                "bg-(--color-silver) dark:bg-(--color-carbon)"
+              )}
+            />
           </div>
 
           <div
@@ -69,11 +74,16 @@ export default async function HomePage() {
       <Card
         className={clsx(
           "w-[23.5rem] m-5",
-          " rounded-xl",
-          "border-2 border-(--color-outer-space)"
+          " "
+          // "border-2 border-(--color-outer-space)"
         )}
       >
-        <section className={clsx("pr-4")}>
+        <section
+          className={clsx(
+            "pr-4 rounded-xl",
+            "bg-(--color-silver) dark:bg-(--color-carbon)"
+          )}
+        >
           <h3 className={clsx("font-serif", "text-3xl p-4")}>Latest</h3>
           <p className={clsx("px-4")}>No items to display</p>
         </section>

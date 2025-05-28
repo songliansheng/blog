@@ -23,22 +23,27 @@ const ProjectItem = ({
     >
       <span className={clsx("text-2xl ")}>{title}</span>
       <p className={clsx("")}>{description}</p>
-      <div className={clsx("flex gap-5 ")}>
-        <a href={demoUrl}>
-          <ArrowTopRightOnSquareSolid
-            className={clsx(
-              "size-6 fill-(--color-deep-sky-blue) stroke-(--color-deep-sky-blue) dark:hover:stroke-white"
-            )}
-          />
-        </a>
-        <a className={clsx("")} href={sourceUrl} target="_blank">
-          <GithubIcon
-            className={clsx(
-              "size-6 fill-(--color-deep-sky-blue) dark:hover:fill-white",
-              ""
-            )}
-          />
-        </a>
+      <div className={clsx("py-2")}>
+        <div className={clsx("flex gap-5 ")}>
+          <a href={demoUrl}>
+            <ArrowTopRightOnSquareSolid
+              className={clsx(
+                "fill-(--color-deep-sky-blue) dark:hover:fill-white hover:fill-black",
+                "size-6 "
+              )}
+            />
+          </a>
+          <a className={clsx("")} href={sourceUrl} target="_blank">
+            <GithubIcon
+              className={clsx(
+                "size-6 fill-(--color-deep-sky-blue) dark:hover:fill-white hover:fill-black",
+                "group",
+                // "p-1.5",
+                ""
+              )}
+            />
+          </a>
+        </div>
       </div>
     </Card>
   );
