@@ -2,7 +2,7 @@ import { createServersideClient } from "@/lib/supabase-client";
 import { ProjectItem } from "@/components/ProjectMeta";
 import clsx from "clsx";
 import NoContent from "@/components/NoContent";
-import Card from "@repo/design-system/ui/Card";
+import Card from "@turborepo/design-system/ui/Card";
 
 async function getData() {
   const supabaseClient = await createServersideClient();

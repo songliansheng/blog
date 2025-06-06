@@ -1,6 +1,10 @@
 "use client";
-import Button from "@repo/design-system/ui/Button";
-import { EmailIcon, GithubIcon, CopyIcon } from "@repo/design-system/ui/Icons";
+import Button from "@turborepo/design-system/ui/Button";
+import {
+  EmailIcon,
+  GithubIcon,
+  CopyIcon,
+} from "@turborepo/design-system/ui/Icons";
 import clsx from "clsx";
 
 export default function SideBar({

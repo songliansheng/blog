@@ -1,7 +1,7 @@
 import { RootHeader as Header } from "@/components/Header";
 import Head from "@/components/head";
 import "./globals.css";
-import "@repo/design-system/globals.css";
+import "@turborepo/design-system/globals.css";
 import clsx from "clsx";
 import Providers from "./providers";
 import { auth } from "@/auth";
