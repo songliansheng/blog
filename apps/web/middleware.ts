@@ -1,7 +1,7 @@
 import { providers } from './auth.config'
 import NextAuth from 'next-auth'
 import { Callbacks } from './auth.config'
-import { auth } from './auth.config'
+import { auth } from './auth'
 import { NextResponse, NextRequest } from 'next/server'
 
 // export { auth as middleware } from 'auth.config'

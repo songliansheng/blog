@@ -9,9 +9,9 @@ import Toc from "@/components/Toc";
 import { isEditableContext } from "@/app/providers";
 import Editor from "@/lexical/LexicalEditor";
 import clsx from "clsx";
-import Card from "@/components/Card";
-import Button from "@/components/Button";
-import { commentIcon, pencilSquareIcon } from "@/components/Icons";
+import Card from "@repo/design-system/ui/Card";
+import Button from "@repo/design-system/ui/Button";
+import { commentIcon, pencilSquareIcon } from "@repo/design-system/ui/Icons";
 // const isEditable = useContext(isEditableContext)
 
 export default function Content({ article, headings, mdxString }) {

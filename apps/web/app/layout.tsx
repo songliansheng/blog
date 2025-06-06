@@ -4,7 +4,7 @@ import "./globals.css";
 import "@repo/design-system/globals.css";
 import clsx from "clsx";
 import Providers from "./providers";
-import { auth } from "@/auth.config";
+import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
 import SideBar from "@/components/SideBar";
 export default async function RootLayout({

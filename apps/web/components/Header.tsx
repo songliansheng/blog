@@ -1,8 +1,8 @@
 import Link from "next/link";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { auth } from "@/auth.config";
+import { auth } from "@/auth";
 import clsx from "clsx";
-import { signIn, signOut } from "@/auth.config";
+import { signIn, signOut } from "@/auth";
 import Button from "@repo/design-system/ui/Button";
 import { Menu } from "@headlessui/react";
 import { codeBracketSquare } from "@repo/design-system/ui/Icons";

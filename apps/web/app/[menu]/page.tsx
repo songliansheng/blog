@@ -1,4 +1,4 @@
-import { auth } from "@/auth.config";
+import { auth } from "@/auth";
 import Redirect from "@/components/Redirect";
 import { ProjectItem } from "@/components/ProjectMeta";
 import clsx from "clsx";

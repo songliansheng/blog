@@ -1,4 +1,4 @@
-import { auth } from "@/auth.config";
+import { auth } from "@/auth";
 // import Redirect from '@/components/Redirect'
 import LoginForm from "@/components/LoginForm";
 import { AuthError } from "next-auth";

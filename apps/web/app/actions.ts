@@ -1,5 +1,5 @@
 'use server'
-import { signIn, signOut } from '../auth.config'
+import { signIn, signOut } from '../auth'
 import { redirect } from 'next/navigation'
 import { AuthError, CredentialsSignin } from '@auth/core/errors'
 import { z } from 'zod'

@@ -3,7 +3,7 @@ import { createContext,Dispatch,SetStateAction,useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
 /* CAUTION supbase client in ssr only work in server side */
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
-import { auth } from '@/auth.config'
+import { auth } from '@/auth'
 // export const SupbaseClientContext = createContext({})
 import { MDXProvider } from '@mdx-js/react'
 interface ShowContactMeContextType {
