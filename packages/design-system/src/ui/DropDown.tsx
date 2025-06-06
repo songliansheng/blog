@@ -28,7 +28,7 @@ function DropDownItems({ children, onClose, dropDownItemsRef, className }) {
 }
 
 export default function DropDown({
-  dropDownItemsClassName,
+  dropDownItemsClassName,   
   buttonIcon,
   buttonLabel,
   children,
