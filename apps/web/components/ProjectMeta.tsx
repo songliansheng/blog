@@ -2,8 +2,8 @@ import clsx from "clsx";
 import {
   ArrowTopRightOnSquareSolid,
   GithubIcon,
-} from "@repo/design-system/ui/Icons";
-import Card from "@repo/design-system/ui/Card";
+} from "@turborepo/design-system/ui/Icons";
+import Card from "@turborepo/design-system/ui/Card";
 const ProjectItem = ({
   sourceUrl,
   demoUrl,

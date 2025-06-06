@@ -3,9 +3,9 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import { auth } from "@/auth";
 import clsx from "clsx";
 import { signIn, signOut } from "@/auth";
-import Button from "@repo/design-system/ui/Button";
+import Button from "@turborepo/design-system/ui/Button";
 import { Menu } from "@headlessui/react";
-import { codeBracketSquare } from "@repo/design-system/ui/Icons";
+import { codeBracketSquare } from "@turborepo/design-system/ui/Icons";
 
 const NavItem = ({ name, url, isActive, children }: any) => {
   return (
