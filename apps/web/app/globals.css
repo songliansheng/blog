@@ -1,6 +1,6 @@
 /* MARK When @tailwind base is added ,Preflight will be injected */
 @import "tailwindcss";
-@import "@repo/design-system/theme.css";
+@import "@turborepo/design-system/theme.css";
 @source "../app/**/*.{ts,tsx}"; /* Current app */
 @source "../components/**/*.{ts,tsx}"; /* Current app */
 @source "@repo/design-system/ui/**/*.{ts,tsx}";
