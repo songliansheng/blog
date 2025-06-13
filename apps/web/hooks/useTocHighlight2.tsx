@@ -35,9 +35,10 @@ export function useTocHighlight() {
             let index = -1
             while (index < headersAnchors.length - 1) {
                 const headerAnchor = headersAnchors[index + 1]
-                const { top } = headerAnchor.getBoundingClientRect()
+                const rect = headerAnchor?.getBoundingClientRect()
+                const top = rect ? rect.top : undefined
 
-                if (top >= TOP_OFFSET) {
+                if (top !== undefined && top >= TOP_OFFSET) {
                     break
                 }
                 index += 1
