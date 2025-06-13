@@ -1,12 +1,12 @@
 'use server'
 import { signIn, signOut } from '../auth'
 import { redirect } from 'next/navigation'
-import { AuthError, CredentialsSignin } from '@auth/core/errors'
+// import { AuthError, CredentialsSignin } from '@auth/core/errors'
 import { z } from 'zod'
 import { createServersideClient as createSupabaseClient } from '@/lib/supabase-client'
 import { signInSchema } from 'lib/zod'
 
-export async function handleSignIn(formData) {
+export async function handleSignIn(formData: z.infer<typeof signInSchema>) {
     const validatedFields = signInSchema.safeParse(formData)
     // if (!validatedFields.success) {
     //     return {
@@ -27,7 +27,7 @@ export async function handleSignIn3() {
     try {
         await signIn()
     } catch (error) {
-        if (error instanceof AuthError)
+        // if (error instanceof AuthError)
             // Handle auth errors
             throw error // Rethrow all other errors
     }
