@@ -1,11 +1,11 @@
 import { Field, Formik, useFormik, Form } from 'formik'
-import { Input } from "@repo/design-system/ui/Input";
-import { signIn, providersMetadata as providers } from '@/auth.config'
+import { Input } from "@turborepo/design-system/ui/Input";
+// import { signIn, providersMetadata as providers } from '@/auth.config'
 import { handleSignIn } from '@/app/actions'
 import { AuthError } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
-import Button from "@repo/design-system/ui/Button";
+import Button from "@turborepo/design-system/ui/Button";
 interface Provider {
     id: string
     name: string
@@ -17,12 +17,12 @@ const SignInButton = ({ provider }:{provider:{id:string,name:string}|Function}) 
                 action={async () => {
                     'use server'
                     try {
-                        await signIn(
-                            typeof provider === 'function'
-                                ? provider().id
-                                : provider.id,
-                            { redirectTo: '/notes/english_pronunciation' }
-                        )
+                        // await signIn(
+                        //     typeof provider === 'function'
+                        //         ? provider().id
+                        //         : provider.id,
+                        //     { redirectTo: '/notes/english_pronunciation' }
+                        // )
                     } catch (error) {
                         // Signin can fail for a number of reasons, such as the user
                         // not existing, or the user not having the correct role.
@@ -64,7 +64,7 @@ const SignInButton = ({ provider }:{provider:{id:string,name:string}|Function}) 
 export async function LoginForm() {
     return (
         <>
-            <form action={handleSignIn}>
+            {/* <form action={handleSignIn}>
                 <div>
                     <Input
                         label="email"
@@ -85,7 +85,7 @@ export async function LoginForm() {
                 <div>
                     <button type="submit">Sign In</button>
                 </div>
-            </form>
+            </form> */}
         </>
     )
 }
@@ -97,9 +97,9 @@ export default async function SignInPage4() {
     return (
         <div className="flex flex-col gap-2">
             <span>Sign in with: </span>
-            {providers.map((provider) => (
+            {/* {providers.map((provider) => (
                 <SignInButton provider={provider} />
-            ))}
+            ))} */}
         </div>
     )
 }
