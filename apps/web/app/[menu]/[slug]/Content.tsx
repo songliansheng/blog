@@ -17,7 +17,7 @@ import {
 } from "@turborepo/design-system/ui/Icons";
 // const isEditable = useContext(isEditableContext)
 
-export default function Content({ article, headings, mdxString }) {
+export default function Content({ article, headings, mdxString }: {headings: any; article: any; mdxString: string}) {
   // const isEditable = useState(null)
   const [isEditable, setIsEditable] = useState<boolean | null>(null);
   useEffect(() => {
