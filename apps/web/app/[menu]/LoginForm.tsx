@@ -5,16 +5,21 @@ import { AuthError } from "next-auth";
 // import { signIn, providersMetadata as providers } from "@/auth.config";
 import { redirect } from "next/navigation";
 import Button from "@turborepo/design-system/ui/Button";
-const SignInButton = ({ provider }) => {
+type Provider = {
+  id: string;
+  name: string;
+};
+
+const SignInButton = ({ provider }: { provider: Provider | (() => Provider) }) => {
   return (
     <form
       action={async () => {
         "use server";
         try {
-          await signIn(
-            typeof provider === "function" ? provider().id : provider.id,
-            { redirectTo: "/notes" }
-          );
+          // await signIn(
+          //   typeof provider === "function" ? provider().id : provider.id,
+          //   { redirectTo: "/notes" }
+          // );
         } catch (error) {
           // Signin can fail for a number of reasons, such as the user
           // not existing, or the user not having the correct role.
@@ -53,9 +58,9 @@ export default async function LoginPage({}: {}) {
   return (
     <div className="flex gap-2">
       <span>Sign in with: </span>
-      {providers.map((provider) => (
+      {/* {providers.map((provider) => (
         <SignInButton provider={provider} />
-      ))}
+      ))} */}
     </div>
   );
 }
