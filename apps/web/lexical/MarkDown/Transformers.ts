@@ -26,8 +26,8 @@ import {
     Transformer,
 } from '@lexical/markdown'
 import { TRANSFORMERS as BUILTINTRANSFORMERS } from '@lexical/markdown'
-const createBlockNode = (createNode) => {
-    return (parentNode, children, match) => {
+const createBlockNode = (createNode:any) => {
+    return (parentNode:any, children:any, match:any) => {
         const node = createNode(match)
         node.append(...children)
         parentNode.replace(node)
