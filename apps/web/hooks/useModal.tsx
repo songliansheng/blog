@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import * as React from "react";
-import Modal from "@/components/Modal";
+// import Modal from "@/components/Modal";
+import Modal from "@turborepo/design-system/ui/Modal";
 export default function useModal() {
   const [modalContent, setModalContent] = useState<null | {
     closeOnClickOutside: boolean;
