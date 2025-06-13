@@ -41,7 +41,7 @@ export default function Editor({ className }: { className?: string }) {
     // const contentEditableElement = document.getElementById('wtfwtf');
     // editor.setRootElement(contentEditableElement)
   }, []);
-  function onChange(editorState) {}
+  function onChange(editorState:any) {}
   /* ALERT Css of placeholder(in ContentEditable) must set 'pointer-events-none'
    */
   return (
