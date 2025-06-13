@@ -1,5 +1,7 @@
 {
   "extends": "@turborepo/typescript-config/nextjs.json",
+  "declaration": false,
+  "declarationMap": false,
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
