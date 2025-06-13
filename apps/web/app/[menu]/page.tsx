@@ -27,10 +27,10 @@ const itemsExample = [
 
 export default async function Page({
   params,
-  searchParams,
+  // searchParams,
 }: {
   params: Promise<{ menu: string }>;
-  searchParams: { [key: string]: string | string[] | undefined };
+  // searchParams: { [key: string]: string | string[] | undefined };
   }) {
   // const routes = ['posts', 'projects']
    const { menu } = await params;
