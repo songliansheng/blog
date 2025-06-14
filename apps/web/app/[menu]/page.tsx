@@ -43,7 +43,7 @@ export default async function Page({
   const session = await auth();
   let description = "";
   let { items, article } = await getData();
-  const Items1 = items!.map((item, index) => (
+  const Items1 = items!.map((item:any, index:any) => (
     menu === "projects" ? (
       <ProjectItem
         sourceUrl={item.sourceUrl}
