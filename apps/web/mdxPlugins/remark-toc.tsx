@@ -2,7 +2,7 @@ import { toc } from 'mdast-util-toc'
 /* TODO Complete this !!! 
 *
 */
-export function remarkToc(options ) {
+export function remarkToc(options:any ) {
     const settings = {
         ...options,
         heading:
@@ -13,28 +13,28 @@ export function remarkToc(options ) {
                 : true,
     }
 
-    return function (tree) {
-        const result = toc(tree, settings)
+    return function (tree: any) {
+      const result = toc(tree, settings);
 
-        if (
-            result.endIndex === undefined ||
-            result.endIndex === -1 ||
-            result.index === undefined ||
-            result.index === -1 ||
-            !result.map
-        ) {
-            return
-        }
+      if (
+        result.endIndex === undefined ||
+        result.endIndex === -1 ||
+        result.index === undefined ||
+        result.index === -1 ||
+        !result.map
+      ) {
+        return;
+      }
 
-        // tree.children = [
-        //     ...tree.children.slice(0, result.index),
-        //     result.map,
-        //     ...tree.children.slice(result.endIndex),
-        // ]
+      // tree.children = [
+      //     ...tree.children.slice(0, result.index),
+      //     result.map,
+      //     ...tree.children.slice(result.endIndex),
+      // ]
 
-        // trim a mdast to toc only
-        tree.children = [result.map]
-    }
+      // trim a mdast to toc only
+      tree.children = [result.map];
+    };
 }
 
 

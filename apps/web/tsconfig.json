@@ -12,7 +12,8 @@
       }
     ],
     "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false
   },
 
   "include": [
