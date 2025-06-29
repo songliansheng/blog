@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { signIn, signOut } from "@/auth";
 import Button from "@turborepo/design-system/ui/Button";
 import { Menu } from "@headlessui/react";
-import { codeBracketSquare } from "@turborepo/design-system/ui/Icons";
+import { CodeBracketSquare } from "@turborepo/design-system/ui/Icons";
 
 const NavItem = ({ name, url, isActive, children }: any) => {
   return (
@@ -40,7 +40,13 @@ const SignOutButton = async () => {
 /*
  * Return a <header> element
  */
-export const RootHeader = async ({ className, id }:{className:string,id:string}) => {
+export const GlobalHeader = async ({
+  className,
+  id,
+}: {
+  className: string;
+  id: string;
+}) => {
   /*
    * Return a <header> element
    */
@@ -50,14 +56,18 @@ export const RootHeader = async ({ className, id }:{className:string,id:string})
   return (
     <header
       id={id}
-      className={clsx(className, " flex  items-center justify-between ")}
+      className={clsx(className, "flex items-center justify-between")}
     >
-      <a className="flex items-center w-32" href="">
-        {codeBracketSquare}
+      <a className="flex items-center w-36" href="">
+        <CodeBracketSquare className=" text-sky-500 size-7" />
+
         <span className="mx-2">Liansheng</span>
       </a>
 
-      <div id="group-in-header" className={clsx("flex items-center gap-x-8")}>
+      <div
+        id="group-in-header"
+        className={clsx("flex items-center lg:gap-x-8 gap-x-2")}
+      >
         <nav
           className={
             clsx("items-center hidden lg:flex gap-x-6")
@@ -68,7 +78,7 @@ export const RootHeader = async ({ className, id }:{className:string,id:string})
           <NavItem name="Home" isActive="false" url="/" />
           <NavItem name="Projects" isActive="false" url="/projects" />
 
-          <NavItem name="Notes" isActive="false" url="/notes" />
+          <NavItem name="Posts" isActive="false" url="/posts" />
         </nav>
         <div className={clsx("flex")}>
           <ThemeSwitcher />

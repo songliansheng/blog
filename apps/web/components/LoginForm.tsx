@@ -13,6 +13,7 @@ interface Provider {
 const SignInButton = ({ provider }:{provider:{id:string,name:string}|Function}) => {
     return (
         <div>
+            
             <form
                 action={async () => {
                     'use server'
@@ -80,6 +81,7 @@ export async function LoginForm() {
                         placeholder="Password"
                         type="password"
                         name="password"
+                        
                     />
                 </div>
                 <div>

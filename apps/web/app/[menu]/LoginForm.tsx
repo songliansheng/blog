@@ -64,6 +64,6 @@ export default async function LoginPage({}: {}) {
     </div>
   );
 }
-export function LoninForm() {
+export function LoninForm() { 
   return <LoginForm></LoginForm>;
 }

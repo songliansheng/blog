@@ -45,7 +45,8 @@
  */
 :root {
   --contactme-dialog-width: 20.55rem;
-  --root-padding-horizontal: 5rem;
+  --root-large-padding-horizontal: 5rem;
+  --root-small-padding-horizontal: 0.5rem;
   --global-border-width: 1px;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;

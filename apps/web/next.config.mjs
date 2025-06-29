@@ -25,12 +25,10 @@ const nextConfig = {
   async rewrites() {
     return {
       afterFiles: [
-        {
-          // source: "/\\^\\(\\(\\?\\!projects\\|posts\\)\\.\\)\\*\\$/:slug*",
-          source: "/((?!projects|posts).*)",
-          // source: "/non-existent",
-          destination: "/",
-        },
+        // {
+        //   source: "/((?!projects|posts).*)",
+        //   destination: "/",
+        // },
       ],
       fallback: [
         // These rewrites are checked after both pages/public files
